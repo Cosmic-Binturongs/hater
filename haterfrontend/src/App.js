@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Profilebutton from "./components/profilebutton/Profilebutton.js";
 import Profiletab from "./components/profiletab/Profiletab.js";
 import Home from "./screens/Home.jsx";
+import Profile from "./components/profiletab/Profiletab.js";
 import Hates from "./components/hates/Hates";
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
         click={closeBox}
         show={show}
       />
-      <div className="mid"></div>
+      <div className="mid">
+        <Hates />
+      </div>
       <div className="right">3</div>
     </div>
   );
