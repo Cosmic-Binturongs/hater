@@ -122,4 +122,6 @@ li {
   display: inline;
   margin: 30px;
   outline: 1px;
+  padding: 5px;
+  border: 1px solid green;
 }

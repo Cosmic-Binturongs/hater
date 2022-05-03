@@ -1,9 +1,13 @@
-
+import { useState, useEffect } from "react"
 
 export default function Profile() {
 
+
+
+
+
   return (
-    <divL className='mid'>
+    <div className='mid'>
       <div className="pro-container grid-container">
         <div className="headerP">
           <h4>David</h4>
@@ -14,7 +18,7 @@ export default function Profile() {
         <img className="profile-image" src={require('../assets/www.jpg')} alt="" />
         <div className='profile-image-button'>
 
-          <input type="button" className="pButton" name="" value="Edit profile" id="" />
+          <input type="button" onClick={"handleClick"} className="pButton" name="" value="Edit profile" id="" />
         </div>
         <div className='userNames'>
           <h4>David</h4>
@@ -41,7 +45,7 @@ export default function Profile() {
 
       </div>
 
-    </divL>
+    </div>
   )
 
 }

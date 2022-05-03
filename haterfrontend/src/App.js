@@ -1,8 +1,10 @@
 import "./App.css";
 import Profile from "./components/profile";
-import Hates from "./components/hates";
 
-function App() {
+
+function App(props) {
+
+
   return (
     <div className="fullDiv">
       <div className="left">1</div>
