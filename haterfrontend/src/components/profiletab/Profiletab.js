@@ -1,5 +1,6 @@
 import "./Profiletab.css";
 import React from "react";
+import { Link } from "react-router-dom";
 // import { useState, useEffect } from "react";
 
 function Profile(props) {
@@ -16,10 +17,18 @@ function Profile(props) {
         </div>
       </div>
       <div className="bottom">
-        <div className="navs">Home</div>
-        <div className="navs">Profile</div>
-        <div className="navs">Bookmarks</div>
-        <div className="hate">Hate</div>
+        <Link to="/" className="pronavs">
+          Home
+        </Link>
+        <Link to="" className="pronavs">
+          Profile
+        </Link>
+        <Link to="" className="pronavs">
+          Bookmarks
+        </Link>
+        <Link to="" className="prohate">
+          Hate
+        </Link>
       </div>
     </div>
   );

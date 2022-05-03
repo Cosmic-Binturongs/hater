@@ -4,7 +4,7 @@ import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
 
 function Home() {
-  const [show, setShow] = useState({ display: "none" });
+  const [show, setShow] = useState({ display: "flex" });
   const closeBox = () => {
     setShow({ display: "none" });
   };
