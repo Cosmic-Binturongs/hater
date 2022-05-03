@@ -21,3 +21,9 @@ INSERT INTO criticism(id, hater_id, c_body, hates_id)
 VALUES (201, 2, 'wow...', 101), (202, 1, 'that unamerican', 102), (203, 3, 'grow up', 109), (204, 4, 'summer is the best', 107),
 (205, 5, 'get out', 105), (206, 6, 'better not have kids then', 103), (207, 7, 'dont watch him then', 106), (208, 8, 'why no like cat?', 108),
 (209, 9, 'weak', 110),(210, 10, 'stay out then', 104);
+
+
+-- Seeds followers
+
+INSERT INTO followers(id, hater_being_followed_id, hater_following_id)
+VALUES (301, 1, 2), (302, 1, 3), (303, 1, 4), (304, 2, 1), (305, 3, 1);
