@@ -1,0 +1,39 @@
+.hate{
+  border: 1px solid black;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.hate-text, .hate-name{
+  padding-left: 10%;
+  padding-right: 10px;
+}
+
+.hates-form{
+  border: 1px solid green;
+  height: 33vh
+}
+
+.hates-form-text{
+  border: 1px solid aqua;
+  font-size: 20px;
+  height: 80%;
+  width: 100%
+}
+
+.hates-button{
+  float: right;
+  margin-right: 20px;
+  border-radius: 25px;
+  background: red;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 18px;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-style: bold;
+}

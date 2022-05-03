@@ -1,22 +1,30 @@
-.fullDiv{
+.homeDiv{
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
+
 .left{
-display: flex;
-height: 100%;
-width: 20%;
-border: 1px solid red ;
-}
-.mid{
-display: flex;
-width: 60%;
-border: 1px solid red ;
-}
-.right{
-display: flex;
-width: 20%;
-border: 1px solid red ;
-}
+  display: flex;
+  height: 100%;
+  width: 20%;
+  border: 1px solid red ;
+  }
+  
+  .mid{
+  display: flex;
+  width: 60%;
+  border: 1px solid red ;
+  }
+  
+  .right{
+  display: flex;
+  width: 20%;
+  border: 1px solid red ;
+  }
+
+  textarea{
+    resize: none;
+    border: none;
+  }
