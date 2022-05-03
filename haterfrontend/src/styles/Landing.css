@@ -1,3 +1,7 @@
+/* :root {
+  --hate-red: rgb(241, 146, 146);
+} */
+
 .home {
   display: flex;
   height: 100vh;
@@ -50,7 +54,8 @@
   background-color: var(--hate-red);
   color: white;
   font-size: x-large;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .input {
