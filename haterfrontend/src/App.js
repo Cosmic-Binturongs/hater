@@ -1,19 +1,16 @@
-import "./App.css";
-import { useEffect, useState } from "react";
-import Profilebutton from "./components/profilebutton/Profilebutton.js";
-import Profiletab from "./components/profiletab/Profiletab.js";
+import Landing from "./screens/Landing.jsx";
 import Home from "./screens/Home.jsx";
+
 import Profile from "./components/profile";
 
+import ErrorPage from "./screens/Error";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+
 function App() {
-  const [show, setShow] = useState({ display: "none" });
-  const closeBox = () => {
-    setShow({ display: "none" });
-  };
-  const handleClick = () => {
-    setShow({ display: "flex" });
-  };
   return (
+
     <div className="fullDiv">
       <Profilebutton click={handleClick} />
       <Profiletab
@@ -28,6 +25,14 @@ function App() {
       </div>
       <div className="right">3</div>
     </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Landing></Landing>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
+      </Routes>
+    </>
+
   );
 }
 
