@@ -82,17 +82,11 @@ WSGI_APPLICATION = 'hater.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD:twittdeerBackEnd/twittdeer/settings.py
         'NAME': env("DATABASE_NAME"),
         'USER': env("DATABASE_USER"),
         'PASSWORD': env("DATABASE_PASSWORD"),
         'HOST': env("DATABASE_HOST"),
 
-=======
-        'NAME': 'hater',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost'
->>>>>>> f3177cc55ab612d7986517d7bf8fa6e45ef25f18:haterBackEnd/hater/settings.py
     }
 }
 
