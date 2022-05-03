@@ -1,9 +1,9 @@
-import { useState } from "react";
 import "./App.css";
 import { useEffect, useState } from "react";
 import Profilebutton from "./components/profilebutton/Profilebutton.js";
 import Profiletab from "./components/profiletab/Profiletab.js";
 import Home from "./screens/Home.jsx";
+import Hates from "./components/hates/Hates";
 
 function App() {
   const [show, setShow] = useState({ display: "none" });

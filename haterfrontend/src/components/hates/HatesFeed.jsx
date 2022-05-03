@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Hate from './Hate';
-import Nothing from './Nothing';
 
 
 export default function HatesFeed({ hates, setToggle }) {
