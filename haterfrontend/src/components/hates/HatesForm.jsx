@@ -29,6 +29,7 @@ export default function HatesForm({ setToggle }) {
     <form onSubmit={handleSubmit}>
       <div className="hates-form">
         <textarea
+          contentEditable
           className="hates-form-text"
           id="hateFormText"
           placeholder="Who's Hatin'"

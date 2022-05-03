@@ -13,14 +13,14 @@
 
 .hates-form{
   border: 1px solid green;
-  height: 33vh
+  height: 20vh;
 }
 
 .hates-form-text{
   border: 1px solid aqua;
   font-size: 20px;
   height: 80%;
-  width: 100%
+  width: 100%;
 }
 
 .hates-button{
