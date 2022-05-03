@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-
+<>
     <div className="fullDiv">
       <Profilebutton click={handleClick} />
       <Profiletab
@@ -32,6 +32,7 @@ function App() {
         <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
     </>
+                                 </>
 
   );
 }
