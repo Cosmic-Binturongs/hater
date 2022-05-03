@@ -17,10 +17,6 @@ function Profile(props) {
         </div>
       </div>
       <div className="bottom">
-        {/* <div className="navs">Home</div>
-        <div className="navs">Profile</div>
-        <div className="navs">Bookmarks</div>
-        <div className="hate">Hate</div> */}
         <Link to="/" className="pronavs">
           Home
         </Link>
