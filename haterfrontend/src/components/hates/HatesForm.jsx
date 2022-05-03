@@ -1,3 +1,4 @@
+import { TextareaAutosize } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 import { createHate } from '../../services/hates'
@@ -27,9 +28,9 @@ export default function HatesForm({ setToggle }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='hates-home-text'>Home</div>
       <div className="hates-form">
-        <textarea
-          contentEditable
+        <TextareaAutosize
           className="hates-form-text"
           id="hateFormText"
           placeholder="Who's Hatin'"

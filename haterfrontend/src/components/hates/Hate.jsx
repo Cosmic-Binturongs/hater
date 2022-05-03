@@ -8,7 +8,7 @@ export default function Hate({ hateData, setToggle }) {
   })
 
   return (
-    <div className="hate">
+    <div className="hate-post">
       <div className="hate-form">
           <h3
             className="hate-name"

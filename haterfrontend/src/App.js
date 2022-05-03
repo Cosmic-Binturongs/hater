@@ -1,34 +1,18 @@
-import "./App.css";
-import { useEffect, useState } from "react";
-import Profilebutton from "./components/profilebutton/Profilebutton.js";
-import Profiletab from "./components/profiletab/Profiletab.js";
+import Landing from "./screens/Landing.jsx";
 import Home from "./screens/Home.jsx";
-import Profile from "./components/profiletab/Profiletab.js";
-import Hates from "./components/hates/Hates";
+import ErrorPage from "./screens/Error";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [show, setShow] = useState({ display: "none" });
-  const closeBox = () => {
-    setShow({ display: "none" });
-  };
-  const handleClick = () => {
-    setShow({ display: "flex" });
-  };
   return (
-    <div className="fullDiv">
-      <Profilebutton click={handleClick} />
-      <Profiletab
-        name={"verybamboo"}
-        tweets={114}
-        likes={426}
-        click={closeBox}
-        show={show}
-      />
-      <div className="mid">
-        <Hates />
-      </div>
-      <div className="right">3</div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Landing></Landing>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
+      </Routes>
+    </>
   );
 }
 

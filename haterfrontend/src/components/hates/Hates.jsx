@@ -22,7 +22,6 @@ export default function Hates() {
 
   return (
     <div className="hates-box">
-      <div className="hates">
         <div className="hates-form-container">
           <HatesForm setToggle={setToggle} />
         </div>
@@ -32,7 +31,6 @@ export default function Hates() {
             setToggle={setToggle}
           />
         </div>
-      </div>
     </div>
   )
 }

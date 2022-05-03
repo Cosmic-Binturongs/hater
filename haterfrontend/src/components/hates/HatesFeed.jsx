@@ -12,27 +12,22 @@ export default function HatesFeed({ hates, setToggle }) {
     {
       "name": "george",
       "tag": "@george",
-      "text": "What's wrong with you. jhasdgadhggakjsdfgdgfg duhfgajhdgfjkhagd skfgakshdjgfkdszhgf slkjdfhgkjsdljfhglfdhg"
+      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
     },
     {
       "name": "george",
       "tag": "@george",
-      "text": "You suck. iudfhihiahjphgfjhlgafpduygaoudfo usdfliasdhfuhlhjfgashdfb lsdfgjhdsfljajhaflkaf"
+      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
     },
     {
       "name": "george",
       "tag": "@george",
-      "text": "i hate you. akjdsgfjkhgsdfhgaudfjsdgfks kdfgousdgFUOYSGDFUOGsdgfiu gsiDUFGOdsgfysDFDSYI kasdfjsgjfajhkfgj"
+      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
     },
     {
       "name": "george",
       "tag": "@george",
-      "text": "i hate you. akjdsgfjkhgsdfhgaudfjsdgfks kdfgousdgFUOYSGDFUOGsdgfiu gsiDUFGOdsgfysDFDSYI kasdfjsgjfajhkfgj"
-    },
-    {
-      "name": "george",
-      "tag": "@george",
-      "text": "i hate you. akjdsgfjkhgsdfhgaudfjsdgfks kdfgousdgFUOYSGDFUOGsdgfiu gsiDUFGOdsgfysDFDSYI kasdfjsgjfajhkfgj"
+      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
     },
   ]
   
@@ -41,8 +36,8 @@ export default function HatesFeed({ hates, setToggle }) {
       <div className="hates-list">
         {
           a.map((hate) => (
-            <Hate setToggle={setToggle} key={hate._id} hateData={hate} />
-          ))  
+            <Hate setToggle={setToggle} key={hate} hateData={hate} />
+          ))
         }
       </div>
     </div>

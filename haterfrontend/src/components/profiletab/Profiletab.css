@@ -5,12 +5,13 @@
   align-items: flex-start;
   height: 100%;
   width: 20%;
-  position: absolute;
+  position: fixed;
   left: 0;
   border-right: 1px solid rgb(184, 184, 184);
   color: rgb(96, 95, 95);
   z-index: 2;
 }
+
 .top {
   display: flex;
   justify-content: center;

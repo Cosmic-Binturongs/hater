@@ -1,5 +1,5 @@
-.hate{
-  border: 1px solid black;
+.hate-post{
+  border: 1px solid aqua;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -12,26 +12,39 @@
 }
 
 .hates-form{
-  border: 1px solid green;
-  height: 20vh;
+  height: 30vh;
+  width: 100%;
+
+}
+
+.hates-form-container{
+  width: 100%;
+  border: 1px solid greenyellow
 }
 
 .hates-form-text{
   border: 1px solid aqua;
-  font-size: 20px;
-  height: 60%;
-  width: 100%;
+  font-size: 25px;
+  height: 80%;
+  width: 90%;
+  resize: none;
+  margin-top: 50px;
+  padding-left: 10%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
 }
 
 .hates-button{
-  float: right;
-  margin-right: 20px;
-  margin-top: 5px;
+  position: absolute;
+  margin-left: 84%;
+  margin-top: 8%;
+  top: 12%;
   border-radius: 25px;
   background: red;
   color: white;
   font-weight: 900;
-  padding: 10px 18px;
+  padding: 10px 40px;
   text-decoration: none;
   text-align: center;
   font-family: "Helvetica Neue";
