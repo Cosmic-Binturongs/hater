@@ -1,0 +1,134 @@
+.profile-image {
+  border: black 1px;
+  height: 160px;
+  background-size: 25px;
+  background: url('../assets/www.jpg');
+  border-radius: 50%;
+}
+
+
+
+
+
+.grid-container {
+  display: grid;
+  /* background-color: rgb(232, 216, 216);*/
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 65vh;
+  width: 100vw;
+  outline: 3px;
+  color: rgb(0, 0, 0);
+  background-color: #2f4353;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 90%);
+}
+
+.headerP {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.bkgrndP {
+  grid-row: 2;
+  grid-column: 1 / span 4;
+
+  background-color: #e4eee9;
+  background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%);
+
+}
+
+.profile-image {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.profile-image-button {
+  grid-row: 3;
+  grid-column: 4;
+}
+
+.userNames {
+  grid-row: 3;
+  grid-column: 1 / span 3;
+}
+
+.profile-h4 {
+  margin: -3px;
+}
+
+.profileInfo {
+  grid-row: 4;
+  grid-column: 1/ span 4;
+}
+
+.user-locale-date {
+  grid-row: 5;
+  grid-column: 1/span 4;
+  display: inline;
+  margin: -3px;
+}
+
+.user-followers {
+  grid-row: 6;
+  grid-column: 1/ span 4;
+  display: inline;
+}
+
+p {
+  display: inline;
+}
+
+.tweets {
+  grid-row: 7;
+  grid-column: 1/ span 4;
+  display: inline;
+
+}
+
+ul {
+  display: inline;
+  list-style: none;
+}
+
+li {
+  display: inline;
+  margin: 30px;
+  outline: 1px;
+  padding: 5px;
+  border: 1px solid green;
+}
+
+
+
+/* CSS */
+.button-62 {
+  margin-top: 2px;
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
