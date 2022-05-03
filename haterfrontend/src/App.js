@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Profilebutton from "./components/profilebutton/Profilebutton.js";
 import Profiletab from "./components/profiletab/Profiletab.js";
-import Home from "./screens/Home.jsx";
+import Home from "./components/Home.jsx";
 
 function App() {
   const [show, setShow] = useState({ display: "none" });
