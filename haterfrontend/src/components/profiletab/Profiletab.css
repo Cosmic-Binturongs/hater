@@ -59,15 +59,18 @@
   gap: 10px;
   height: 80%;
   width: 100%;
+  text-decoration: none;
   /* background-color: black; */
   /* border: 1px solid blue; */
 }
 
-.navs {
+.pronavs {
   display: flex;
   height: fit-content;
   width: 90%;
   position: relative;
+  text-decoration: none;
+  color: grey;
   /* border: 1px solid grey; */
   text-align: center;
   font-size: 15px;
@@ -75,7 +78,7 @@
   left: 0px;
 }
 
-.hate {
+.prohate {
   display: flex;
   height: fit-content;
   width: 50%;
@@ -86,6 +89,8 @@
   position: absolute;
   bottom: 15%;
   padding: 10px;
+  text-decoration: none;
+  color: grey;
 }
 
 @keyframes slideRight {
