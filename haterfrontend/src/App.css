@@ -1,22 +1,33 @@
-.fullDiv{
+.fullDiv {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
 }
-.left{
-display: flex;
-height: 100%;
-width: 20%;
-border: 1px solid red ;
+
+.mid {
+  display: flex;
+  width: 60%;
+  border: 1px solid red;
+  position: absolute;
+  height: 100%;
 }
-.mid{
-display: flex;
-width: 60%;
-border: 1px solid red ;
+.right {
+  display: flex;
+  width: 20%;
+  border: 1px solid red;
+  height: 100%;
+  right: 0;
+  position: absolute;
 }
-.right{
-display: flex;
-width: 20%;
-border: 1px solid red ;
+
+@media only screen and (max-width: 500px) {
+  .mid {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
 }
