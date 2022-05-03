@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Profilebutton from "./components/profilebutton/Profilebutton.js";
 import Profiletab from "./components/profiletab/Profiletab.js";
+import Home from "./screens/Home.jsx";
 
 function App() {
   const [show, setShow] = useState({ display: "none" });
@@ -21,8 +22,7 @@ function App() {
         click={closeBox}
         show={show}
       />
-
-      <div className="mid">2</div>
+      <div className="mid"></div>
       <div className="right">3</div>
     </div>
   );
