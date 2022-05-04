@@ -1,0 +1,101 @@
+.hate-post{
+  border: 1px solid aqua;
+  color: white;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.hate-text, .hate-name{
+  padding-left: 10%;
+  padding-right: 10px;
+}
+
+.hates-form{
+  height: 30vh;
+  width: 100%;
+
+}
+
+.hates-form-container{
+  width: 100%;
+  border: 1px solid greenyellow
+}
+
+.hates-form-text{
+  border: 1px solid aqua;
+  font-size: 25px;
+  height: 80%;
+  width: 90%;
+  resize: none;
+  margin-top: 50px;
+  padding-left: 10%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+}
+
+.hates-button{
+  position: absolute;
+  margin-left: 84%;
+  margin-top: 8%;
+  top: 12%;
+  border-radius: 25px;
+  background: red;
+  color: white;
+  font-weight: 900;
+  padding: 1% 4%;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: bold;
+  border: none;
+}
+
+.hate-criticisms, .hate-dislike, .hate-rehate{
+  border: 0;
+  background-color: transparent;
+}
+
+.hate-criticisms:hover{
+  cursor: pointer;
+}
+
+.hate-crit{
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-renew{
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-crit:hover{
+  border-radius: 50px;
+  background-color: rgba(87, 87, 243, 0.357);
+  cursor: pointer;
+}
+
+.hate-rehate:hover{
+  cursor: pointer;
+}
+
+.hate-renew:hover{
+  border-radius: 50px;
+  background-color: rgba(2, 128, 0, 0.748);
+  cursor: pointer;
+}
+
+.hate-dislike:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.hate-buttons{
+  margin: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
