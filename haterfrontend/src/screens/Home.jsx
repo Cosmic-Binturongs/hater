@@ -21,7 +21,7 @@ function Home() {
         click={closeBox}
         show={show}
       />
-      <div className="mid"></div>
+      <div className="mid">2</div>
       <div className="right">3</div>
     </div>
   );
