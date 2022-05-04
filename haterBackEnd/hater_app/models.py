@@ -2,31 +2,35 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Hate(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    body = models.CharField(max_length=120)
+class User_profile(models.Model):
 
-    def __str__(self):
-        return self.body
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=4)
+    name = models.CharField(max_length=50)
+    tag = models.CharField(max_length=50)
+
+
+class Hates(models.Model):
+    haters = models.ForeignKey(User_profile, on_delete=models.CASCADE)
+    h_body = models.CharField(max_length=120)
 
 
 class Criticism(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    hate_id = models.ForeignKey(Hate, on_delete=models.CASCADE)
-    c_body = models.CharField(max_length=120)
-
-    def __str__(self):
-        return self.body
+    haters = models.ForeignKey(
+        User_profile, on_delete=models.CASCADE, default=4)
+    c_body = models.CharField(max_length=140)
+    hates = models.ForeignKey(Hates, on_delete=models.CASCADE, default=4)
 
 
 class Dislike(models.Model):
-    hater_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    hate_id = models.ForeignKey(Hate, on_delete=models.CASCADE)
-    criticism_id = models.ForeignKey(Criticism, on_delete=models.CASCADE)
+    haters = models.ForeignKey(
+        User_profile, on_delete=models.CASCADE, default=1)
+    hate = models.ForeignKey(Hates, on_delete=models.CASCADE, default=4)
+    criticism = models.ForeignKey(
+        Criticism, on_delete=models.CASCADE, default=4)
 
 
 class Follower(models.Model):
-    hater_being_followed_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="followed", default=1)
-    hater_following_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="following", default=1)
+    hater_being_followed = models.ForeignKey(
+        User_profile, on_delete=models.CASCADE, related_name="followed", default=4)
+    hater_following = models.ForeignKey(
+        User_profile, on_delete=models.CASCADE, related_name="following", default=4)
