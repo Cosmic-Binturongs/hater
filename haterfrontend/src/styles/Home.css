@@ -41,5 +41,9 @@
   .mid {
     left: 197px;
     border: 1px solid blue;
+    width: calc(100% - 197px);
+  }
+  .right {
+    display: none;
   }
 }

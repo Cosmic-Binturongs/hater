@@ -8,11 +8,11 @@ export default function Profile(props) {
 
 
   return (
-    
+      
       <div className="pro-container grid-container">
         <div className="headerP">
           <h4 className="profile-h4">David</h4>
-          <p>191 Tweets</p>
+          <p classname="pro-tweet-count">191 Tweets</p>
         </div>
         <div className="bkgrndP">
         </div>
