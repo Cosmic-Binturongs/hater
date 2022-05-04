@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import "../styles/Landing.css";
 import Profile from "../components/profile";
 export default function Home() {
+
   return (
     <div className="home">
       <div className="left">

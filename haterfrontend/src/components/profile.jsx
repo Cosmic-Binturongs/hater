@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import './profile.css';
 
-export default function Profile() {
+export default function Profile(props) {
 
 
 

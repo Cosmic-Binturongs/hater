@@ -3,6 +3,9 @@ import React from "react";
 // import { useState, useEffect } from "react";
 
 function Profile(props) {
+
+
+
   return (
     <div className="profile" style={props.show}>
       <div className="top">
