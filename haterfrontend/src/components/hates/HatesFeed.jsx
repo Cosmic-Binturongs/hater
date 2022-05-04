@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Hate from './Hate';
 
-
 export default function HatesFeed({ hates, setToggle }) {
   let a = [
     {
