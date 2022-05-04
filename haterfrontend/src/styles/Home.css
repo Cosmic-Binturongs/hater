@@ -12,6 +12,7 @@
   width: 60%;
   border: 1px solid red ;
   position: relative;
+  background-color: grey;
 }
 
 .left{

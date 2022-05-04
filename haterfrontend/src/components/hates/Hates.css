@@ -1,5 +1,6 @@
 .hate-post{
   border: 1px solid aqua;
+  color: white;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -44,11 +45,57 @@
   background: red;
   color: white;
   font-weight: 900;
-  padding: 10px 40px;
+  padding: 1% 4%;
   text-decoration: none;
   text-align: center;
   font-family: "Helvetica Neue";
   font-size: 18px;
   font-style: bold;
   border: none;
+}
+
+.hate-criticisms, .hate-dislike, .hate-rehate{
+  border: 0;
+  background-color: transparent;
+}
+
+.hate-criticisms:hover{
+  cursor: pointer;
+}
+
+.hate-crit{
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-renew{
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-crit:hover{
+  border-radius: 50px;
+  background-color: rgba(87, 87, 243, 0.357);
+  cursor: pointer;
+}
+
+.hate-rehate:hover{
+  cursor: pointer;
+}
+
+.hate-renew:hover{
+  border-radius: 50px;
+  background-color: rgba(2, 128, 0, 0.748);
+  cursor: pointer;
+}
+
+.hate-dislike:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.hate-buttons{
+  margin: 15px;
+  display: flex;
+  justify-content: space-evenly;
 }
