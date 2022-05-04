@@ -3,7 +3,7 @@
 \c hater
 
 INSERT INTO hater_app_user_profile(id, name, tag, user_id) 
-VALUES (21, 'evan', '@em', 4),(22, 'jeff', '@jl', 5);
+VALUES (21, 'evan', '@em', 1),(22, 'jeff', '@jl', 2);
 -- (23, 'lawrence', '@ly', 3 ), (24, 'george', '@gc', 4), 
 -- (25, 'jefe', '@jp', 5), (26, 'david', '@dw', 6),
 -- (27, 'leon', '@lt', 7),(28, 'laura', '@lt', 8),(29, 'mustafa', '@mb', 9),

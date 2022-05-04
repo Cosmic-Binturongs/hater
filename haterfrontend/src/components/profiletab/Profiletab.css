@@ -7,7 +7,7 @@
   width: 20%;
   position: fixed;
   left: 0;
-  border-right: 1px solid rgb(241, 146, 146);
+  border-right: 1px solid var(--hate-red);
   color: rgb(96, 95, 95);
   z-index: 2;
 }
@@ -21,9 +21,15 @@
   width: 100%;
   border-radius: 0 0px 0 0;
   color: white;
-  border-bottom: 2px solid rgb(241, 146, 146);
-  background-color: rgb(241, 146, 146);
-  /* background-color: black; */
+  border-bottom: 2px solid var(--hate-red);
+  background-color: var(--hate-red);
+}
+.proCountContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .exit {
   display: none;
@@ -123,5 +129,23 @@
   }
   .exit {
     display: flex;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 1100px) {
+  .profile {
+    animation-name: slideRight;
+    animation-duration: 1.5s;
+    /* position: absolute; */
+    width: 20%;
+  }
+  .exit {
+    display: none;
+  }
+  .profile {
+    width: 197px;
+  }
+  .proCountContainer {
+    gap: 0;
   }
 }

@@ -2,7 +2,7 @@ import "../styles/Home.css";
 import { useEffect, useState } from "react";
 import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
-import Hates from "../components/hates/Hates"
+import Profile from "../components/profile";
 
 function Home() {
   const [show, setShow] = useState({ display: "flex" });
@@ -12,18 +12,31 @@ function Home() {
   const handleClick = () => {
     setShow({ display: "flex" });
   };
+  const [face, setFace] = useState(null)
+
   return (
     <div className="fullDiv">
       <Profilebutton click={handleClick} />
-      <Profiletab
-        name={"verybamboo"}
+      {
+        !face 
+          ? <Profiletab
+          name={"verybamboo"}
+          tweets={114}
+          likes={426}
+          click={closeBox}
+            show={show}
+          />
+          : <Profiletab
+        picture={`https://avatars.dicebear.com/api/adventurer/${face}.svg?flip=1`}
+        name={face}
         tweets={114}
         likes={426}
         click={closeBox}
         show={show}
       />
+      }
       <div className="mid">
-          <Hates />
+        <Profile />
       </div>
       <div className="right">3</div>
     </div>

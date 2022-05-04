@@ -5,6 +5,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+
+
   return (
     <>
       <Routes>
@@ -12,6 +14,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
+
     </>
   );
 }
