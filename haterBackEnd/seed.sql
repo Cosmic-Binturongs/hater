@@ -2,8 +2,6 @@
 
 \c hater
 
--- This seeds initial haters(new User_profile, needs 10 users)
-
 INSERT INTO hater_app_user_profile(id, name, tag, user_id) 
 VALUES (21, 'evan', '@em', 4),(22, 'jeff', '@jl', 5);
 -- (23, 'lawrence', '@ly', 3 ), (24, 'george', '@gc', 4), 
