@@ -17,14 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from hater_app.views import UserViewSet, User_profileViewSet, hatesViewSet, CriticismViewSet, DislikeViewSet, FollowerViewSet
+from hater_app.views import UserViewSet, User_profileViewSet, HatesViewSet, CriticismViewSet, DislikeViewSet, FollowerViewSet
 
 router = routers.DefaultRouter()
-# old haters profile viewset
-# router.register(r'Haters', HatersViewSet)
-router.register(r'user', UserViewSet)
+# router.register(r'user', UserViewSet)
 router.register(r'user_Profile', User_profileViewSet)
-router.register(r'hates', hatesViewSet)
+router.register(r'hates', HatesViewSet)
 router.register(r'Criticism', CriticismViewSet)
 router.register(r'Dislikes', DislikeViewSet)
 router.register(r'Followers', FollowerViewSet)

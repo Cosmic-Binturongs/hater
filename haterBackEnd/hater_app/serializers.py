@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from .models import Criticism, User_profile, hates, Dislike, Follower
+from .models import Criticism, User_profile, Hates, Dislike, Follower
 from django.contrib.auth.models import User
 
 
-class UserSerializer(serializers.ModelSerializer):
+class User_profileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = User_profile
         fields = '__all__'
 
 
-class hatesSerializer(serializers.ModelSerializer):
+class HatesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = hates
+        model = Hates
         fields = '__all__'
 
 
@@ -30,10 +30,4 @@ class FollowerSerializer(serializers.ModelSerializer):
 class CriticismProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Criticism
-        fields = '__all__'
-
-
-class User_profileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User_profile
         fields = '__all__'
