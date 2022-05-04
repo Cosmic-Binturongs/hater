@@ -12,16 +12,29 @@ function Home() {
   const handleClick = () => {
     setShow({ display: "flex" });
   };
+  const [face, setFace] = useState(null)
+
   return (
     <div className="fullDiv">
       <Profilebutton click={handleClick} />
-      <Profiletab
-        name={"verybamboo"}
+      {
+        !face 
+          ? <Profiletab
+          name={"verybamboo"}
+          tweets={114}
+          likes={426}
+          click={closeBox}
+            show={show}
+          />
+          : <Profiletab
+        picture={`https://avatars.dicebear.com/api/adventurer/${face}.svg?flip=1`}
+        name={face}
         tweets={114}
         likes={426}
         click={closeBox}
         show={show}
       />
+      }
       <div className="mid">
         <Profile />
       </div>
