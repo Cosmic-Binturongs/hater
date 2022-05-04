@@ -8,7 +8,7 @@ export default function Profile(props) {
 
 
   return (
-    <div className='mid'>
+    
       <div className="pro-container grid-container">
         <div className="headerP">
           <h4 className="profile-h4">David</h4>
@@ -46,7 +46,7 @@ export default function Profile(props) {
 
       </div>
 
-    </div>
+    
   )
 
 }
