@@ -10,7 +10,7 @@
 }
 .landingLeft {
   display: flex;
-  background-color: rgb(241, 146, 146);
+  background-color: var(--hate-red);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 .landingLoginInput {
   display: flex;
-  border: 1px solid rgb(241, 146, 146);
+  border: 1px solid var(--hate-red);
   border-radius: 100px;
   margin-top: 5%;
   height: fit-content;
@@ -55,7 +55,7 @@
   /* border: 1px solid blue; */
   height: 100%;
   width: 40%;
-  color: rgb(241, 146, 146);
+  color: var(--hate-red);
 }
 
 #google-sign {
@@ -89,7 +89,7 @@
   width: 90%;
   height: 40%;
   align-items: center;
-  border-top: 2px solid rgb(241, 146, 146);
+  border-top: 2px solid var(--hate-red);
 }
 
 .form {
