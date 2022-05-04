@@ -2,7 +2,7 @@
   display: flex;
   height: 40px;
   width: 40px;
-  position: absolute;
+  position: fixed;
   border: 1px solid rgb(12, 188, 208);
   border-radius: 200px;
   top: 5px;
@@ -11,3 +11,4 @@
   background-size: cover;
   z-index: 3;
 }
+
