@@ -1,0 +1,266 @@
+.ErrorContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+}
+.ErrorNav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  height: 5%;
+  background-color: var(--hate-red);
+}
+.ErrorLink {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.ErrorImageContainer {
+  display: flex;
+  width: 100%;
+  height: 95%;
+  justify-content: center;
+  align-items: center;
+}
+.theBird {
+  display: flex;
+  width: 30rem;
+  border: 2rem solid var(--hate-red);
+  border-radius: 50rem;
+  height: 30rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(197, 247, 250);
+}
+.errorMessage {
+  display: flex;
+  top: 50%;
+  color: blue;
+  position: absolute;
+  font-size: 30px;
+  z-index: 3;
+  font-size: 50px;
+  transform: rotate(-20deg);
+  font-family: "Bungee", cursive;
+  animation: pulse 1s linear infinite;
+}
+.birdContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  animation: MoveUpDown 0.7s linear infinite;
+}
+.leftWing {
+  height: 30px;
+  width: 35px;
+  border-radius: 30px 5px 4px 4px;
+  background-color: red;
+  z-index: 1;
+  animation: leftWingFlap 0.6s ease-in-out forwards infinite;
+}
+.rightWing {
+  height: 30px;
+  width: 35px;
+  border-radius: 5px 30px 4px 4px;
+  background-color: red;
+  z-index: 1;
+  animation: rightWingFlap 0.6s ease-in-out forwards infinite;
+}
+.floppingBird {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* gap: 15%; */
+  background-color: rgb(249, 72, 72);
+  border-radius: 100%;
+  z-index: 3;
+}
+.eyeBrowContainer {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+}
+.eyeBrow1 {
+  display: flex;
+  width: 50px;
+  height: 20px;
+  background-color: black;
+  animation: MoveUpDown 1s linear infinite;
+  z-index: 3;
+}
+.eyeBrow2 {
+  display: flex;
+  width: 50px;
+  height: 20px;
+  /* position: absolute; */
+  background-color: black;
+}
+.eyeContainer {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+.eyes {
+  display: flex;
+  overflow: hidden;
+  width: 25%;
+  height: 50%;
+  border: 1px solid black;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 100%;
+  background-color: white;
+  z-index: 2;
+  text-transform: capitalize;
+}
+.eyeLids {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  border-radius: 100% 100% 0 0;
+  background-color: rgb(249, 72, 72);
+}
+
+.pupils {
+  width: 50%;
+  height: 25%;
+  border-radius: 0 0 100px 100px;
+  position: relative;
+  background-color: black;
+}
+.beekContainer {
+  display: flex;
+  /* border: 1px solid blue; */
+  position: absolute;
+  height: 75px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 1;
+}
+.beek {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 40px 35px 0 35px;
+  border-radius: 10px;
+  border-color: #fff200 transparent transparent transparent;
+  /* position: absolute; */
+  bottom: 38%;
+}
+@media only screen and (max-width: 500px) {
+  .birdImage {
+    width: 40%;
+  }
+  .theBird {
+    width: 20rem;
+    height: 20rem;
+  }
+  .eyeBrowContainer {
+    gap: 4px;
+  }
+  .eyeBrow1,
+  .eyeBrow2 {
+    width: 40px;
+    height: 15px;
+  }
+  .beekContainer {
+    height: 50px;
+  }
+  .beek {
+    border-width: 25px 18px 0 18px;
+  }
+  .leftWing {
+    height: 20px;
+    width: 25px;
+    border-radius: 20px 5px 2px 0;
+  }
+  .rightWing {
+    height: 20px;
+    width: 25px;
+    border-radius: 5px 20px 0px 2px;
+  }
+  .errorMessage {
+    font-size: 35px;
+  }
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes leftWingFlap {
+  0% {
+    transform: rotate(-60deg);
+    transform-origin: top right;
+  }
+  25% {
+    transform: rotate(-20deg);
+    transform-origin: top right;
+  }
+  50% {
+    transform: rotate(-60deg);
+    transform-origin: top right;
+  }
+  75% {
+    transform: rotate(-20deg);
+    transform-origin: top right;
+  }
+  100% {
+    transform: rotate(-60deg);
+    transform-origin: top right;
+  }
+}
+@keyframes rightWingFlap {
+  0% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+  }
+  25% {
+    transform: rotate(20deg);
+    transform-origin: top left;
+  }
+  50% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+  }
+  75% {
+    transform: rotate(20deg);
+    transform-origin: top left;
+  }
+  100% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+  }
+}
