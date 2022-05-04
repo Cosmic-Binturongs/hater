@@ -1,34 +1,30 @@
+/* * {
+  filter: invert(1);
+} */
 .fullDiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .mid {
   display: flex;
   width: 60%;
-  border: 1px solid red ;
-  position: relative;
-  background-color: grey;
-}
-
-.left{
-  display: flex;
+  /* border: 1px solid red; */
+  position: absolute;
   height: 100%;
-  width: 20%;
-  border: 1px solid green ;
 }
 
 .right {
   display: flex;
   width: 20%;
-  border: 1px solid purple;
+  border: 1px solid red;
   height: 100%;
   right: 0;
-  position: fixed;
+  position: absolute;
 }
 
 @media only screen and (max-width: 500px) {
