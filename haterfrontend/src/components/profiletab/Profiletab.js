@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // import { useState, useEffect } from "react";
 
 function Profile(props) {
+
+
+
   return (
     <div className="profile" style={props.show}>
       <div className="top">

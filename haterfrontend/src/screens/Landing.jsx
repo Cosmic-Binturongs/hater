@@ -2,7 +2,9 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom"
 import "../styles/Landing.css";
+import Profile from "../components/profile";
 export default function Home() {
+
   return (
     <div className="home">
       <div className="landingLeft">
@@ -53,6 +55,7 @@ export default function Home() {
             Sign up 
           </Button>
         </div>
+
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import './profile.css';
 
-export default function Profile() {
+export default function Profile(props) {
 
 
 
@@ -19,7 +19,7 @@ export default function Profile() {
         <img className="profile-image" src={require('../assets/www.jpg')} alt="" />
         <div className='profile-image-button'>
 
-          <input type="button" onClick={"handleClick"} className="button-62" name="" value="Edit profile" id="" />
+          <input type="button" onClick={""} className="button-62" name="" value="Edit profile" id="" />
         </div>
         <div className='userNames'>
           <h4 className="profile-h4">David</h4>
