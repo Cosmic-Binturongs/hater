@@ -6,11 +6,10 @@ import './Hates.css'
 import HatesFeed from './HatesFeed';
 
 
-export default function HatesForm({ setToggle }) {
+export default function HatesForm({ setToggle}) {
   const [hate, setHate] = useState({
-    name: "",
-    tag: "",
-    text: "",
+    h_body: "",
+    haters: 21,
   })
 
   const handleChange = (event) => {
@@ -42,7 +41,7 @@ export default function HatesForm({ setToggle }) {
             id="hateFormText"
             placeholder="Who's Hatin'"
             type="text"
-            name="text"
+            name="h_body"
             value={hate.h_body}
             maxLength="140"
             onChange={handleChange}

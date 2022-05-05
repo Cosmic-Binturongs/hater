@@ -5,6 +5,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   display: flex;
+  flex-direction: column-reverse;
   width: 100%;
 }
 
@@ -18,8 +19,15 @@
   width: 100%;
 }
 
+/* *{
+  margin: 10px;
+  border: 1px solid blue;
+} */
+
 .hate-list{
   width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .hates-feed{
