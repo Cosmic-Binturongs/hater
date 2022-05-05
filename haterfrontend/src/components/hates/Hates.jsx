@@ -4,6 +4,7 @@ import HatesForm from './HatesForm';
 import { useState, useEffect } from 'react';
 import { getHates } from '../../services/hates';
 import './Hates.css';
+import Hate from './Hate';
 
 export default function Hates() {
 
@@ -17,20 +18,21 @@ export default function Hates() {
     }
 
     fetchHates()
+    console.log(hates)
   }, [toggle])
 
 
   return (
     <div className="hates-box">
-        <div className="hates-form-container">
-          <HatesForm setToggle={setToggle} />
-        </div>
-        <div className='hates-feed'>
-          <HatesFeed
-            hates={hates}
-            setToggle={setToggle}
-          />
-        </div>
+      <div className="hates-form-container">
+        <HatesForm setToggle={setToggle} />
+      </div>
+      <div className='hates-feed'>
+        <HatesFeed
+          hates={hates}
+          setToggle={setToggle}
+        />
+      </div>
     </div>
   )
 }

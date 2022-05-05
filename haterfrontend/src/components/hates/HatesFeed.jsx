@@ -1,44 +1,56 @@
 import React, { useEffect } from 'react';
 import Hate from './Hate';
+import Error from "../../screens/Error"
+
 
 export default function HatesFeed({ hates, setToggle }) {
   let a = [
     {
-      "name": "george",
-      "tag": "@george",
-      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
+      "name": "jeff",
+      "tag": "@jeff",
+      "text": "My name Jeff."
+    },
+    {
+      "name": "evan",
+      "tag": "@evan",
+      "text": "No soup for you. ajhlsdfhjadsgfkhjagfkjahdgkfjah dgfjhakgsfjdhgfkajdgfj"
     },
     {
       "name": "george",
       "tag": "@george",
-      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
+      "text": "Huh?"
     },
     {
-      "name": "george",
-      "tag": "@george",
-      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
+      "name": "david",
+      "tag": "@david",
+      "text": "Ok."
     },
     {
-      "name": "george",
-      "tag": "@george",
-      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
+      "name": "laura",
+      "tag": "@laura",
+      "text": "I kick kittens."
     },
     {
-      "name": "george",
-      "tag": "@george",
-      "text": "Why? ajbdjhsdhajhkdfhjdgfljhagskudfkjhsdgfhasgd kfgasdgfljhsgdfjhk,ahsgdfgdhufj jdfglsjdhgljdbgdfsjgldsf"
+      "name": "lawrence",
+      "tag": "@lawrence",
+      "text": "I kick puppies."
+    },
+    {
+      "name": "mustafa",
+      "tag": "@mustafa",
+      "text": "Sheeeeeeeeee."
     },
   ]
   
   return (
-    <div className="hates-feed">
-      <div className="hates-list">
-        {
-          a.map((hate) => (
-            <Hate setToggle={setToggle} key={hate} hateData={hate} />
+    <div className="hates-list">
+      {hates.length ?
+          hates.map((hate,id) => (
+            <Hate setToggle={setToggle} key={id} hateData={hate} />
           ))
-        }
-      </div>
+          :
+          <Error />
+      }
     </div>
   )
 }

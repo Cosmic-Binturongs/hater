@@ -2,7 +2,7 @@ import api from "./apiConfig";
 
 export const getHates = async () => {
   try {
-    const response = await api.get("/hates");
+    const response = await api.get("/hates/");
     return response.data;
   } catch (error) {
     throw error;
@@ -20,7 +20,7 @@ export const getHate = async (id) => {
 
 export const createHate = async (hate) => {
   try {
-    const response = await api.post("/hates", hate);
+    const response = await api.post("/hates/", hate);
     return response.data;
   } catch (error) {
     throw error;
