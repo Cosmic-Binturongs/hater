@@ -28,16 +28,15 @@ export default function HatesForm({ setToggle }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='hates-home-text'>
-        <div className='hate-profile'>
-        <span className='hate-forms-home'>Home</span>
-          <div className='hate-profile-pic'>
-            <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
-          </div>
+  <div className="hate-text-box">
+    <div className='hate-profile-textbox'>
+      <span className='hate-forms-home'>Home</span>
+        <div className='hate-profile-pic'>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
         </div>
-      </div>
-      <div className="hates-form">
+    </div>
+    <div className="hates-form">
+        <form onSubmit={handleSubmit}>
         <TextareaAutosize
           className="hates-form-text"
           id="hateFormText"
@@ -48,13 +47,14 @@ export default function HatesForm({ setToggle }) {
           maxLength="140"
           onChange={handleChange}
           required
-        />
+          />
          <input
           className="hates-button-up"
           type="submit"
           value="Hate"
-        />
-      </div>
-    </form>
+          />
+      </form>
+    </div>
+  </div>
   )
 }

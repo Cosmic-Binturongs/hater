@@ -8,6 +8,16 @@
   width: 100%;
 }
 
+.hate-text-box{
+  border: 1px solid red;
+  color: black;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  display: flex;
+  width: 100%;
+}
+
 .hate-list{
   width: 100%;
 }
@@ -21,6 +31,11 @@
 }
 
 .hate-profile{
+  display: flex;
+  flex-direction: column;
+}
+
+.hate-profile-textbox{
   display: flex;
   flex-direction: column;
 }
@@ -46,6 +61,7 @@
 .hates-form{
   height: 30vh;
   width: 100%;
+  flex-direction: column;
 }
 
 .hates-form-container{
@@ -151,7 +167,3 @@
   font-weight: 800;
 }
 
-.hates-home-text{
-  display: flex;
-  flex-direction: column;
-}

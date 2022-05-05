@@ -36,17 +36,17 @@ export default function Hate({ hateData, setToggle }) {
             {hate.id}
           </h2>
         </div>
-          <div className='hate-buttons'>
-            <button className='hate-criticisms' title="Criticism">
-              <MessageIcon className='hate-crit'></MessageIcon> 123
-            </button>
-            <button className='hate-rehate' title="Rehate">
-              <AutorenewIcon className='hate-renew'></AutorenewIcon> 456
-            </button>
-            <button className='hate-dislike' title="Dislike">
-              <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon> 789
-            </button>
-          </div>
+        <div className='hate-buttons'>
+          <button className='hate-criticisms' title="Criticism">
+            <MessageIcon className='hate-crit'></MessageIcon> 123
+          </button>
+          <button className='hate-rehate' title="Rehate">
+            <AutorenewIcon className='hate-renew'></AutorenewIcon> 456
+          </button>
+          <button className='hate-dislike' title="Dislike">
+            <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon> 789
+          </button>
+        </div>
       </div>
     </div>
   )
