@@ -26,14 +26,14 @@ export default function Hate({ hateData, setToggle }) {
             className="hate-name"
             type="text"
             name="name">
-            {hate.h_body} {hate.haters}
+            {hate.id} {hate.haters}
           </h3>
         <div className="hate-info">
           <h2
             className="hate-text"
             type="text"
             name="text">
-            {hate.id}
+            {hate.h_body}
           </h2>
         </div>
         <div className='hate-buttons'>

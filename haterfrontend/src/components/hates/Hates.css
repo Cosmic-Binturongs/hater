@@ -5,7 +5,6 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   display: flex;
-  flex-direction: column-reverse;
   width: 100%;
 }
 
@@ -19,19 +18,15 @@
   width: 100%;
 }
 
-/* *{
-  margin: 10px;
-  border: 1px solid blue;
-} */
-
-.hate-list{
-  width: 100%;
+.hates-list{
   display: flex;
+  width: 100%;
   flex-direction: column-reverse;
 }
 
 .hates-feed{
   width: 100%;
+  border: 1px solid aqua;
 }
 
 .hates-box{
@@ -115,6 +110,16 @@
 .hate-criticisms:hover{
   cursor: pointer;
   color:blue;
+}
+
+.hate-dislike:hover{
+  cursor: pointer;
+  color: red;
+}
+
+.hate-rehate:hover{
+  cursor: pointer;
+  color: green;
 }
 
 
