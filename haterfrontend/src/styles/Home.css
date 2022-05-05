@@ -1,6 +1,8 @@
 /* * {
   filter: invert(1);
 } */
+
+
 .fullDiv {
   display: flex;
   flex-direction: row;
