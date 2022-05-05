@@ -9,8 +9,8 @@
 }
 
 .hate-text-box{
-  border: 1px solid red;
   color: black;
+  border: 1px solid rgb(241, 146, 146, 1);
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -26,7 +26,6 @@
 
 .hates-feed{
   width: 100%;
-  border: 1px solid aqua;
 }
 
 .hates-form-box{
@@ -72,7 +71,6 @@
 
 .hates-form-container{
   width: 100%;
-  border: 1px solid blue;
 }
 
 .hates-form-text{
@@ -86,7 +84,6 @@
   padding-left: 10%;
   max-width: 100%;
   max-height: 100%;
-  border: 1px solid aqua;
 }
 
 .hates-button-up{

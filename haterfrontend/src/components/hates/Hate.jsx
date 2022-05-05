@@ -18,7 +18,7 @@ export default function Hate({ hateData, setToggle }) {
     <div className="hate-post">
       <div className='hate-profile'>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
         </div>
       </div>
       <div className="hate-form">

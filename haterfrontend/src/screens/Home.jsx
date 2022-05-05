@@ -40,7 +40,7 @@ function Home() {
       <div className="mid">
         <Hates />
       </div>
-      <div className="right">3</div>
+      <div className="right"></div>
     </div>
   );
 }

@@ -31,7 +31,7 @@ export default function HatesForm({ setToggle}) {
     <div className='hate-profile-textbox'>
       <span className='hate-forms-home'>Home</span>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
         </div>
     </div>
     <div className="hates-form">
