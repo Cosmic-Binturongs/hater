@@ -8,6 +8,7 @@
   width: 100%;
   flex-direction: row;
 }
+
 .landingLeft {
   display: flex;
   background-color: var(--hate-red);

@@ -42,7 +42,7 @@ export default function HatesForm({ setToggle }) {
           required
         />
          <input
-          className="hates-button"
+          className="hates-button-up"
           type="submit"
           value="Hate"
         />
