@@ -5,13 +5,13 @@ import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 export default function Hate({ hateData, setToggle }) {
   const [hate, setHate] = useState({
-    name: hateData.name,
-    tag: hateData.tag,
-    text: hateData.text,
+    // name: hateData.name,
+    // tag: hateData.tag,
+    // text: hateData.text,
 
-    // id: hateData.id,
-    // h_body: hateData.h_body,
-    // haters: hateData.haters
+    id: hateData.id,
+    h_body: hateData.h_body,
+    haters: hateData.haters
   })
 
   return (
@@ -26,14 +26,14 @@ export default function Hate({ hateData, setToggle }) {
             className="hate-name"
             type="text"
             name="name">
-          {hate.name} {hate.tag}
+          {hate.h_body} {hate.haters}
           </h3>
         <div className="hate-info">
           <h2
             className="hate-text"
             type="text"
             name="text">
-            {hate.text}
+            {hate.id}
           </h2>
         </div>
           <div className='hate-buttons'>

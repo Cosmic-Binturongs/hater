@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NewHate from "../newHate/newHate.js";
 
-
 function Profile(props) {
   const [content, setcontent] = useState(<img src={props.picture}></img>);
 
@@ -15,8 +14,6 @@ function Profile(props) {
   const openModal = () => {
     setShowModal(true);
   };
-
-
 
   return (
     <div className="profile" style={props.show}>
@@ -34,11 +31,14 @@ function Profile(props) {
         </div>
       </div>
       <div className="bottom">
-        <Link to="/" className="pronavs">
+        <Link to="/home" className="pronavs">
           Home
         </Link>
-        <Link to="" className="pronavs">
+        <Link to="/profile" className="pronavs">
           Profile
+        </Link>
+        <Link to="/" className="pronavs">
+          Login Page
         </Link>
         <Link to="" className="pronavs">
           Bookmarks
@@ -46,8 +46,10 @@ function Profile(props) {
         {/* <Link to="" className="prohate">
           Hate
         </Link> */}
-        <button onClick={openModal} className="prohate">Hate</button>
-            {showModal ? <NewHate setShowModal={setShowModal} /> : null}
+        <button onClick={openModal} className="prohate">
+          Hate
+        </button>
+        {showModal ? <NewHate setShowModal={setShowModal} /> : null}
       </div>
     </div>
   );

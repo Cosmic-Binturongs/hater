@@ -9,7 +9,7 @@ function ErrorScreen() {
     <div className="ErrorContainer">
       <nav className="ErrorNav">
         <Link to="/home" className="ErrorLink">Home</Link>
-        <Link to="/Profile" className="ErrorLink">Profile</Link>
+        <Link to="/profile" className="ErrorLink">Profile</Link>
         <Link to="/" className="ErrorLink">Login</Link>
       </nav>
       <div className="errorMessage">PAGE NOT FOUND</div>

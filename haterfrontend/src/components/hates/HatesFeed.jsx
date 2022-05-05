@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Hate from './Hate';
+import Error from "../../screens/Error"
 
 
 export default function HatesFeed({ hates, setToggle }) {
@@ -43,10 +44,12 @@ export default function HatesFeed({ hates, setToggle }) {
   
   return (
     <div className="hates-list">
-      {
-        a.map((hate) => (
-          <Hate setToggle={setToggle} key={hate._id} hateData={hate} />
-        ))
+      {hates.length ?
+          hates.map((hate) => (
+            <Hate setToggle={setToggle} key={hate._id} hateData={hate} />
+          ))
+          :
+          <Error />
       }
     </div>
   )

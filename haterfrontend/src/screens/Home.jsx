@@ -1,5 +1,5 @@
 import "../styles/Home.css";
-import "../components/hates/Hates.css"
+import "../components/hates/Hates"
 import { useEffect, useState } from "react";
 import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";

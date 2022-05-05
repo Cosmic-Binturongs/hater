@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { createHate } from '../../services/hates'
 import './Hates.css'
+import HatesFeed from './HatesFeed';
 
 
 export default function HatesForm({ setToggle }) {
