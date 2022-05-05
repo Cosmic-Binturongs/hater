@@ -28,7 +28,14 @@ export default function HatesForm({ setToggle }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='hates-home-text'>Home</div>
+      <div className='hates-home-text'>
+        <div className='hate-profile'>
+        <span className='hate-forms-home'>Home</span>
+          <div className='hate-profile-pic'>
+            <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
+          </div>
+        </div>
+      </div>
       <div className="hates-form">
         <TextareaAutosize
           className="hates-form-text"

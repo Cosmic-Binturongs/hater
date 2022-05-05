@@ -140,3 +140,14 @@
 .hate-form {
   width: 100%; 
 }
+
+.hate-forms-home{
+  font-size: 25px;
+  padding-left: 20px;
+  font-weight: 800;
+}
+
+.hates-home-text{
+  display: flex;
+  flex-direction: column;
+}
