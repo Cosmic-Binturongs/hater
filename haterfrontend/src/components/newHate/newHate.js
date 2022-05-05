@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import '../newHate/newHate.css';
+import HatesForm from '../hates/HatesForm'
 
 function NewHate ({ setShowModal }) {
   // close the modal when clicking outside the modal.
@@ -10,10 +11,13 @@ function NewHate ({ setShowModal }) {
     }
   };
 
+
   return (
     <div className="newHate-wrapper" ref={modalRef} onClick={closeModal}>
       <div className="newHate-modal">
-        <h2>Post a new HAte</h2>
+
+        <HatesForm />
+
         <button className="newHate-modal-button"onClick={() => setShowModal(false)}>X</button>
       </div>
     </div>
