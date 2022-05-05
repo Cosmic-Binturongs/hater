@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/ProfilePage.css"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
+import MiniHates from "../components/miniHates/miniHates.js"
+import { createHate, getHate, getHates } from "../services/hates.js";
 
 import logo from "../components/profilebutton/logo.png"
 
@@ -14,6 +16,17 @@ export default function ProfilePage(props) {
   const PopSearchModal = () => {
     return 
   }
+  const [datas, setDatas] = useState([]);
+  const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    const fetchHates = async () => {
+      const response = await getHates()
+      setDatas(response);
+    }
+    fetchHates()
+    console.log(datas)
+  }, [toggle])
 
 
   return (
@@ -38,17 +51,17 @@ export default function ProfilePage(props) {
           </div>
           <div className="proSearch">
           <form className="landingForm">
-
-          <input
-            className="landingLoginInput"
-            placeholder="Hates/Hater"
-            type="text"
-            name="name"
-          />
-          <Button id="login" type="submit" variant="outlined">
-            Search
-          </Button>
-        </form>
+            <input
+              className="landingLoginInput"
+              placeholder="Hates/Hater"
+              type="text"
+              name="name"
+            />
+            <Button id="login" type="submit" variant="outlined">
+              Search
+            </Button>
+            </form>
+            {datas.map((data) => (<MiniHates id={data.id} hate={data.h_body} likes={data.haters }/> ))}
           </div>
         </div>
       </div>
