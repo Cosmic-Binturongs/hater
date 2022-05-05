@@ -69,6 +69,7 @@
   height: 80%;
   width: 100%;
   text-decoration: none;
+  background-color: white;
   /* background-color: black; */
   /* border: 1px solid blue; */
 }
@@ -136,8 +137,6 @@
   .profile {
     animation-name: slideRight;
     animation-duration: 1.5s;
-    /* position: absolute; */
-    width: 20%;
   }
   .exit {
     display: none;
