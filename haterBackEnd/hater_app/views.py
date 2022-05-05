@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
 from django.db.models import Count
-from .serializers import CriticismSerializer, User_profileSerializer, HatesSerializer, TestSerializer, UserSerializer,CommentSerializer
+from .serializers import CriticismSerializer, User_profileSerializer, HatesSerializer, TestSerializer, UserSerializer,CommentSerializer, RawSerializer
 from .models import Criticism, User_profile, Hates
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
@@ -39,10 +39,21 @@ class YourHatesView(APIView):
      
 class CommentView(APIView):
   def get(self,request, format=None):
-    hateid = request.query_params['hateid']
     try:
+      hateid = request.query_params['hateid']
       crits = Criticism.objects.filter(hate = hateid)
       crits_json = CommentSerializer(crits, many=True)
       return Response(crits_json.data)
     except:
       return Response({'message':"Something went wrong when retrieving comments"})
+class RawView(APIView):
+  def get(self,request, format=None):
+    try:
+      if not request.query_params:
+          hates = Hates.objects.filter()
+      else:
+          hates = Hates.objects.filter(haters = request.query_params['haterid'])
+      hates_json = RawSerializer(hates, many=True)
+      return Response(hates_json.data)
+    except:
+      return Response({'message':"Something went wrong when retrieving raw hate posts"})

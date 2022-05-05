@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from hater_app.views import UserViewSet, User_profileViewSet, HatesViewSet, CriticismViewSet, YourHatesView, CommentView
+from hater_app.views import UserViewSet, User_profileViewSet, HatesViewSet, CriticismViewSet, YourHatesView, CommentView, RawView
 
 router = routers.DefaultRouter()
 #for testing this route exists make sure to remove the line below me 
@@ -30,5 +30,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('test/', YourHatesView.as_view()),
     path('comments/', CommentView.as_view()),
+    path('raw/', RawView.as_view()),
     path('admin/', admin.site.urls),
 ]
