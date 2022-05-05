@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
 from django.db.models import Count
-from .serializers import CriticismSerializer, User_profileSerializer, HatesSerializer, TestSerializer, UserSerializer,CommentSerializer, RawSerializer
+from .serializers import CriticismSerializer, User_profileSerializer, HatesSerializer, TestSerializer, UserSerializer,CommentSerializer, AllHatesSerializer
 from .models import Criticism, User_profile, Hates
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
@@ -45,15 +45,55 @@ class CommentView(APIView):
       crits_json = CommentSerializer(crits, many=True)
       return Response(crits_json.data)
     except:
-      return Response({'message':"Something went wrong when retrieving comments"})
-class RawView(APIView):
+      return Response({'message':" (T⌓T) Something went wrong when retrieving comments"})
+class AllHates(APIView):
   def get(self,request, format=None):
     try:
       if not request.query_params:
           hates = Hates.objects.filter()
       else:
           hates = Hates.objects.filter(haters = request.query_params['haterid'])
-      hates_json = RawSerializer(hates, many=True)
+      hates_json = AllHatesSerializer(hates, many=True)
       return Response(hates_json.data)
     except:
-      return Response({'message':"Something went wrong when retrieving raw hate posts"})
+      return Response({'message':" ╥﹏╥ Something went wrong when retrieving raw hate posts"})
+class AddDislike(APIView):
+  def get(self,request, format=None):
+    try:
+      hate_id = request.query_params['hateid']
+      hate_post = Hates.objects.get(id = hate_id)
+      new_count = hate_post.hate_count + 1
+      Hates.objects.filter(id = hate_id).update(hate_count = new_count)
+      return Response({'old_dislike_count':hate_post.hate_count})
+    except:
+      return Response({'message':"ಥ_ಥ error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+class AddRehate(APIView):
+  def get(self,request, format=None):
+    try:
+      hate_id = request.query_params['hateid']
+      hate_post = Hates.objects.get(id = hate_id)
+      new_count = hate_post.rehate_count + 1
+      Hates.objects.filter(id = hate_id).update(rehate_count = new_count)
+      return Response({'old_rehate_count':hate_post.rehate_count})
+    except:
+      return Response({'message':"(╬ಠ益ಠ) error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+NEED TO WORK ON TOMMOROW INORDER FOR FRONT END TEAM TO WORK ON VISUALS
+class AddComment(APIView):
+  def get(self,request, format=None):
+    try:
+      hate_id = request.query_params['hateid']
+      hate_post = Hates.objects.get(id = hate_id)
+      new_count = hate_post.crit_count + 1
+      Hates.objects.filter(id = hate_id).update(crit_count = new_count)
+      return Response({'old_crit_Count':hate_post.crit_count})
+    except:
+      return Response({'message':"( ◔ ʖ̯ ◔ ) error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+class EditHate(APIView):
+  def put(self,request, format=None):
+    try:
+      hate_id = request.query_params['hateid']
+      new_h_body = request.data['content']
+      Hates.objects.filter(id = hate_id).update(h_body=new_h_body)
+      return Response({'message':" ◕‿↼ Updated ! "})
+    except:
+      return Response({'message':"( ﾟДﾟ)b error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
