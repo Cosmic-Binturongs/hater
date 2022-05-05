@@ -11,7 +11,7 @@ class User_profile(models.Model):
 
 class Hates(models.Model):
     haters = models.ForeignKey(User_profile, on_delete=models.CASCADE)
-    h_body = models.CharField(max_length=120)
+    h_body = models.CharField(max_length=140)
 
 
 class Criticism(models.Model):

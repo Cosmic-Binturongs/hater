@@ -35,7 +35,7 @@ export default function HatesForm({ setToggle}) {
         </div>
     </div>
     <div className="hates-form">
-        <form onSubmit={handleSubmit}>
+        <form className="hates-form-box" onSubmit={handleSubmit}>
           <TextareaAutosize
             className="hates-form-text"
             id="hateFormText"

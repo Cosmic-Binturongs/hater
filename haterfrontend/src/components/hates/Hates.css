@@ -29,6 +29,10 @@
   border: 1px solid aqua;
 }
 
+.hates-form-box{
+  width: 100%;
+}
+
 .hates-box{
   width: 100%;
 }
@@ -59,11 +63,11 @@
 
 .hate-text{
   font-size: 20px;
+  width: 85%;
 }
 
 .hates-form{
-  width: 100%;
-  flex-direction: column;
+  width: 70%;
 }
 
 .hates-form-container{
@@ -76,7 +80,7 @@
   outline: none;
   font-size: 25px;
   height: 80%;
-  width: 75%;
+  width: 100%;
   resize: none;
   margin-top: 50px;
   padding-left: 10%;
@@ -86,9 +90,9 @@
 }
 
 .hates-button-up{
-  margin-left: 80%;
+  margin-left: 100%;
   margin-top: 8%;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
   border-radius: 25px;
   background: red;
   color: white;
