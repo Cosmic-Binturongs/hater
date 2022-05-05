@@ -36,7 +36,6 @@ function Home() {
       />
       }
       <div className="mid">
-        <Profile />
       </div>
       <div className="right">3</div>
     </div>
