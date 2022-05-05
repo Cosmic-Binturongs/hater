@@ -17,6 +17,7 @@
   width: 60%;
   /* border: 1px solid red; */
   position: absolute;
+  justify-content: center;
   height: 100%;
 }
 
@@ -32,6 +33,17 @@
 @media only screen and (max-width: 500px) {
   .mid {
     width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 1100px) {
+  .mid {
+    left: 197px;
+    border: 1px solid blue;
+    width: calc(100% - 197px);
   }
   .right {
     display: none;

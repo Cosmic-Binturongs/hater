@@ -2,31 +2,33 @@
   border: black 1px;
   height: 160px;
   background-size: 25px;
-  background: url('../assets/www.jpg');
+  background: url("../assets/www.jpg");
   border-radius: 50%;
 }
 
-
-
-
-
 .grid-container {
+  margin-top: 15px;
   display: grid;
+  overflow: hidden;
   /* background-color: rgb(232, 216, 216);*/
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 65vh;
-  width: 100vw;
+  width: 95%;
   outline: 3px;
   color: rgb(0, 0, 0);
-  background-color: #2f4353;
-  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 90%);
+  border: 2px solid var(--hate-red);
+  border-radius: 50px;
+  /* background-color: #2f4353; */
+  /* background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 90%); */
 }
 
 .headerP {
   grid-row: 1;
-  grid-column: 1;
+  grid-column: 1 / span end;
+  background-color: var(--hate-red);
 }
 
 .bkgrndP {
@@ -35,7 +37,6 @@
 
   background-color: #e4eee9;
   background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%);
-
 }
 
 .profile-image {
@@ -54,24 +55,31 @@
 }
 
 .profile-h4 {
-  margin: -3px;
+  /* position: absolute; */
+  margin-left: 10px;
+  color: white;
+  font-size: 20px;
+}
+.pro-tweet-count {
+  margin-left: 10px;
+  color: white;
 }
 
 .profileInfo {
   grid-row: 4;
-  grid-column: 1/ span 4;
+  grid-column: 1 / span 4;
 }
 
 .user-locale-date {
   grid-row: 5;
-  grid-column: 1/span 4;
+  grid-column: 1 / span 4;
   display: inline;
   margin: -3px;
 }
 
 .user-followers {
   grid-row: 6;
-  grid-column: 1/ span 4;
+  grid-column: 1 / span 4;
   display: inline;
 }
 
@@ -81,9 +89,8 @@ p {
 
 .tweets {
   grid-row: 7;
-  grid-column: 1/ span 4;
+  grid-column: 1 / span 4;
   display: inline;
-
 }
 
 ul {
@@ -99,18 +106,17 @@ li {
   border: 1px solid green;
 }
 
-
-
 /* CSS */
 .button-62 {
   margin-top: 2px;
-  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
   border: 0;
   border-radius: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
@@ -118,7 +124,7 @@ li {
   padding: 0 1rem;
   text-align: center;
   text-decoration: none;
-  transition: box-shadow .2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -126,9 +132,13 @@ li {
 }
 
 .button-62:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
 .button-62:not([disabled]):hover {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
