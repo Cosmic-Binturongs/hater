@@ -37,21 +37,21 @@ export default function HatesForm({ setToggle }) {
     </div>
     <div className="hates-form">
         <form onSubmit={handleSubmit}>
-        <TextareaAutosize
-          className="hates-form-text"
-          id="hateFormText"
-          placeholder="Who's Hatin'"
-          type="text"
-          name="text"
-          value={hate.text}
-          maxLength="140"
-          onChange={handleChange}
-          required
+          <TextareaAutosize
+            className="hates-form-text"
+            id="hateFormText"
+            placeholder="Who's Hatin'"
+            type="text"
+            name="text"
+            value={hate.h_body}
+            maxLength="140"
+            onChange={handleChange}
+            required
           />
-         <input
-          className="hates-button-up"
-          type="submit"
-          value="Hate"
+          <input
+            className="hates-button-up"
+            type="submit"
+            value="Hate"
           />
       </form>
     </div>
