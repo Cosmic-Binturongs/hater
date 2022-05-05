@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { createHate } from '../../services/hates'
 import './Hates.css'
+import HatesFeed from './HatesFeed';
 
 
 export default function HatesForm({ setToggle }) {
@@ -27,26 +28,33 @@ export default function HatesForm({ setToggle }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='hates-home-text'>Home</div>
-      <div className="hates-form">
-        <TextareaAutosize
-          className="hates-form-text"
-          id="hateFormText"
-          placeholder="Who's Hatin'"
-          type="text"
-          name="text"
-          value={hate.text}
-          maxLength="140"
-          onChange={handleChange}
-          required
-        />
-         <input
-          className="hates-button"
-          type="submit"
-          value="Hate"
-        />
-      </div>
-    </form>
+  <div className="hate-text-box">
+    <div className='hate-profile-textbox'>
+      <span className='hate-forms-home'>Home</span>
+        <div className='hate-profile-pic'>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
+        </div>
+    </div>
+    <div className="hates-form">
+        <form onSubmit={handleSubmit}>
+          <TextareaAutosize
+            className="hates-form-text"
+            id="hateFormText"
+            placeholder="Who's Hatin'"
+            type="text"
+            name="text"
+            value={hate.h_body}
+            maxLength="140"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="hates-button-up"
+            type="submit"
+            value="Hate"
+          />
+      </form>
+    </div>
+  </div>
   )
 }
