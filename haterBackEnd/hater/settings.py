@@ -130,8 +130,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#this line allows for any origin to make requests to our api 
-#post M.V.P we should only white list hate.rip
+# this line allows for any origin to make requests to our api
+# post M.V.P we should only white list hate.rip
 CORS_ORIGIN_ALLOW_ALL = True
 
 # CORS_ALLOWED_ORIGINS = [

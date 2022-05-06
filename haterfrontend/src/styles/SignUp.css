@@ -10,12 +10,22 @@
   display: inline-block;
   border: none;
   background-color: rgb(252, 246, 246);
+
+
 }
 
 .signup-inputs:hover {
   color: var(--hate-red);
   background-color: whitesmoke;
 }
+
+input:invalid {
+  background-color: #ffdddd;
+}
+
+/* input:valid {
+  background-color: #ddffdd;
+} */
 
 .signup-btn {
   background-color: var(--hate-red);

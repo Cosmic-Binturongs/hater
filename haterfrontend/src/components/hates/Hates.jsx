@@ -18,7 +18,6 @@ export default function Hates() {
     }
 
     fetchHates()
-    console.log(hates)
   }, [toggle])
 
 

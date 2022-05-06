@@ -15,9 +15,10 @@ export default function Hate({ hateData, setToggle }) {
     hate_tag: hateData.hate_tag,
     hate_count: hateData.hate_count,
     crit_count: hateData.hate_count,
-    rehate_count: hateData.rehate_count
+    rehate_count: hateData.rehate_count,
+    date_time: hateData.date_time
   })
-
+  
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
   const [hatedisabled, setHateDisabled] = useState(false);
@@ -26,20 +27,20 @@ export default function Hate({ hateData, setToggle }) {
   const incrementHateCount = async (event) => {
     setHateCount(hateCount + 1)
     event.preventDefault()
-    let hateUpdated = await axios.get(`http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}`)
+    let hateUpdated = await axios.get(`http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}&sign=${1}`)
     setToggle(prev => !prev)
     hateButtons.current.classList.add('hate-disabled');
-    hateButtons.current.style.color="red";
-
+    hateButtons.current.style.color = "red";
+    console.log(hateData.id)
   }
 
   const incrementRehateCount = async (event) => {
     setRehateCount(rehateCount + 1)
     event.preventDefault()
-    let rehateUpdated = await axios.get(`http://127.0.0.1:8000/addRehate/?hateid=${hateData.id}`)
+    let rehateUpdated = await axios.get(`http://127.0.0.1:8000/addRehate/?hateid=${hateData.id}&sign=${1}`)
     setToggle(prev => !prev)
     rehateButtons.current.classList.add('hate-disabled');
-    rehateButtons.current.style.color="green";
+    rehateButtons.current.style.color = "green";
   }
 
 
@@ -65,6 +66,13 @@ export default function Hate({ hateData, setToggle }) {
             name="text">
             {hate.hate}
           </h2>
+          <h3
+            className='hate-date'
+            type="date"
+            name="text">
+            {hate.date_time}
+            </h3>
+
         </div>
         <div className='hate-buttons'>
           <button className='hate-criticisms' title="Criticism">
