@@ -2,8 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import MessageIcon from '@mui/icons-material/Message';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
+<<<<<<< HEAD
 import { updateHate } from '../../services/hates';
 import axios from 'axios';
+=======
+import Criticisms from '../criticisms/Criticisms';
+>>>>>>> 61920e05822c01c78c56a23a72d5ffca60cd0f9f
 
 export default function Hate({ hateData, setToggle }) {
   let hateButtons = useRef(null)
@@ -44,6 +48,14 @@ export default function Hate({ hateData, setToggle }) {
   }
 
 
+
+  // Modal constants
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
 
   return (
     <div className="hate-post">
