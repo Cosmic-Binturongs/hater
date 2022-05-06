@@ -39,15 +39,6 @@ export default function ProfilePage(props) {
           <div className="proSearch">
           <form className="landingForm">
 
-<<<<<<< HEAD
-    <Profiletab></Profiletab>
-    <div className="mid">
-      <Profile />
-    </div>
-      <div className="right">
-    </div>
-  </div>
-=======
           <input
             className="landingLoginInput"
             placeholder="Hates/Hater"
@@ -62,6 +53,5 @@ export default function ProfilePage(props) {
         </div>
       </div>
  </div>
->>>>>>> main
   )
 }
