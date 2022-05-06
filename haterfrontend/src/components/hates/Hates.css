@@ -1,51 +1,118 @@
-.hate-post{
-  border: 1px solid aqua;
-  color: white;
+.hate-post {
+  border: 1px solid black;
+  color: black;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  display: flex;
   width: 100%;
 }
 
-.hate-text, .hate-name{
-  padding-left: 10%;
+
+
+.hate-text-box {
+  color: black;
+  border: 1px solid rgb(241, 146, 146, 1);
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  display: flex;
+  width: 100%;
+}
+
+
+.hate-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+}
+
+.hates-feed {
+  width: 100%;
+}
+
+.hates-form-box{
+  width: 100%;
+}
+
+.hates-box{
+  width: 100%;
+}
+
+.hate-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.hate-profile-textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.hate-profile-pic {
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 75px;
+  height: 75px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.hate-text,
+.hate-name {
+  padding-left: 10px;
   padding-right: 10px;
 }
 
-.hates-form{
-  height: 30vh;
-  width: 100%;
-
+.hate-text {
+  font-size: 20px;
+  width: 85%;
 }
 
-.hates-form-container{
-  width: 100%;
-  border: 1px solid greenyellow
+
+.hates-form {
+  width: 70%;
+  flex-direction: column;
 }
 
-.hates-form-text{
-  border: 1px solid aqua;
+.hates-form-container {
+  width: 100%;
+}
+
+/* text portion */
+.hates-form-text {
+  border: none;
+  outline: none;
   font-size: 25px;
   height: 80%;
-  width: 90%;
+  width: 100%;
   resize: none;
   margin-top: 50px;
-  padding-left: 10%;
+  margin-left: 15px;
+  padding-left: 5%;
   max-width: 100%;
   max-height: 100%;
-  position: absolute;
 }
 
-.hates-button{
-  position: absolute;
-  margin-left: 84%;
+.hates-button-up{
+  margin-left: 100%;
+  border: 3px solid rgb(252, 246, 246);
+
+}
+
+.hates-form-text:focus {
+  background-color: rgb(243, 243, 243);
+}
+
+.hates-button-up {
+  margin-left: 70%;
   margin-top: 8%;
-  top: 12%;
+  margin-bottom: 3%;
   border-radius: 25px;
   background: red;
   color: white;
   font-weight: 900;
-  padding: 1% 4%;
+  padding: 1% 6%;
   text-decoration: none;
   text-align: center;
   font-family: "Helvetica Neue";
@@ -54,48 +121,82 @@
   border: none;
 }
 
-.hate-criticisms, .hate-dislike, .hate-rehate{
+.hate-criticisms,
+.hate-dislike,
+.hate-rehate {
   border: 0;
   background-color: transparent;
 }
 
-.hate-criticisms:hover{
+.hate-criticisms:hover {
   cursor: pointer;
+  color: blue;
 }
 
-.hate-crit{
-  padding: 8px;
-  background: transparent;
-}
-
-.hate-renew{
-  padding: 8px;
-  background: transparent;
-}
-
-.hate-crit:hover{
-  border-radius: 50px;
-  background-color: rgba(87, 87, 243, 0.357);
+.hate-dislike:hover{
   cursor: pointer;
+  color: red;
 }
 
 .hate-rehate:hover{
   cursor: pointer;
+  color: green;
 }
 
-.hate-renew:hover{
+
+.hate-crit {
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-renew {
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-broken {
+  padding: 8px;
+  background: transparent;
+}
+
+.hate-crit:hover {
+  color: blue;
   border-radius: 50px;
-  background-color: rgba(2, 128, 0, 0.748);
+  background-color: rgba(87, 87, 243, 0.25);
   cursor: pointer;
 }
 
-.hate-dislike:hover{
+.hate-rehate:hover {
+  cursor: pointer;
+}
+
+.hate-renew:hover {
+  color: green;
+  border-radius: 50px;
+  background-color: rgba(2, 128, 0, 0.25);
+  cursor: pointer;
+}
+
+.hate-broken:hover {
   color: red;
+  border-radius: 50px;
+  background-color: rgba(255, 0, 0, 0.25);
   cursor: pointer;
 }
 
-.hate-buttons{
+.hate-buttons {
   margin: 15px;
   display: flex;
+  margin-right: 15%;
   justify-content: space-evenly;
+}
+
+.hate-form {
+  width: 100%;
+}
+
+.hate-forms-home {
+  font-size: 25px;
+  padding-left: 20px;
+  font-weight: 800;
 }

@@ -137,8 +137,6 @@
   .profile {
     animation-name: slideRight;
     animation-duration: 1.5s;
-    /* position: absolute; */
-    width: 20%;
   }
   .exit {
     display: none;
