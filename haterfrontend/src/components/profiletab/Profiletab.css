@@ -24,6 +24,7 @@
   border-bottom: 2px solid var(--hate-red);
   background-color: var(--hate-red);
 }
+
 .proCountContainer {
   display: flex;
   justify-content: center;
@@ -31,12 +32,14 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+
 .exit {
   display: none;
   position: absolute;
   top: 0;
   right: 10px;
 }
+
 .propic {
   display: flex;
   height: 80px;
@@ -47,6 +50,7 @@
   border-radius: 100px;
   background-color: white;
 }
+
 .tweetcount {
   display: flex;
   height: 40%;
@@ -57,9 +61,11 @@
   align-items: center;
   gap: 10px;
 }
+
 .account {
   font-size: 20px;
 }
+
 .bottom {
   display: flex;
   justify-content: flex-start;
@@ -107,6 +113,7 @@
   width: 50%;
   margin-top: 5%;
 }
+
 .prohate:hover {
   color: var(--hate-red);
   background-color: whitesmoke;
@@ -116,6 +123,7 @@
   from {
     margin-left: -100%;
   }
+
   to {
     margin-left: 0%;
   }
@@ -128,6 +136,7 @@
     position: absolute;
     width: 80%;
   }
+
   .exit {
     display: flex;
   }
@@ -138,12 +147,15 @@
     animation-name: slideRight;
     animation-duration: 1.5s;
   }
+
   .exit {
     display: none;
   }
+
   .profile {
     width: 197px;
   }
+
   .proCountContainer {
     gap: 0;
   }
