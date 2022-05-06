@@ -5,6 +5,7 @@ import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
 import Hates from "../components/hates/Hates";
 import Profile from "../components/profile";
+import SearchBar from "../components/searchBar/SearchBar";
 
 function Home() {
   const [show, setShow] = useState({ display: "flex" });
@@ -40,7 +41,9 @@ function Home() {
       <div className="mid">
         <Hates />
       </div>
-      <div className="right"></div>
+      <div className="right">
+        <SearchBar/>
+      </div>
     </div>
   );
 }
