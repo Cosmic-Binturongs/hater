@@ -13,8 +13,8 @@
 
 .newHate-modal {
   z-index: 1;
-  width: 350px;
-  height: 220px;
+  width: 75%;
+  height: 50%;
   background: white;
   display: flex;
   align-items: center;
