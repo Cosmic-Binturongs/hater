@@ -19,13 +19,13 @@
   background-color: whitesmoke;
 }
 
-input:invalid {
+/* input:invalid {
   background-color: #ffdddd;
 }
 
 input:valid {
   background-color: #ddffdd;
-}
+} */
 
 .signup-btn {
   background-color: var(--hate-red);
