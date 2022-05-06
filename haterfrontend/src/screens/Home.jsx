@@ -1,7 +1,9 @@
 import "../styles/Home.css";
+import "../components/hates/Hates"
 import { useEffect, useState } from "react";
 import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
+import Hates from "../components/hates/Hates";
 import Profile from "../components/profile";
 
 function Home() {
@@ -36,9 +38,9 @@ function Home() {
       />
       }
       <div className="mid">
+        <Hates />
       </div>
-      <div className="right">
-      </div>
+      <div className="right"></div>
     </div>
   );
 }
