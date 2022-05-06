@@ -45,7 +45,7 @@ class CommentView(APIView):
       crits_json = CommentSerializer(crits, many=True)
       return Response(crits_json.data)
     except:
-      return Response({'message':" (T⌓T) Something went wrong when retrieving comments"})
+      return Response({'message':" (T⌓T) enter hateid in the url to reference what hate post comment section u want to view"})
 class AllHates(APIView):
   def get(self,request, format=None):
     try:
@@ -77,17 +77,26 @@ class AddRehate(APIView):
       return Response({'old_rehate_count':hate_post.rehate_count})
     except:
       return Response({'message':"(╬ಠ益ಠ) error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
-NEED TO WORK ON TOMMOROW INORDER FOR FRONT END TEAM TO WORK ON VISUALS
 class AddComment(APIView):
-  def get(self,request, format=None):
+  def post(self,request, format=None):
     try:
+      #increment comment count
       hate_id = request.query_params['hateid']
       hate_post = Hates.objects.get(id = hate_id)
       new_count = hate_post.crit_count + 1
       Hates.objects.filter(id = hate_id).update(crit_count = new_count)
-      return Response({'old_crit_Count':hate_post.crit_count})
+      #create comment
+      content = request.data["content"] 
+      hater = User_profile.objects.get(id = request.data["hater_id"])
+      hate_instance = Hates.objects.get(id = request.data["hater_id"])
+      new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
+      new_hate.save()
+      return Response({
+        'message':'Created new comment ! ʘᆽʘ',
+        'old_crit_Count':hate_post.crit_count,
+      })
     except:
-      return Response({'message':"( ◔ ʖ̯ ◔ ) error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+      return Response({'message':"( ◔ ʖ̯ ◔ ) error; you are most likely messed up the body syntax or are missing a 'hateid' param or that hate post id doesnt exist "})
 class EditHate(APIView):
   def put(self,request, format=None):
     try:
