@@ -19,7 +19,8 @@ class Hates(models.Model):
     hate_count = models.IntegerField()
     rehate_count = models.IntegerField()
     crit_count = models.IntegerField()
-    hate_date = models.DateTimeField(default=datetime.now())
+    hate_date = models.DateTimeField(
+        default=datetime.now().strftime('%Y-%m-%d %H:%M'))
 
     def __str__(self):
         return self.h_body
