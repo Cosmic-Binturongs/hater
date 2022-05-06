@@ -3,9 +3,10 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom"
 import "../styles/Landing.css";
 import Profile from "../components/profile";
-import Profiletab from "../components/profiletab/Profiletab.js"
+import Profiletab from "../components/profiletab/Profiletab.js";
+import SearchBar from "../components/searchBar/SearchBar";
 export default function ProfilePage() {
-
+  console.log("innn")
   return (
     <div className="fullDiv">
 
@@ -13,7 +14,9 @@ export default function ProfilePage() {
     <div className="mid">
       <Profile />
     </div>
-    <div className="right">3</div>
+      <div className="right">
+        <SearchBar/>
+    </div>
   </div>
   )
 }

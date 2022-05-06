@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
 import Profile from "../components/profile";
+import SearchBar from "../components/searchBar/SearchBar";
 
 function Home() {
   const [show, setShow] = useState({ display: "flex" });
@@ -37,7 +38,9 @@ function Home() {
       }
       <div className="mid">
       </div>
-      <div className="right">3</div>
+      <div className="right">
+        <SearchBar/>
+      </div>
     </div>
   );
 }
