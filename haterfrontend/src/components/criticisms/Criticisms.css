@@ -1,4 +1,4 @@
-.newHate-wrapper {
+.criticisms-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,11 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
-.newHate-modal {
+.criticisms-modal {
   width: 75%;
   height: 50%;
   background: white;
@@ -24,7 +24,7 @@
   animation: animate 0.3s;
 }
 
-.newHate-modal-button {
+.criticisms-modal-button {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -39,7 +39,7 @@
   cursor: pointer;
 }
 
-.newHate-modal-button:hover {
+.criticisms-modal-button:hover {
   color: var(--hate-red);
   background-color: whitesmoke;
   border: 1px solid var(--hate-red);

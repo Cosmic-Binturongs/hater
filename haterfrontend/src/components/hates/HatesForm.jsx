@@ -6,7 +6,7 @@ import './Hates.css'
 import HatesFeed from './HatesFeed';
 
 
-export default function HatesForm({ setToggle}) {
+export default function HatesForm({ setToggle }) {
   const [hate, setHate] = useState({
     h_body: "",
     haters: 21,
@@ -27,14 +27,14 @@ export default function HatesForm({ setToggle}) {
   }
 
   return (
-  <div className="hate-text-box">
-    <div className='hate-profile-textbox'>
-      <span className='hate-forms-home'>Home</span>
+    <div className="hate-text-box">
+      <div className='hate-profile-textbox'>
+        <span className='hate-forms-home'>Home</span>
         <div className='hate-profile-pic'>
           <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
         </div>
-    </div>
-    <div className="hates-form">
+      </div>
+      <div className="hates-form">
         <form className="hates-form-box" onSubmit={handleSubmit}>
           <TextareaAutosize
             className="hates-form-text"
@@ -52,8 +52,8 @@ export default function HatesForm({ setToggle}) {
             type="submit"
             value="Hate"
           />
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
   )
 }

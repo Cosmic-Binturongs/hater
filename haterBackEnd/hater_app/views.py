@@ -61,22 +61,25 @@ class AddDislike(APIView):
   def get(self,request, format=None):
     try:
       hate_id = request.query_params['hateid']
+      sign = request.query_params['sign']
       hate_post = Hates.objects.get(id = hate_id)
-      new_count = hate_post.hate_count + 1
+      new_count = hate_post.hate_count  + int(sign)
+      
       Hates.objects.filter(id = hate_id).update(hate_count = new_count)
-      return Response({'old_dislike_count':hate_post.hate_count})
+      return Response({'old_dislike_count':sign})
     except:
       return Response({'message':"ಥ_ಥ error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
 class AddRehate(APIView):
   def get(self,request, format=None):
     try:
       hate_id = request.query_params['hateid']
+      sign = request.query_params['sign']
       hate_post = Hates.objects.get(id = hate_id)
-      new_count = hate_post.rehate_count + 1
+      new_count = hate_post.rehate_count + int(sign)
       Hates.objects.filter(id = hate_id).update(rehate_count = new_count)
       return Response({'old_rehate_count':hate_post.rehate_count})
     except:
-      return Response({'message':"(╬ಠ益ಠ) error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+      return Response({'message':"(╬ಠ益ಠ) error; you are most likely missing a 'hateid' / 'sign' param or that hate post id doesnt exist "})
 class AddComment(APIView):
   def post(self,request, format=None):
     try:

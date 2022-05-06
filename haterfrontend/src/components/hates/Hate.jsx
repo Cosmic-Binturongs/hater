@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import MessageIcon from '@mui/icons-material/Message';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
+import Criticisms from '../criticisms/Criticisms';
 
 export default function Hate({ hateData, setToggle }) {
   const [hate, setHate] = useState({
@@ -14,6 +15,14 @@ export default function Hate({ hateData, setToggle }) {
     haters: hateData.haters
   })
 
+  // Modal constants
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
   return (
     <div className="hate-post">
       <div className='hate-profile'>
@@ -22,12 +31,12 @@ export default function Hate({ hateData, setToggle }) {
         </div>
       </div>
       <div className="hate-form">
-          <h3
-            className="hate-name"
-            type="text"
-            name="name">
-            {hate.id} {hate.haters}
-          </h3>
+        <h3
+          className="hate-name"
+          type="text"
+          name="name">
+          {hate.id} {hate.haters}
+        </h3>
         <div className="hate-info">
           <h2
             className="hate-text"
@@ -37,9 +46,13 @@ export default function Hate({ hateData, setToggle }) {
           </h2>
         </div>
         <div className='hate-buttons'>
-          <button className='hate-criticisms' title="Criticism">
+
+          <button className='hate-criticisms' title="Criticism" onClick={openModal}>
             <MessageIcon className='hate-crit'></MessageIcon> 123
           </button>
+          {showModal ? <Criticisms setShowModal={setShowModal} /> : null}
+
+
           <button className='hate-rehate' title="Rehate">
             <AutorenewIcon className='hate-renew'></AutorenewIcon> 456
           </button>
