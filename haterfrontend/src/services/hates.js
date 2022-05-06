@@ -2,7 +2,7 @@ import api from "./apiConfig";
 
 export const getHates = async () => {
   try {
-    const response = await api.get("/hates/");
+    const response = await api.get("/allHates/");
     return response.data;
   } catch (error) {
     throw error;

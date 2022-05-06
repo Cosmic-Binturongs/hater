@@ -1,4 +1,5 @@
 import { TextareaAutosize } from '@mui/material';
+import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { createHate } from '../../services/hates'
@@ -9,7 +10,7 @@ import HatesFeed from './HatesFeed';
 export default function HatesForm({ setToggle}) {
   const [hate, setHate] = useState({
     h_body: "",
-    haters: 21,
+    haters: 1
   })
 
   const handleChange = (event) => {
@@ -22,7 +23,13 @@ export default function HatesForm({ setToggle}) {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await createHate(hate)
+    let created = await axios.post("http://127.0.0.1:8000/hates/", {
+      h_body: hate.h_body,
+      hate_count: 0,
+      rehate_count:0,
+      crit_count:0,
+      haters: hate.haters
+    })
     setToggle(prev => !prev)
   }
 
