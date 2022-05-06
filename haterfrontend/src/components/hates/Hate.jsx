@@ -18,7 +18,7 @@ export default function Hate({ hateData, setToggle }) {
     <div className="hate-post">
       <div className='hate-profile'>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.name}.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
         </div>
       </div>
       <div className="hate-form">
@@ -26,14 +26,14 @@ export default function Hate({ hateData, setToggle }) {
             className="hate-name"
             type="text"
             name="name">
-          {hate.h_body} {hate.haters}
+            {hate.id} {hate.haters}
           </h3>
         <div className="hate-info">
           <h2
             className="hate-text"
             type="text"
             name="text">
-            {hate.id}
+            {hate.h_body}
           </h2>
         </div>
         <div className='hate-buttons'>

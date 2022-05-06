@@ -130,12 +130,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
-    'http://127.0.0.1:8000'
-]
+#this line allows for any origin to make requests to our api 
+#post M.V.P we should only white list hate.rip
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOW_CREDENTIALS = True
-CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
-CSRF_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SAMESITE = 'Lax'
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:5500',
+#     'http://127.0.0.1:5500'
+# ]
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
+# CSRF_COOKIE_SAMESITE = 'Lax'
+# SESSION_COOKIE_SAMESITE = 'Lax'

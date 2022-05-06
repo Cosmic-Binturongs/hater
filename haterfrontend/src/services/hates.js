@@ -20,7 +20,7 @@ export const getHate = async (id) => {
 
 export const createHate = async (hate) => {
   try {
-    const response = await api.post("/hates", hate);
+    const response = await api.post("/hates/", hate);
     return response.data;
   } catch (error) {
     throw error;
