@@ -1,6 +1,9 @@
 :root {
   --hate-red: rgb(241, 146, 146);
 }
+:root {
+  --pro-grey: rgb(224, 224, 224);
+}
 
 .home {
   display: flex;

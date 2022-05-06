@@ -13,12 +13,13 @@
   width: 120px;
   height: 120px;
   border-radius: 200px;
-  top: 0px;
+  top: 10px;
   margin-left: 20px;
   position: absolute;
   background-color: white;
   border: 2px solid rgb(159, 152, 152);
   z-index: 2;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
 }
 .proPageContainer {
   display: flex;
@@ -35,11 +36,13 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  height: 97%;
-  width: 97%;
+  padding-left: 60px;
+  position: absolute;
+  height: 100%;
+  width: calc((100%));
   border: 2px solid rgb(224, 224, 224);
   border-radius: 10px 10px 0 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .frame {
@@ -105,7 +108,7 @@
   background-image: url("../images/logout.png");
   background-size: cover;
   /* position: absolute; */
-  /* bottom: 0; */
+
   filter: invert(65%) sepia(47%) saturate(385%) hue-rotate(314deg)
     brightness(95%) contrast(100%);
   /* border: 1px solid rgb(12, 188, 208); */
@@ -115,11 +118,15 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  left: 0;
   width: 60px;
   height: 100%;
+  top: 0;
   border-right: 2px solid rgb(224, 224, 224);
   gap: 50px;
-  padding-top: 5%;
+  position: fixed;
+  z-index: 2;
+  background-color: white;
 }
 .proBody {
   display: flex;
@@ -131,11 +138,16 @@
   align-items: flex-start;
   overflow: hidden;
 }
-.proBodyFrame {
+.miniProBodyFrame {
   display: flex;
   width: calc(100%);
   position: relative;
-  height: 120px;
+  height: 140px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
   background-color: var(--hate-red);
 }
 .proProfilePic {
@@ -167,6 +179,16 @@
   border-left: 2px solid rgb(224, 224, 224);
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+}
+.smallProfileHateContainer {
+  display: flex;
+  position: absolute;
+  flex-direction: column-reverse;
+  top: 170px;
+  height: calc(100% - 170px);
+  width: 80%;
+  justify-content: flex-end;
   align-items: center;
 }
 

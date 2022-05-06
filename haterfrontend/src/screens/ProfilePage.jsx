@@ -3,12 +3,13 @@ import "../styles/ProfilePage.css"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import MiniHates from "../components/miniHates/miniHates.js"
-import { createHate, getHate, getHates } from "../services/hates.js";
-
+import { createHate, getHate, getHates, getAllHates } from "../services/hates.js";
 import logo from "../components/profilebutton/logo.png"
-
 import Profile from "../components/profile";
 import { Button } from "@mui/material";
+import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+import MessageIcon from '@mui/icons-material/Message';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 export default function ProfilePage(props) {
 
@@ -21,7 +22,7 @@ export default function ProfilePage(props) {
 
   useEffect(() => {
     const fetchHates = async () => {
-      const response = await getHates()
+      const response = await getAllHates()
       setDatas(response);
     }
     fetchHates()
@@ -44,9 +45,9 @@ export default function ProfilePage(props) {
             <div className="proBodyFrame"></div>
             <div className="proProfilePic"><img src={`https://avatars.dicebear.com/api/adventurer/${face}.svg?flip=1`}></img></div>
             <div className="proTweetCount">
-              <div>Hates:{ }</div>
-              <div>Haters:{ }</div>
-              <div>Critiques:{ }</div>
+                      <MessageIcon className='hate-crit'></MessageIcon>   
+                      <AutorenewIcon className='hate-renew'></AutorenewIcon> 
+                      <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon> 
             </div>
           </div>
           <div className="proSearch">
@@ -61,7 +62,7 @@ export default function ProfilePage(props) {
               Search
             </Button>
             </form>
-            {datas.map((data) => (<MiniHates id={data.id} hate={data.h_body} likes={data.haters }/> ))}
+            {datas.map((data) => (<MiniHates profileID={data.hater_id } hater_name={data.hater_name} hater_tag={data.hate_tag} hate={data.hate} hate_count={data.hate_count }  rehate_count={data.rehate_count} crit_count={data.crit_count}/>))}
           </div>
         </div>
       </div>
