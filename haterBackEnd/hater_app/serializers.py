@@ -33,7 +33,7 @@ class CommentSerializer(serializers.BaseSerializer):
         'hate_id': instance.hate.id,
         'hate_content': instance.hate.h_body,
       }
-class RawSerializer(serializers.BaseSerializer):
+class AllHatesSerializer(serializers.BaseSerializer):
     def to_representation(self, instance):
       return {
         'id': instance.id,
@@ -45,6 +45,7 @@ class RawSerializer(serializers.BaseSerializer):
         'hater_name': instance.haters.name,
         'hate_tag': instance.haters.tag
       }
+
 class TestSerializer(serializers.BaseSerializer):
     def to_representation(self, instance):
       return {
