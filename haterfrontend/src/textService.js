@@ -3,7 +3,7 @@
 let sendSMS = () => {
 
   const accountSid = 'AC341560422bf71c1a6fe53115b1067dd6';
-  const authToken = 'edc3378ba470a3b963b6962fd1ebfdd2'
+  const authToken = '6f09c307d1f608def52c74fca3eb23ac'
   const client = require('twilio')(accountSid, authToken);
 
   const user_handle = ''
@@ -20,3 +20,4 @@ let sendSMS = () => {
 }
 
 sendSMS();
+
