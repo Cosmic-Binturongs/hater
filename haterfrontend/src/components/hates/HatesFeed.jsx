@@ -5,11 +5,12 @@ import Error from "../../screens/Error"
 
 export default function HatesFeed({ hates, setToggle }) {
   return (
-    <div className="hate-list">
+    <div className="hates-list">
       {
           hates.map((hate,id) => (
             <Hate setToggle={setToggle} key={id} hateData={hate} />
           ))
+          
       }
     </div>
   )
