@@ -193,6 +193,10 @@
   width: 100%;
 }
 
+.hate-name{
+  color: grey
+}
+
 .hate-forms-home {
   font-size: 25px;
   padding-left: 20px;
