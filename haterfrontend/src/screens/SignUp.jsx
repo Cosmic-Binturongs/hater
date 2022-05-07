@@ -1,50 +1,59 @@
 import React from "react";
 import "../styles/SignUp.css";
 import { useState } from "react";
+import Cookies from "js-cookie";
+import CSRFToken from "../components/CSRFToken";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfrim] = useState("");
-  const [valid, setValid] = useState(true);
+  let navigate = useNavigate();
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+    re_password: "",
+  });
+  let handleSubmit = (e) => {
+    e.preventDefault();
+    if (form.password === form.re_password) {
+      let options = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "X-CSRFToken": Cookies.get("csrftoken"),
+        },
+        credentials: "include",
+        body: JSON.stringify(form),
+      };
 
-  function match(event) {
-    event.preventDefault();
-    if (password === passwordConfirm) {
-      setValid(true);
+      fetch("http://localhost:8000/user/register", options)
+        .then((res) => res.json())
+        .then((data) => {
+          data["error"] ? alert(data["error"]) : navigate("/home");
+        })
+        .catch((err) => console.log(err));
     } else {
-      setValid(false);
-      alert("Password Don't Match");
+      alert("passwords dont match");
     }
-  }
-
-  function Password(event) {
-    let str = event.target.value;
-    setPassword(str);
-  }
-
-  function PasswordConfirm(event) {
-    let str = event.target.value;
-    setPasswordConfrim(str);
-  }
+  };
+  let updateFormData = (e) => {
+    let { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
   return (
-    <div class="signup-container">
-      <form onSubmit={match}>
-        <h1>Sign Up</h1>
+    <div className="signup-container">
+      <CSRFToken></CSRFToken>
 
-        <label for="email">
-          <h3>Email</h3>
-        </label>
-        <input
-          className="signup-inputs"
-          type="text"
-          placeholder="Enter Email"
-          name="email"
-          required
-        />
-        <label for="username">
+      <form onSubmit={handleSubmit}>
+        <h1>Sign Up</h1>
+        <label>
           <h3>Username</h3>
         </label>
         <input
+          onChange={updateFormData}
           className="signup-inputs"
           type="text"
           placeholder="Enter Username"
@@ -52,31 +61,31 @@ export default function SignUp() {
           required
         />
 
-        <label for="psw">
+        <label>
           <h3>Password</h3>
         </label>
         <input
+          onChange={updateFormData}
           className="signup-inputs"
-          onChange={Password}
           type="password"
           placeholder="Enter Password"
-          name="psw"
+          name="password"
           required
         />
 
-        <label for="confirm">
+        <label>
           <h3>Confirm Password</h3>
         </label>
         <input
+          onChange={updateFormData}
           className="signup-inputs"
-          onChange={PasswordConfirm}
           type="password"
           placeholder="Confirm Password"
-          name="confirm-psw"
+          name="re_password"
           required
         />
         <div className="singup-button-container">
-          <button type="submit" class="signup-btn">
+          <button type="submit" className="signup-btn">
             Sign Up
           </button>
         </div>

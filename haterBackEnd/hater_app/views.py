@@ -30,13 +30,6 @@ class HatesViewSet(viewsets.ModelViewSet):
 class CriticismViewSet(viewsets.ModelViewSet):
     queryset = Criticism.objects.all()
     serializer_class = CriticismSerializer
-
-class YourHatesView(APIView):
-    def get(self, request, format=None):
-      hates = Hates.objects.select_related('').all()
-      hates_json = TestSerializer(hates, many=True)
-      return Response(hates_json.data)
-     
 class CommentView(APIView):
   def get(self,request, format=None):
     try:
