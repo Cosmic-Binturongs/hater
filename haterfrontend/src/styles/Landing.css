@@ -1,5 +1,5 @@
 :root {
-  --hate-red: rgb(241, 146, 146);
+  --hate-red: #DC1A22;
 }
 :root {
   --pro-grey: rgb(224, 224, 224);
@@ -19,6 +19,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 60%;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
 }
 
 .landingForm {
@@ -27,11 +28,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .landingLoginInput {
   display: flex;
-  border: 1px solid var(--hate-red);
+  border: 2px solid var(--hate-red);
   border-radius: 100px;
   margin-top: 5%;
   height: fit-content;
@@ -39,6 +41,7 @@
 }
 
 .slogan {
+  font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -51,17 +54,18 @@
 
 .LogoLink {
   text-decoration: none;
-  font-size: 50px;
-  color: rgb(241, 146, 146);
+  font-weight: bolder;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 40px;
+  color: var(--hate-red);
 }
 
 .landingRight {
+  font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 5%;
-  /* border: 1px solid blue; */
   height: 100%;
   width: 40%;
   color: var(--hate-red);
@@ -72,7 +76,7 @@
   background-color: whitesmoke;
   color: var(--hate-red);
   width: 50%;
-  margin-top: 5%;
+  display: none;
 }
 
 #google-sign:hover {
@@ -84,8 +88,9 @@
   border-radius: 50px;
   background-color: var(--hate-red);
   color: white;
-  width: 50%;
-  margin-top: 5%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bolder;
+  width: 163px;
 }
 
 #landing-sign-up:hover {
@@ -140,9 +145,12 @@
 
 #login {
   margin: 10px;
-  border-radius: 12px;
-  border-color: var(--hate-red);
-  color: var(--hate-red);
+  border-radius: 50px;
+  background-color: var(--hate-red);
+  color: whitesmoke;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bolder;
+  width: 163px;
 }
 
 #login:hover {
@@ -150,16 +158,42 @@
   background-color: whitesmoke;
 }
 
-.angryBird {
-  display: flex;
-  margin: 6%;
+.logoMain {
   width: 50%;
+  height: auto;
+}
+
+.logoInvert {
+  width: 75%;
+  height: auto;
 }
 
 #landing-signup-link {
   text-decoration: none;
+
 }
 
+.rightLogoContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoInvDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.fYou{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 @media only screen and (max-width: 600px) {
   .home {
     flex-direction: column;
@@ -179,7 +213,8 @@
     display: none;
   }
 
-  .landLogSlogal {
+
+  .logoInvert {
     display: none;
   }
 }
