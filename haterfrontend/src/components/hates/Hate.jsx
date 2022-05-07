@@ -2,12 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import MessageIcon from '@mui/icons-material/Message';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
-<<<<<<< HEAD
 import { updateHate } from '../../services/hates';
-import axios from 'axios';
-=======
 import Criticisms from '../criticisms/Criticisms';
->>>>>>> 61920e05822c01c78c56a23a72d5ffca60cd0f9f
+import axios from 'axios';
 
 export default function Hate({ hateData, setToggle }) {
   let hateButtons = useRef(null)
@@ -18,7 +15,7 @@ export default function Hate({ hateData, setToggle }) {
     hater_name: hateData.hater_name,
     hate_tag: hateData.hate_tag,
     hate_count: hateData.hate_count,
-    crit_count: hateData.hate_count,
+    crit_count: hateData.crit_count,
     rehate_count: hateData.rehate_count,
     date_time: hateData.date_time
   })
@@ -29,33 +26,22 @@ export default function Hate({ hateData, setToggle }) {
   const [rehatedisabled, setReHateDisabled] = useState(false);
 
   const incrementHateCount = async (event) => {
-    setHateCount(hateCount + 1)
+    setHateCount((prev)=> prev + 1)
     event.preventDefault()
     let hateUpdated = await axios.get(`http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}&sign=${1}`)
     setToggle(prev => !prev)
     hateButtons.current.classList.add('hate-disabled');
     hateButtons.current.style.color = "red";
-    console.log(hateData.id)
   }
 
   const incrementRehateCount = async (event) => {
-    setRehateCount(rehateCount + 1)
+    setRehateCount((prev)=> prev + 1)
     event.preventDefault()
     let rehateUpdated = await axios.get(`http://127.0.0.1:8000/addRehate/?hateid=${hateData.id}&sign=${1}`)
     setToggle(prev => !prev)
     rehateButtons.current.classList.add('hate-disabled');
     rehateButtons.current.style.color = "green";
   }
-
-
-
-  // Modal constants
-
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
 
   return (
     <div className="hate-post">

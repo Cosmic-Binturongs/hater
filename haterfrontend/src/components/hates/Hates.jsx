@@ -24,7 +24,7 @@ export default function Hates() {
   return (
     <div className="hates-box">
       <div className="hates-form-container">
-        <HatesForm setToggle={setToggle} />
+        <HatesForm toggle={toggle} setToggle={setToggle} />
       </div>
       <div className='hates-feed'>
         <HatesFeed
