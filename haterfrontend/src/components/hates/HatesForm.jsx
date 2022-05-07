@@ -10,7 +10,7 @@ import './Hates.css'
 export default function HatesForm({ toggle, setToggle }) {
   const [hate, setHate] = useState({
     h_body: "",
-    haters: 2
+    haters: 1
   })
 
   const handleChange = (event) => {
@@ -39,7 +39,7 @@ export default function HatesForm({ toggle, setToggle }) {
       <div className='hate-profile-textbox'>
         <span className='hate-forms-home'>Home</span>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/default.svg?flip=1`} alt="profile"></img>
         </div>
       </div>
       <div className="hates-form">

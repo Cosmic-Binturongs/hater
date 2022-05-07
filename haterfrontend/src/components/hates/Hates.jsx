@@ -16,7 +16,6 @@ export default function Hates() {
       const response = await getHates()
       setHates(response)
     }
-
     fetchHates()
   }, [toggle])
 
