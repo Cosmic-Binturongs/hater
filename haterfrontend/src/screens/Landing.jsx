@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/Landing.css";
 import Profile from "../components/profile";
 import LandingLogo from "../images/hater-logos.jpeg"
-import LandingLogoInverted from "../images/hater-logos_transparent.png"
+import LandingLogoInverted from "../images/hater-logos_transparent_inverted_color.png"
 
 
 export default function Home() {
