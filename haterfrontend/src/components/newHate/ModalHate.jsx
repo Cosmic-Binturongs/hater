@@ -3,11 +3,13 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useRef } from 'react';
 import { createHate } from '../../services/hates'
-import HatesFeed from './HatesFeed';
-import './Hates.css'
+import { useNavigate } from "react-router-dom";
+import '../hates/Hates.css'
+import HatesFeed from '../hates/HatesFeed';
 
 
-export default function HatesForm({ toggle, setToggle }) {
+export default function ModalHate({setShowModal}) {
+  let navigate = useNavigate();
   const [hate, setHate] = useState({
     h_body: "",
     haters: 1
@@ -21,6 +23,14 @@ export default function HatesForm({ toggle, setToggle }) {
     })
   }
 
+  const modalButtonRef = useRef();
+  
+  const closeModal = (e) => {
+    if (e.target === modalButtonRef.current) {
+      setShowModal(false);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     let created = await axios.post("http://127.0.0.1:8000/hates/", {
@@ -30,8 +40,8 @@ export default function HatesForm({ toggle, setToggle }) {
       crit_count:0,
       haters: hate.haters,
     })
-    hate.h_body = "";
-    setToggle(prev => !prev)
+    setShowModal(false)
+    window.location.reload();
   }
 
   return (
@@ -39,7 +49,7 @@ export default function HatesForm({ toggle, setToggle }) {
       <div className='hate-profile-textbox'>
         <span className='hate-forms-home'>Home</span>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/default.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
         </div>
       </div>
       <div className="hates-form">

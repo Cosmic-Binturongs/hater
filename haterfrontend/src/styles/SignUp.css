@@ -23,9 +23,9 @@ input:invalid {
   background-color: #ffdddd;
 }
 
-input:valid {
+/* input:valid {
   background-color: #ddffdd;
-}
+} */
 
 .signup-btn {
   background-color: var(--hate-red);
