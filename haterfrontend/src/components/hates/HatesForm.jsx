@@ -1,45 +1,49 @@
-import { TextareaAutosize } from '@mui/material';
-import axios from 'axios';
-import React from 'react';
-import { useState, useRef } from 'react';
-import { createHate } from '../../services/hates'
-import HatesFeed from './HatesFeed';
-import './Hates.css'
-
+import { TextareaAutosize } from "@mui/material";
+import axios from "axios";
+import React from "react";
+import { useState, useRef } from "react";
+import { createHate } from "../../services/hates";
+import HatesFeed from "./HatesFeed";
+import "./Hates.css";
+import { useSelector } from "react-redux";
 
 export default function HatesForm({ toggle, setToggle }) {
+  const user = useSelector((state) => state.user);
   const [hate, setHate] = useState({
     h_body: "",
-    haters: 1
-  })
+    haters: 1,
+  });
 
   const handleChange = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     setHate({
       ...hate,
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let created = await axios.post("http://127.0.0.1:8000/hates/", {
       h_body: hate.h_body,
       hate_count: 0,
-      rehate_count:0,
-      crit_count:0,
+      rehate_count: 0,
+      crit_count: 0,
       haters: hate.haters,
-    })
+    });
     hate.h_body = "";
-    setToggle(prev => !prev)
-  }
+    setToggle((prev) => !prev);
+  };
 
   return (
     <div className="hate-text-box">
-      <div className='hate-profile-textbox'>
-        <span className='hate-forms-home'>Home</span>
-        <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/default.svg?flip=1`} alt="profile"></img>
+      <div className="hate-profile-textbox">
+        <span className="hate-forms-home">Home</span>
+        <div className="hate-profile-pic">
+          <img
+            src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
+            alt="profile"
+          ></img>
         </div>
       </div>
       <div className="hates-form">
@@ -55,13 +59,9 @@ export default function HatesForm({ toggle, setToggle }) {
             onChange={handleChange}
             required
           />
-          <input
-            className="hates-button-up"
-            type="submit"
-            value="Hate"
-          />
+          <input className="hates-button-up" type="submit" value="Hate" />
         </form>
       </div>
     </div>
-  )
+  );
 }

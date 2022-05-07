@@ -1,13 +1,15 @@
 import "../styles/Home.css";
-import "../components/hates/Hates"
+import "../components/hates/Hates";
 import { useEffect, useState } from "react";
 import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
 import Hates from "../components/hates/Hates";
 import Profile from "../components/profile";
 import SearchBar from "../components/searchBar/SearchBar";
+import { useSelector } from "react-redux";
 
 function Home() {
+  const user = useSelector((state) => state.user);
   const [show, setShow] = useState({ display: "flex" });
   const closeBox = () => {
     setShow({ display: "none" });
@@ -15,34 +17,21 @@ function Home() {
   const handleClick = () => {
     setShow({ display: "flex" });
   };
-  const [face, setFace] = useState(null)
 
   return (
     <div className="fullDiv">
       <Profilebutton click={handleClick} />
-      {
-        !face 
-          ? <Profiletab
-          name={"verybamboo"}
-          tweets={114}
-          likes={426}
-          click={closeBox}
-            show={show}
-          />
-          : <Profiletab
-        picture={`https://avatars.dicebear.com/api/adventurer/${face}.svg?flip=1`}
-        name={face}
-        tweets={114}
-        likes={426}
+      <Profiletab
+        name={user.name}
         click={closeBox}
         show={show}
+        picture={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
       />
-      }
       <div className="mid">
         <Hates />
       </div>
       <div className="right">
-        <SearchBar/>
+        <SearchBar />
       </div>
     </div>
   );

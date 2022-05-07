@@ -24,10 +24,7 @@ function Profile(props) {
         <div className="propic">{content}</div>
         <div className="tweetcount">
           <div className="account">{props.name}</div>
-          <div className="proCountContainer">
-            <div>{props.tweets} Following</div>
-            <div>{props.likes} Followers</div>
-          </div>
+          <div className="proCountContainer"></div>
         </div>
       </div>
       <div className="bottom">
