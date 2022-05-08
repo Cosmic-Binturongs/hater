@@ -1,18 +1,18 @@
 .hate-post {
-  border: 1px solid white;
+  border: 1px solid black;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
   display: flex;
   width: 100%;
-  background: black;
-  color: var(--hate-red);
+  background: white;
+  color: black
 }
 
 .hate-text-box {
-  color: var(--hate-red);;
-  background: black;
-  border: 1px solid white;
+  color: black;
+  background: white;
+  border: 1px solid black;
   text-align: left;
   margin-bottom: 2rem;
   display: flex;
@@ -120,7 +120,7 @@
 .hate-rehate {
   border: 0;
   background-color: transparent;
-  color: white;
+  color: black
 }
 
 .hate-disabled {

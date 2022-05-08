@@ -17,7 +17,7 @@ export default function MiniHates(props) {
         </div>
         <div className="miniHateID">
           <Link className="nameLinks" to={`/profile/${props.profileID}`}>
-            @{props.hater_tag}
+            {props.hater_tag}
           </Link>
         </div>
         <div className="miniHateBody">{props.hate}</div>

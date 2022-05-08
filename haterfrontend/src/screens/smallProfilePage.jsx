@@ -71,7 +71,7 @@ export default function SmallProfilePage() {
                       <img src={`https://avatars.dicebear.com/api/adventurer/${data.name}.svg?flip=1`}></img>
                     </div>
                     <div className="proTweetCount">
-                      <div>@{data.tag}</div>
+                      <div>{data.tag}</div>
                       <MessageIcon className='hate-crit'></MessageIcon>{critSum}
                       <AutorenewIcon className='hate-renew'></AutorenewIcon> {rehateSum}
                       <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon>{hateSum}
