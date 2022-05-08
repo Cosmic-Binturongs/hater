@@ -97,8 +97,8 @@
 }
 
 #landing-sign-up:hover {
-  color: var(--hate-red);
-  background-color: whitesmoke;
+  color: white;
+  background-color: darkred;
 }
 
 .middle-right {
@@ -158,7 +158,8 @@
 
 #login:hover {
   color: var(--hate-red);
-  background-color: whitesmoke;
+  color: white;
+  background-color: darkred;
 }
 
 .logoMain {
