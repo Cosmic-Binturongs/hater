@@ -27,6 +27,8 @@ export default function ModalHate({ setShowModal }) {
     })
   }
 
+  const [toggle, setToggle] = useState(false);
+
   const modalButtonRef = useRef();
   
   const closeModal = (e) => {
@@ -36,14 +38,27 @@ export default function ModalHate({ setShowModal }) {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    let created = await axios.post("http://127.0.0.1:8000/hates/", {
-      h_body: hate.h_body,
-      hate_count: 0,
-      rehate_count:0,
-      crit_count:0,
-      haters: hate.haters,
-    })
+    event.preventDefault();
+    let postOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        h_body: hate.h_body,
+        haters: user.id,
+      }),
+    };
+    fetch("http://localhost:8000/createHate", postOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data["error"]) {
+          setToggle((prev) => !prev);
+        }
+      });
     setShowModal(false)
     window.location.reload();
   }
