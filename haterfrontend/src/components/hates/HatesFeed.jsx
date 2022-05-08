@@ -10,7 +10,6 @@ export default function HatesFeed({ hates, setToggle }) {
           hates.map((hate,id) => (
             <Hate setToggle={setToggle} key={id} hateData={hate} />
           ))
-          
       }
     </div>
   )

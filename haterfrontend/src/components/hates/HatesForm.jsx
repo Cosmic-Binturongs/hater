@@ -47,7 +47,7 @@ export default function HatesForm({ toggle, setToggle }) {
           <TextareaAutosize
             className="hates-form-text"
             id="hateFormText"
-            placeholder="Who's Hatin'"
+            placeholder="Who Hatin'"
             type="text"
             name="h_body"
             value={hate.h_body}

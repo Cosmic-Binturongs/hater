@@ -1,16 +1,18 @@
 .hate-post {
-  border: 1px solid black;
-  color: black;
+  border: 1px solid white;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
   display: flex;
   width: 100%;
+  background: black;
+  color: var(--hate-red);
 }
 
 .hate-text-box {
-  color: black;
-  border: 1px solid rgb(241, 146, 146, 1);
+  color: var(--hate-red);;
+  background: black;
+  border: 1px solid white;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -30,6 +32,7 @@
 
 .hates-form-box{
   width: 100%;
+  color: var(--hate-red);
 }
 
 .hates-box{
@@ -90,8 +93,11 @@
   margin-top: 50px;
   margin-left: 15px;
   padding-left: 5%;
+  padding-right: 5%;
   max-width: 100%;
   max-height: 100%;
+  background-color: black;
+  color: var(--hate-red);
 }
 
 .hates-form-text:focus {
@@ -120,6 +126,7 @@
 .hate-rehate {
   border: 0;
   background-color: transparent;
+  color: white;
 }
 
 .hate-disabled{
@@ -188,6 +195,7 @@
   margin-right: 15%;
   justify-content: space-evenly;
   padding-top: 2%;
+  color: white;
 }
 
 .hate-form {

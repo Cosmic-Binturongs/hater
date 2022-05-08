@@ -33,7 +33,7 @@ export default function Hate({ hateData, setToggle }) {
   const [rehatedisabled, setReHateDisabled] = useState(false);
 
   const incrementHateCount = async (event) => {
-    setHateCount( hateCount+ 1)
+    setHateCount(hateCount+ 1)
     event.preventDefault()
     let hateUpdated = await axios.get(`http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}&sign=${1}`)
     hateButtons.current.classList.add('hate-disabled');
