@@ -225,3 +225,7 @@
 .rehate-disabled {
   pointer-events: none;
 }
+.hate-date .hate-date-time {
+  font-size: smaller;
+  color: grey;
+}
