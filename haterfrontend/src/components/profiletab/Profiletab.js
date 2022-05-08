@@ -31,14 +31,11 @@ function Profile(props) {
         </div>
       </div>
       <div className="bottom">
-        <Link to="/home" className="pronavs">
+        <Link to="/" className="pronavs">
           Home
         </Link>
-        <Link to="/profile" className="pronavs">
+        <Link to="" className="pronavs">
           Profile
-        </Link>
-        <Link to="/" className="pronavs">
-          Login Page
         </Link>
         <Link to="" className="pronavs">
           Bookmarks

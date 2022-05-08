@@ -15,12 +15,12 @@ class User_profile(models.Model):
 class Hates(models.Model):
 
     haters = models.ForeignKey(User_profile, on_delete=models.CASCADE)
-    h_body = models.CharField(max_length=120)
+    h_body = models.CharField(max_length=140)
     hate_count = models.IntegerField()
     rehate_count = models.IntegerField()
     crit_count = models.IntegerField()
     hate_date = models.DateTimeField(
-        default=datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+        default=datetime.now().strftime("%Y-%m-%d %H:%M"))
 
     def __str__(self):
         return self.h_body

@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import '../newHate/newHate.css';
-import HatesForm from '../hates/HatesForm'
+import "../newHate/newHate.css";
+import HatesForm from "../hates/HatesForm";
+import ModalHate from "./ModalHate";
 
-function NewHate ({ setShowModal }) {
+function NewHate({ setShowModal }) {
   // close the modal when clicking outside the modal.
   const modalRef = useRef();
   const closeModal = (e) => {
@@ -11,18 +12,20 @@ function NewHate ({ setShowModal }) {
     }
   };
 
-
   return (
     <div className="newHate-wrapper" ref={modalRef} onClick={closeModal}>
       <div className="newHate-modal">
+        <ModalHate setShowModal={setShowModal} />
 
-        <HatesForm />
-
-        <button className="newHate-modal-button"onClick={() => setShowModal(false)}>X</button>
+        <button
+          className="newHate-modal-button"
+          onClick={() => setShowModal(false)}
+        >
+          X
+        </button>
       </div>
     </div>
-  )
-};
+  );
+}
 
-
-export default NewHate
+export default NewHate;

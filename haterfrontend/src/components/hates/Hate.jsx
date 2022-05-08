@@ -1,63 +1,84 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import MessageIcon from '@mui/icons-material/Message';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
+import { updateHate } from '../../services/hates';
 import Criticisms from '../criticisms/Criticisms';
+import axios from 'axios';
 
 export default function Hate({ hateData, setToggle }) {
+  let hateButtons = useRef(null)
+  let rehateButtons = useRef(null)
+
   const [hate, setHate] = useState({
-    // name: hateData.name,
-    // tag: hateData.tag,
-    // text: hateData.text,
-
-    id: hateData.id,
-    h_body: hateData.h_body,
-    haters: hateData.haters
+    hate: hateData.hate,
+    hater_name: hateData.hater_name,
+    hate_tag: hateData.hate_tag,
+    hate_count: hateData.hate_count,
+    crit_count: hateData.crit_count,
+    rehate_count: hateData.rehate_count,
+    date_time: hateData.date_time
   })
+  
+  const [hateCount, setHateCount] = useState(0);
+  const [rehateCount, setRehateCount] = useState(0);
+  const [hatedisabled, setHateDisabled] = useState(false);
+  const [rehatedisabled, setReHateDisabled] = useState(false);
 
-  // Modal constants
+  const incrementHateCount = async (event) => {
+    setHateCount( hateCount+ 1)
+    event.preventDefault()
+    let hateUpdated = await axios.get(`http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}&sign=${1}`)
+    hateButtons.current.classList.add('hate-disabled');
+    hateButtons.current.style.color = "red";
+  }
 
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
+  const incrementRehateCount = async (event) => {
+    setRehateCount(rehateCount + 1)
+    event.preventDefault()
+    let rehateUpdated = await axios.get(`http://127.0.0.1:8000/addRehate/?hateid=${hateData.id}&sign=${1}`)
+    rehateButtons.current.classList.add('rehate-disabled');
+    rehateButtons.current.style.color = "green";
+  }
 
   return (
     <div className="hate-post">
       <div className='hate-profile'>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.hater_name}.svg?flip=1`} alt="profile"></img>
         </div>
       </div>
       <div className="hate-form">
-        <h3
-          className="hate-name"
-          type="text"
-          name="name">
-          {hate.id} {hate.haters}
-        </h3>
+          <h3
+            className="hate-name"
+            type="text"
+            name="name">
+            {hate.hater_name} {hate.hate_tag}
+          </h3>
         <div className="hate-info">
           <h2
             className="hate-text"
             type="text"
             name="text">
-            {hate.h_body}
+            {hate.hate}
           </h2>
+          <h3
+            className='hate-date'
+            type="date"
+            name="text">
+            {hate.date_time}
+            </h3>
+
         </div>
         <div className='hate-buttons'>
-
-          <button className='hate-criticisms' title="Criticism" onClick={openModal}>
-            <MessageIcon className='hate-crit'></MessageIcon> 123
+          <button className='hate-criticisms' title="Criticism">
+            <MessageIcon className='hate-crit'></MessageIcon> {hate.crit_count}
           </button>
-          {showModal ? <Criticisms setShowModal={setShowModal} /> : null}
-
-
-          <button className='hate-rehate' title="Rehate">
-            <AutorenewIcon className='hate-renew'></AutorenewIcon> 456
+          <button ref={rehateButtons} className='hate-rehate' title="Rehate" onClick={incrementRehateCount}>
+            <AutorenewIcon className='hate-renew'></AutorenewIcon> {hate.rehate_count + rehateCount}
           </button>
-          <button className='hate-dislike' title="Dislike">
-            <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon> 789
+          <button ref={hateButtons} className='hate-dislike' title="Dislike" onClick={incrementHateCount}>
+            <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon> {hate.hate_count + hateCount}
           </button>
         </div>
       </div>
