@@ -26,20 +26,20 @@ export default function Hate({ hateData, setToggle }) {
   const [rehatedisabled, setReHateDisabled] = useState(false);
 
   const incrementHateCount = async (event) => {
-    setHateCount(hateCount + 1);
+    setHateCount((prev) => prev + 1);
     event.preventDefault();
     let hateUpdated = await axios.get(
-      `http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}&sign=${1}`
+      `http://127.0.0.1:8000/addDislike?hateid=${hateData.id}&sign=${1}`
     );
     hateButtons.current.classList.add("hate-disabled");
     hateButtons.current.style.color = "red";
   };
 
   const incrementRehateCount = async (event) => {
-    setRehateCount(rehateCount + 1);
+    setRehateCount((prev) => prev + 1);
     event.preventDefault();
     let rehateUpdated = await axios.get(
-      `http://127.0.0.1:8000/addRehate/?hateid=${hateData.id}&sign=${1}`
+      `http://127.0.0.1:8000/addRehate?hateid=${hateData.id}&sign=${1}`
     );
     rehateButtons.current.classList.add("rehate-disabled");
     rehateButtons.current.style.color = "green";
