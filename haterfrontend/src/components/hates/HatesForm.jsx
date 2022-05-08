@@ -6,12 +6,12 @@ import { createHate } from "../../services/hates";
 import HatesFeed from "./HatesFeed";
 import "./Hates.css";
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 export default function HatesForm({ toggle, setToggle }) {
   const user = useSelector((state) => state.user);
   const [hate, setHate] = useState({
     h_body: "",
-    haters: 1,
   });
 
   const handleChange = (event) => {
@@ -24,15 +24,27 @@ export default function HatesForm({ toggle, setToggle }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let created = await axios.post("http://127.0.0.1:8000/hates/", {
-      h_body: hate.h_body,
-      hate_count: 0,
-      rehate_count: 0,
-      crit_count: 0,
-      haters: hate.haters,
-    });
-    hate.h_body = "";
-    setToggle((prev) => !prev);
+
+    let postOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        h_body: hate.h_body,
+        haters: user.id,
+      }),
+    };
+    fetch("http://localhost:8000/createHate", postOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data["error"]) {
+          setToggle((prev) => !prev);
+        }
+      });
   };
 
   return (
@@ -48,16 +60,15 @@ export default function HatesForm({ toggle, setToggle }) {
       </div>
       <div className="hates-form">
         <form className="hates-form-box" onSubmit={handleSubmit}>
-          <TextareaAutosize
+          <input
+            onChange={handleChange}
             className="hates-form-text"
             id="hateFormText"
             placeholder="Who's Hatin'"
-            type="text"
             name="h_body"
             value={hate.h_body}
             maxLength="140"
-            onChange={handleChange}
-            required
+            type="text"
           />
           <input className="hates-button-up" type="submit" value="Hate" />
         </form>

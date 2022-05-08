@@ -5,6 +5,7 @@ from rest_framework import permissions
 from django.contrib import auth
 from django.contrib.auth.models import User
 from hater_app.models import User_profile
+from hater_app.serializers import User_profileSerializer
 from .serializers import UserSerializer
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
@@ -65,6 +66,7 @@ class SignupView(APIView):
     username = data['username']
     password = data['password']
     re_password = data['re_password']
+    tag = data['tag']
 
     try:
       if password == re_password:
@@ -78,7 +80,7 @@ class SignupView(APIView):
 
               user = User.objects.get(id=user.id)
 
-              user_profile = User_profile.objects.create(user=user, name=username, tag="")
+              user_profile = User_profile.objects.create(user=user, name=username, tag=tag)
 
               return Response({ 'success': "User created successfully"})
       else:
@@ -112,6 +114,14 @@ class GetUsersView(APIView):
 
   def get(self, request, format=None):
     users = User.objects.all()
-
     users = UserSerializer(users, many=True)
     return Response(users.data)
+class GrabProfile(APIView):
+  def get(self,request, format=None):
+    try:
+      user = self.request.user
+      profile = User_profile.objects.get(user=user)
+      profile_json = User_profileSerializer(profile)
+      return Response({'profile':profile_json.data})
+    except:
+      return Response({'error':"( ﾟДﾟ)b error; make sure ur logged in "})

@@ -6,10 +6,11 @@ import React from "react";
 import SignUp from "./screens/SignUp.jsx";
 import { Routes, Route, useParams } from "react-router-dom";
 import SmallProfilePage from "./screens/smallProfilePage.jsx";
-
+import PersistProfile from "./components/persistProfile.jsx";
 function App() {
   return (
     <>
+      <PersistProfile></PersistProfile>
       <Routes>
         <Route path="/" element={<Landing></Landing>}></Route>
         <Route

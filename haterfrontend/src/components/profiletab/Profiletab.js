@@ -3,9 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NewHate from "../newHate/newHate.js";
+import Cookies from "js-cookie";
+import { useSelector } from "react-redux";
 
 function Profile(props) {
-  const [content, setcontent] = useState(<img src={props.picture}></img>);
+  const user = useSelector((state) => state.user);
 
   // Modal constants
 
@@ -14,14 +16,33 @@ function Profile(props) {
   const openModal = () => {
     setShowModal(true);
   };
-
+  let signOut = () => {
+    let options = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      credentials: "include",
+    };
+    fetch("http://localhost:8000/user/logout", options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div className="profile" style={props.show}>
       <div className="top">
         <div className="exit" onClick={props.click}>
           x
         </div>
-        <div className="propic">{content}</div>
+        <div className="propic">
+          <img
+            src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
+          ></img>
+        </div>
         <div className="tweetcount">
           <div className="account">{props.name}</div>
           <div className="proCountContainer"></div>
@@ -31,15 +52,15 @@ function Profile(props) {
         <Link to="/" className="pronavs">
           Home
         </Link>
-        <Link to="" className="pronavs">
+        <Link to="/profile" className="pronavs">
           Profile
         </Link>
         <Link to="" className="pronavs">
           Bookmarks
         </Link>
-        {/* <Link to="" className="prohate">
-          Hate
-        </Link> */}
+        <Link to="/home" onClick={signOut} className="pronavs">
+          Sign out
+        </Link>
         <button onClick={openModal} className="prohate">
           Hate
         </button>

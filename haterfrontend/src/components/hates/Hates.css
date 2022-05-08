@@ -8,18 +8,13 @@
   width: 100%;
 }
 
-
-
 .hate-text-box {
   color: black;
   border: 1px solid rgb(241, 146, 146, 1);
   text-align: left;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  margin-bottom: 2rem;
   display: flex;
-  width: 100%;
 }
-
 
 .hates-list {
   display: flex;
@@ -31,11 +26,11 @@
   width: 100%;
 }
 
-.hates-form-box{
+.hates-form-box {
   width: 100%;
 }
 
-.hates-box{
+.hates-box {
   width: 100%;
 }
 
@@ -69,7 +64,6 @@
   width: 85%;
 }
 
-
 .hates-form {
   width: 70%;
   flex-direction: column;
@@ -89,9 +83,9 @@
   resize: none;
   margin-top: 50px;
   margin-left: 15px;
-  padding-left: 5%;
-  max-width: 100%;
+  padding: 1rem;
   max-height: 100%;
+  max-width: 50vw;
 }
 
 .hates-form-text:focus {
@@ -122,7 +116,7 @@
   background-color: transparent;
 }
 
-.hate-disabled{
+.hate-disabled {
   pointer-events: none;
 }
 
@@ -131,16 +125,15 @@
   color: blue;
 }
 
-.hate-dislike:hover{
+.hate-dislike:hover {
   cursor: pointer;
   color: red;
 }
 
-.hate-rehate:hover{
+.hate-rehate:hover {
   cursor: pointer;
   color: green;
 }
-
 
 .hate-crit {
   padding: 8px;
@@ -193,8 +186,8 @@
   width: 100%;
 }
 
-.hate-name{
-  color: grey
+.hate-name {
+  color: grey;
 }
 
 .hate-forms-home {
