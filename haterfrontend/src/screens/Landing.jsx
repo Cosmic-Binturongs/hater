@@ -3,16 +3,18 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import "../styles/Landing.css";
 import Profile from "../components/profile";
+import LandingLogo from "../images/hater-logos.jpeg"
+import LandingLogoInverted from "../images/hater-logos_transparent_inverted_color.png"
+
+
 export default function Home() {
   return (
     <div className="home">
       <div className="landingLeft">
         <img
-          className="angryBird"
-          src={
-            "https://icons.iconarchive.com/icons/femfoyou/angry-birds/1024/angry-bird-icon.png"
-          }
-          alt="image"
+          className="logoMain"
+          src={LandingLogo}
+          alt="mainlogo"
         />
         <div className="slogan">
           <h3>Hate your interest</h3>
@@ -21,10 +23,21 @@ export default function Home() {
         </div>
       </div>
       <div className="landingRight">
-        <form className="landingForm">
+        <div classname="rightLogoContainer">
+          <div className="logoInvDiv">
+      <img
+          className="logoInvert"
+          src={LandingLogoInverted}
+          alt="invlogo"
+            />
+          </div>
+          <div className="fYou">
           <Link className="LogoLink" to="/home">
             $#%@ YOU
-          </Link>
+            </Link>
+            </div>
+          </div>
+        <form className="landingForm">
           <input
             className="landingLoginInput"
             placeholder="Username"
@@ -38,7 +51,7 @@ export default function Home() {
             type="text"
             name="password"
           />
-          <Button id="login" type="submit" variant="outlined">
+          <Button id="login" type="submit">
             Login
           </Button>
         </form>
@@ -48,11 +61,11 @@ export default function Home() {
             <h3>See what's happening in the world right now</h3>
             <h4>Join Hater Today</h4>
           </div>
-          <Button id="google-sign" variant="outlined">
+          <Button id="google-sign">
             Sign up with Google
           </Button>
           <Link id="landing-signup-link" to="/signup">
-            <Button id="landing-sign-up" variant="outlined">
+            <Button id="landing-sign-up">
               Sign up
             </Button>
           </Link>
