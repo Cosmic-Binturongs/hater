@@ -25,7 +25,7 @@ export default function Hate({ hateData, setToggle }) {
   let splitTime2 = splitTime[1].slice(0, 5);
   let halfTime = splitTime2.split(":")
   let hours = ((halfTime[0] + 11) % 12 + 1);
-  let ampm = hours <= 12 ? " PM" : " AM"; hours = ((halfTime[0] + 11) % 12 + 1);
+  let ampm = hours <= 12 ? " PM" : " AM"; hours = ((halfTime[0] + 11) % 12);
 
   let combinedTime = (hours + ":" + halfTime[1]) + ampm;
 
@@ -66,7 +66,7 @@ export default function Hate({ hateData, setToggle }) {
       </div>
       <div className="hate-form">
         <h3 className="hate-name" type="text" name="name">
-          {hate.hater_name} {hate.hate_tag}
+          {hate.hater_name} @{hate.hate_tag}
         </h3>
         <div className="hate-info">
           <h2 className="hate-text" type="text" name="text">
