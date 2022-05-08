@@ -49,24 +49,27 @@ function Profile(props) {
           <div className="proCountContainer"></div>
         </div>
       </div>
-      <div className="bottom">
+      {user.tag ? (
+        <div className="bottom">
+          <Link to="/" className="pronavs">
+            Home
+          </Link>
+          <Link to="/profile" className="pronavs">
+            Profile
+          </Link>
+          <Link to="/" onClick={signOut} className="pronavs">
+            Sign out
+          </Link>
+          <button onClick={openModal} className="prohate">
+            Hate
+          </button>
+          {showModal ? <NewHate setShowModal={setShowModal} /> : null}
+        </div>
+      ) : (
         <Link to="/" className="pronavs">
           Home
         </Link>
-        <Link to="/profile" className="pronavs">
-          Profile
-        </Link>
-        <Link to="" className="pronavs">
-          Bookmarks
-        </Link>
-        <Link to="/" onClick={signOut} className="pronavs">
-          Sign out
-        </Link>
-        <button onClick={openModal} className="prohate">
-          Hate
-        </button>
-        {showModal ? <NewHate setShowModal={setShowModal} /> : null}
-      </div>
+      )}
     </div>
   );
 }
