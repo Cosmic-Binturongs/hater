@@ -83,7 +83,7 @@ export default function Hate({ hateData, setToggle }) {
             title="Rehate"
             onClick={incrementRehateCount}
           >
-            <AutorenewIcon className="hate-renew"></AutorenewIcon>{" "}
+            <AutorenewIcon className="hate-renew" disabled={rehatedisabled}></AutorenewIcon>{" "}
             {hate.rehate_count + rehateCount}
           </button>
           <button
@@ -92,7 +92,7 @@ export default function Hate({ hateData, setToggle }) {
             title="Dislike"
             onClick={incrementHateCount}
           >
-            <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>{" "}
+            <HeartBrokenIcon className="hate-broken" disabled={hatedisabled}></HeartBrokenIcon>{" "}
             {hate.hate_count + hateCount}
           </button>
         </div>
