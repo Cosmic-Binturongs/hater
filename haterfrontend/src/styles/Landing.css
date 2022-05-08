@@ -32,12 +32,15 @@
 }
 
 .landingLoginInput {
-  display: flex;
-  border: 2px solid var(--hate-red);
+  text-align: center;
+  font-weight: bolder;
+  border: none;
   border-radius: 100px;
   margin-top: 5%;
   height: fit-content;
   padding: 10px;
+  background-color: whitesmoke;
+  
 }
 
 .slogan {
@@ -82,7 +85,6 @@
 
 #google-sign:hover {
   background-color: white;
-  color: rgb(105, 105, 250);
 }
 
 #landing-sign-up {
