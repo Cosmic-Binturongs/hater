@@ -8,8 +8,6 @@
   width: 100%;
 }
 
-
-
 .hate-text-box {
   color: black;
   border: 1px solid rgb(241, 146, 146, 1);
@@ -19,7 +17,6 @@
   display: flex;
   width: 100%;
 }
-
 
 .hates-list {
   display: flex;
@@ -64,6 +61,10 @@
   padding-right: 10px;
 }
 
+.hate-date{
+  padding-top: 5%;
+}
+
 .hate-text {
   font-size: 20px;
   width: 85%;
@@ -79,7 +80,6 @@
   width: 100%;
 }
 
-/* text portion */
 .hates-form-text {
   border: none;
   outline: none;
@@ -187,6 +187,7 @@
   display: flex;
   margin-right: 15%;
   justify-content: space-evenly;
+  padding-top: 2%;
 }
 
 .hate-form {

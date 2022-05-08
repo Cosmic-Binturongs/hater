@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 
 class User_profile(models.Model):
@@ -20,7 +21,7 @@ class Hates(models.Model):
     rehate_count = models.IntegerField()
     crit_count = models.IntegerField()
     hate_date = models.DateTimeField(
-        default=datetime.now().strftime("%Y-%m-%d %H:%M"))
+        default=now, editable=False)
 
     def __str__(self):
         return self.h_body

@@ -51,7 +51,6 @@ class AllHatesSerializer(serializers.BaseSerializer):
             'hater_name': instance.haters.name,
             'hate_tag': instance.haters.tag,
             'date_time': instance.hate_date,
-
         }
 
 

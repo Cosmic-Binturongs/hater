@@ -19,6 +19,13 @@ export default function Hate({ hateData, setToggle }) {
     rehate_count: hateData.rehate_count,
     date_time: hateData.date_time
   })
+
+  let splitTime = hate.date_time.split('T')
+  console.log(splitTime)
+
+  let splitTime2 = splitTime[1].slice(0,8)
+  console.log(splitTime2)
+
   
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
@@ -66,7 +73,7 @@ export default function Hate({ hateData, setToggle }) {
             className='hate-date'
             type="date"
             name="text">
-            {hate.date_time}
+            Time: {splitTime2} - {splitTime[0]}
             </h3>
 
         </div>
