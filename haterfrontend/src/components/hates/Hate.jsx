@@ -29,7 +29,6 @@ export default function Hate({ hateData, setToggle }) {
     setHateCount( hateCount+ 1)
     event.preventDefault()
     let hateUpdated = await axios.get(`http://127.0.0.1:8000/addDislike/?hateid=${hateData.id}&sign=${1}`)
-    setToggle(prev => !prev)
     hateButtons.current.classList.add('hate-disabled');
     hateButtons.current.style.color = "red";
   }
@@ -38,8 +37,7 @@ export default function Hate({ hateData, setToggle }) {
     setRehateCount(rehateCount + 1)
     event.preventDefault()
     let rehateUpdated = await axios.get(`http://127.0.0.1:8000/addRehate/?hateid=${hateData.id}&sign=${1}`)
-    setToggle(prev => !prev)
-    rehateButtons.current.classList.add('hate-disabled');
+    rehateButtons.current.classList.add('rehate-disabled');
     rehateButtons.current.style.color = "green";
   }
 
@@ -76,10 +74,10 @@ export default function Hate({ hateData, setToggle }) {
           <button className='hate-criticisms' title="Criticism">
             <MessageIcon className='hate-crit'></MessageIcon> {hate.crit_count}
           </button>
-          <button ref={rehateButtons} className='hate-rehate' title="Rehate" disabled={rehatedisabled} onClick={incrementRehateCount}>
+          <button ref={rehateButtons} className='hate-rehate' title="Rehate" onClick={incrementRehateCount}>
             <AutorenewIcon className='hate-renew'></AutorenewIcon> {hate.rehate_count + rehateCount}
           </button>
-          <button ref={hateButtons} className='hate-dislike' title="Dislike" disabled={hatedisabled} onClick={incrementHateCount}>
+          <button ref={hateButtons} className='hate-dislike' title="Dislike" onClick={incrementHateCount}>
             <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon> {hate.hate_count + hateCount}
           </button>
         </div>
