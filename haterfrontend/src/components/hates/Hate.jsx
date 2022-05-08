@@ -20,6 +20,9 @@ export default function Hate({ hateData, setToggle }) {
     date_time: hateData.date_time,
   });
 
+  let splitTime = hate.date_time.split('T')
+  let splitTime2 = splitTime[1].slice(0,8)
+
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
   const [hatedisabled, setHateDisabled] = useState(false);
@@ -57,14 +60,14 @@ export default function Hate({ hateData, setToggle }) {
       </div>
       <div className="hate-form">
         <h3 className="hate-name" type="text" name="name">
-          {hate.hater_name}@{hate.hate_tag}
+          {hate.hater_name} {hate.hate_tag}
         </h3>
         <div className="hate-info">
           <h2 className="hate-text" type="text" name="text">
             {hate.hate}
           </h2>
           <h3 className="hate-date" type="date" name="text">
-            {hate.date_time}
+          Time: {splitTime2} - {splitTime[0]}
           </h3>
         </div>
         <div className="hate-buttons">
