@@ -51,7 +51,7 @@ export default function Home() {
             type="text"
             name="password"
           />
-          <Button id="login" type="submit" variant="outlined">
+          <Button id="login" type="submit">
             Login
           </Button>
         </form>
@@ -61,11 +61,11 @@ export default function Home() {
             <h3>See what's happening in the world right now</h3>
             <h4>Join Hater Today</h4>
           </div>
-          <Button id="google-sign" variant="outlined">
+          <Button id="google-sign">
             Sign up with Google
           </Button>
           <Link id="landing-signup-link" to="/signup">
-            <Button id="landing-sign-up" variant="outlined">
+            <Button id="landing-sign-up">
               Sign up
             </Button>
           </Link>
