@@ -9,8 +9,10 @@ import Cookies from "js-cookie";
 import CSRFToken from "../components/CSRFToken";
 import { useNavigate } from "react-router-dom";
 import { store } from "../state/store";
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const user = useSelector((state) => state.user);
   let navigate = useNavigate();
   const [form, setForm] = useState({
     username: "",
@@ -59,6 +61,22 @@ export default function Home() {
       [name]: value,
     });
   };
+  let signOut = () => {
+    let options = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      credentials: "include",
+    };
+    fetch("http://localhost:8000/user/logout", options)
+      .then((res) => res.json())
+      .then((data) => {
+        store.dispatch({ type: "set", payload: { name: "Guest" } });
+      });
+  };
   return (
     <div className="home">
       <div className="landingLeft">
@@ -84,34 +102,44 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <form onSubmit={handleLogin} className="landingForm">
-          <CSRFToken></CSRFToken>
-          <input
-            onChange={handleChange}
-            className="landingLoginInput"
-            placeholder="Username"
-            type="text"
-            name="username"
-          />
+        {!user.tag ? (
+          <form onSubmit={handleLogin} className="landingForm">
+            <CSRFToken></CSRFToken>
+            <input
+              onChange={handleChange}
+              className="landingLoginInput"
+              placeholder="Username"
+              type="text"
+              name="username"
+            />
 
-          <input
-            onChange={handleChange}
-            className="landingLoginInput"
-            placeholder="Password "
-            type="text"
-            name="password"
-          />
-          <Button id="login" type="submit">
-            Login
-          </Button>
-        </form>
+            <input
+              onChange={handleChange}
+              className="landingLoginInput"
+              placeholder="Password "
+              type="text"
+              name="password"
+            />
+            <Button id="login" type="submit">
+              Login
+            </Button>
+          </form>
+        ) : (
+          <div className="landing-signout">
+            <Link className="landing-home-link" to="/home">
+              <Button>Home 🏡</Button>
+            </Link>
+            <Link className="landing-signout-link" onClick={signOut} to="/">
+              <Button>Sign out 🚪</Button>
+            </Link>
+          </div>
+        )}
 
         <div className="middle-right">
           <div className="landLogSlogal">
             <h3>See what's happening in the world right now</h3>
             <h4>Join Hater Today</h4>
           </div>
-          <Button id="google-sign">Sign up with Google</Button>
           <Link id="landing-signup-link" to="/signup">
             <Button id="landing-sign-up">Sign up</Button>
           </Link>
