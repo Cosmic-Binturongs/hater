@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import NewHate from "../newHate/newHate.js";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
+import { store } from "../../state/store.js";
 
 function Profile(props) {
   const user = useSelector((state) => state.user);
@@ -29,7 +30,7 @@ function Profile(props) {
     fetch("http://localhost:8000/user/logout", options)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        store.dispatch({ type: "set", payload: { name: "Guest" } });
       });
   };
   return (
@@ -58,7 +59,7 @@ function Profile(props) {
         <Link to="" className="pronavs">
           Bookmarks
         </Link>
-        <Link to="/home" onClick={signOut} className="pronavs">
+        <Link to="/" onClick={signOut} className="pronavs">
           Sign out
         </Link>
         <button onClick={openModal} className="prohate">
