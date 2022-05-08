@@ -16,6 +16,16 @@
   display: flex;
 }
 
+.hate-modal-text-box {
+  color: black;
+  border: 1px solid black;
+  text-align: left;
+  margin-bottom: 2rem;
+  display: flex;
+  width: 50%;
+  margin-top: 3%;
+}
+
 .hates-list {
   display: flex;
   width: 100%;
@@ -94,6 +104,23 @@
 
 .hates-button-up {
   margin-left: 100%;
+  margin-top: 8%;
+  margin-bottom: 3%;
+  border-radius: 25px;
+  background: red;
+  color: white;
+  font-weight: 900;
+  padding: 1% 6%;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: bold;
+  border: none;
+}
+
+.hates-modal-button-up {
+  margin-left: 85%;
   margin-top: 8%;
   margin-bottom: 3%;
   border-radius: 25px;
