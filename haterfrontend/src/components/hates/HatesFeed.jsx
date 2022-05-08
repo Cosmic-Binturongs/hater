@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import Hate from './Hate';
-import Error from "../../screens/Error"
-
+import React, { useEffect } from "react";
+import Hate from "./Hate";
+import Error from "../../screens/Error";
 
 export default function HatesFeed({ hates, setToggle }) {
   return (
@@ -12,5 +11,5 @@ export default function HatesFeed({ hates, setToggle }) {
           ))
       }
     </div>
-  )
+  );
 }

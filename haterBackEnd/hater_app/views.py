@@ -30,13 +30,6 @@ class HatesViewSet(viewsets.ModelViewSet):
 class CriticismViewSet(viewsets.ModelViewSet):
     queryset = Criticism.objects.all()
     serializer_class = CriticismSerializer
-
-class YourHatesView(APIView):
-    def get(self, request, format=None):
-      hates = Hates.objects.select_related('').all()
-      hates_json = TestSerializer(hates, many=True)
-      return Response(hates_json.data)
-     
 class CommentView(APIView):
   def get(self,request, format=None):
     try:
@@ -109,3 +102,23 @@ class EditHate(APIView):
       return Response({'message':" ◕‿↼ Updated ! "})
     except:
       return Response({'message':"( ﾟДﾟ)b error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+
+class CreateHate(APIView):
+  def post(self,request, format=None):
+    try:
+      user = self.request.user
+      isAuthenticated = user.is_authenticated
+      if isAuthenticated:
+        hate_content = self.request.data 
+        hater_id = hate_content["haters"]
+        h_body = hate_content["h_body"]
+        print(hater_id)
+        hater = User_profile.objects.get(id=hater_id)
+        Hates.objects.create(haters=hater,h_body=h_body,hate_count=0,rehate_count=0,crit_count=0)
+        return Response({'message':" ◕‿↼ Updated ! "})
+      else:
+        return Response({'message':"ヽ(ﾟДﾟ)ﾉ Not logged in or not is_authenticated"})
+        
+    except:
+      return Response({'message':"( ﾟДﾟ)b error; you are most likely messed up by passing in a user id instead of a user_profile id"})
+
