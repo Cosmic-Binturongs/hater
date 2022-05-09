@@ -24,7 +24,11 @@ export default function Hate({ hateData, setToggle }) {
   let splitTime = hate.date_time.split("T");
   let splitTimeDate = splitTime[0].slice(5, 10);
   let splitTime2 = splitTime[1].slice(0, 5);
+  let halfTime = splitTime2.split(":");
+  let hours = ((halfTime[0] + 11) % 12) + 6;
+  let ampm = hours >= 12 ? "PM" : "AM";
 
+  let combinedTime = hours + ":" + halfTime[1] + ampm;
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
   const [hatedisabled, setHateDisabled] = useState(false);
@@ -71,7 +75,7 @@ export default function Hate({ hateData, setToggle }) {
             {hate.hate}
           </h2>
           <h3 className="hate-date" type="date" name="text">
-            {splitTimeDate} - {<p className="hate-date-time">{splitTime2}</p>}
+            {splitTimeDate} - {<p className="hate-date-time">{combinedTime}</p>}
           </h3>
         </div>
         <div className="hate-buttons">
