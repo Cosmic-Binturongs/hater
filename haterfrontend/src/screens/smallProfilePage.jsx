@@ -108,7 +108,7 @@ export default function SmallProfilePage() {
                             hater_tag={data.tag}
                             id={data.id}
                             hater_name={data.name}
-                            hate={newData.h_body}
+                            hate={newData.hate}
                             hate_count={newData.hate_count}
                             rehate_count={newData.rehate_count}
                             crit_count={newData.crit_count}

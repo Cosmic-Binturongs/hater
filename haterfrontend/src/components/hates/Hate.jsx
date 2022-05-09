@@ -6,6 +6,7 @@ import { updateHate } from "../../services/hates";
 import Criticisms from "../criticisms/Criticisms";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 export default function Hate({ hateData, setToggle }) {
   let hateButtons = useRef(null);
@@ -19,11 +20,17 @@ export default function Hate({ hateData, setToggle }) {
     crit_count: hateData.crit_count,
     rehate_count: hateData.rehate_count,
     date_time: hateData.date_time,
+    hater_id: hateData.hater_id,
   });
 
   let splitTime = hate.date_time.split("T");
   let splitTimeDate = splitTime[0].slice(5, 10);
   let splitTime2 = splitTime[1].slice(0, 5);
+  let halfTime = splitTime2.split(":")
+  let hours = ((halfTime[0] + 11) % 12 + 1);
+  let ampm = hours <= 12 ? " PM" : " AM"; hours = ((halfTime[0] + 11) % 12 + 6);
+
+  let combinedTime = (hours + ":" + halfTime[1]) + ampm;
 
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
@@ -67,14 +74,14 @@ export default function Hate({ hateData, setToggle }) {
       </div>
       <div className="hate-form">
         <h3 className="hate-name" type="text" name="name">
-          {hate.hater_name}@{hate.hate_tag}
+          {hate.hater_name} <Link id="homeHaterLink" to={`/profile/${hate.hater_id}`}> @{hate.hate_tag} </Link>
         </h3>
         <div className="hate-info">
           <h2 className="hate-text" type="text" name="text">
             {hate.hate}
           </h2>
           <h3 className="hate-date" type="date" name="text">
-            {splitTimeDate} - {<p className="hate-date-time">{splitTime2}</p>}
+          {splitTimeDate} - {<p className="hate-date-time">{combinedTime}</p>}
           </h3>
         </div>
         <div className="hate-buttons">
@@ -83,7 +90,7 @@ export default function Hate({ hateData, setToggle }) {
             onClick={toComments}
             title="Criticism"
           >
-            <MessageIcon className="hate-crit"></MessageIcon> {hate.crit_count}
+            <MessageIcon className="post-dark"></MessageIcon> {hate.crit_count}
           </button>
           <button
             ref={rehateButtons}
@@ -91,7 +98,7 @@ export default function Hate({ hateData, setToggle }) {
             title="Rehate"
             onClick={incrementRehateCount}
           >
-            <AutorenewIcon className="hate-renew"></AutorenewIcon>{" "}
+            <AutorenewIcon className="post-dark"></AutorenewIcon>{" "}
             {hate.rehate_count + rehateCount}
           </button>
           <button
@@ -100,7 +107,7 @@ export default function Hate({ hateData, setToggle }) {
             title="Dislike"
             onClick={incrementHateCount}
           >
-            <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>{" "}
+            <HeartBrokenIcon className="post-dark"></HeartBrokenIcon>{" "}
             {hate.hate_count + hateCount}
           </button>
         </div>

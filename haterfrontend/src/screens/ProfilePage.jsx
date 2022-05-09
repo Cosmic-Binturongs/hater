@@ -19,6 +19,8 @@ export default function ProfilePage(props) {
   }
   const [datas, setDatas] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [type, setType] = useState("")
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     const fetchHates = async () => {
@@ -28,6 +30,14 @@ export default function ProfilePage(props) {
     fetchHates()
     console.log(datas)
   }, [toggle])
+
+
+  const filterTag = (e) => {
+    e.preventDefault();
+    console.log(e.target.value)
+    setType({ search });
+  };
+  
 
 
   return (
@@ -53,16 +63,20 @@ export default function ProfilePage(props) {
           <div className="proSearch">
           <form className="landingForm">
             <input
-              className="landingLoginInput"
-              placeholder="Hates/Hater"
-              type="text"
-              name="name"
+                className="landingLoginInput"
+                placeholder="tag"
+                type="text"
+                name="name"
+                onChange={(e) => {
+                  e.preventDefault();
+                  setSearch(e.target.value);
+                }}
             />
-            <Button id="login" type="submit" variant="outlined">
+            {/* <Button id="login" type="submit" onClick={filterTag}>
               Search
-            </Button>
+            </Button> */}
             </form>
-            {datas.map((data) => (<MiniHates profileID={data.hater_id } hater_name={data.hater_name} hater_tag={data.hate_tag} hate={data.hate} hate_count={data.hate_count }  rehate_count={data.rehate_count} crit_count={data.crit_count}/>))}
+            {datas.map((data) => data.hate_tag.toUpperCase().includes(search.toUpperCase()) && (<MiniHates profileID={data.hater_id } hater_name={data.hater_name} hater_tag={data.hate_tag} hate={data.hate} hate_count={data.hate_count }  rehate_count={data.rehate_count} crit_count={data.crit_count}/>))}
           </div>
         </div>
       </div>
