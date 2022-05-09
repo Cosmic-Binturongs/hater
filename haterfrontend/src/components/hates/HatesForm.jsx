@@ -45,6 +45,7 @@ export default function HatesForm({ toggle, setToggle }) {
           setToggle((prev) => !prev);
         }
       });
+      hate.h_body = "";
   };
 
   return (
@@ -69,6 +70,7 @@ export default function HatesForm({ toggle, setToggle }) {
             value={hate.h_body}
             maxLength="140"
             type="text"
+            required
           />
           <input className="hates-button-up" type="submit" value="Hate" />
         </form>
