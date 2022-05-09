@@ -24,7 +24,6 @@ export default function CSRFToken() {
       
     }).then((response) => {
       setcsrftoken(getCookie("csrftoken"));
-      console.log("my token")
     });
   }, []);
 
