@@ -86,6 +86,11 @@
 .comment-divder {
   width: 90%;
 }
+.comment-no-one {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 /* keep this break point  */
 @media only screen and (max-width: 975px) {
 }

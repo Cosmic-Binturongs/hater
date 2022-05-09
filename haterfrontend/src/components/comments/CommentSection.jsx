@@ -27,12 +27,17 @@ export default function CommentSection() {
       .then(() => {
         fetch(`http://localhost:8000/comments?hateid=${hateid}`)
           .then((res) => res.json())
-          .then((data) => setComments(data));
+          .then((data) => {
+            if (data.length) setComments(data);
+          });
       });
   };
   useEffect(() => {
     fetchComments();
   }, [togglestate]);
+  useEffect(() => {
+    console.log(comments);
+  }, [comments]);
   return (
     <div className="comment-main-container">
       <Profilebutton click={handleClick} />
@@ -46,7 +51,7 @@ export default function CommentSection() {
         <HatePost hate={hatepost}></HatePost>
         <div className="comment-feed">
           {!comments ? (
-            <h3>No one is here ¯\_( ツ )_/¯</h3>
+            <h3 className="comment-no-one">No one is here ¯\_( ツ )_/¯</h3>
           ) : (
             comments.map((comment, i) => (
               <MiniComments key={i} hater={comment}></MiniComments>
