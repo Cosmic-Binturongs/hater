@@ -71,6 +71,7 @@ export default function ProfilePage(props) {
               <AutorenewIcon className="hate-renew"></AutorenewIcon>
               <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>
             </div>
+            <div className="ProfileHateContainer">
             {userPosts.map((hate) => (
               <MiniHates
                 hater_name={hate.hater_name}
@@ -81,6 +82,7 @@ export default function ProfilePage(props) {
                 crit_count={hate.crit_count}
               />
             ))}
+              </div>
           </div>
           <div className="proSearch">
             <form className="landingForm">
