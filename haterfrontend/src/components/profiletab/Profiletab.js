@@ -51,7 +51,7 @@ function Profile(props) {
       </div>
       {user.tag ? (
         <div className="bottom">
-          <Link to="/" className="pronavs">
+          <Link to="/home" className="pronavs">
             <div className="protabLinks">Home</div>
           </Link>
           <Link to="/profile" className="pronavs">

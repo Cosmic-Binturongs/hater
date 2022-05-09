@@ -116,9 +116,10 @@ export default function Home() {
             <input
               onChange={handleChange}
               className="landingLoginInput"
-              placeholder="Password "
-              type="current-password"
+              placeholder="Password"
+              type="password"
               name="password"
+              autocomplete="current-password"
             />
             <Button id="login" type="submit">
               Login

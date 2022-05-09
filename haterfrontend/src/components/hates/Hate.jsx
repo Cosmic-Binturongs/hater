@@ -84,7 +84,8 @@ export default function Hate({ hateData, setToggle }) {
             onClick={toComments}
             title="Criticism"
           >
-            <MessageIcon className="hate-crit"></MessageIcon> {hate.crit_count}
+            <MessageIcon className="hate-crit" id="makeDark"></MessageIcon>{" "}
+            {hate.crit_count}
           </button>
           <button
             ref={rehateButtons}
@@ -92,7 +93,7 @@ export default function Hate({ hateData, setToggle }) {
             title="Rehate"
             onClick={incrementRehateCount}
           >
-            <AutorenewIcon className="hate-renew"></AutorenewIcon>{" "}
+            <AutorenewIcon className="hate-renew" id="makeDark"></AutorenewIcon>{" "}
             {hate.rehate_count + rehateCount}
           </button>
           <button
@@ -101,7 +102,10 @@ export default function Hate({ hateData, setToggle }) {
             title="Dislike"
             onClick={incrementHateCount}
           >
-            <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>{" "}
+            <HeartBrokenIcon
+              className="hate-broken"
+              id="makeDark"
+            ></HeartBrokenIcon>{" "}
             {hate.hate_count + hateCount}
           </button>
         </div>
