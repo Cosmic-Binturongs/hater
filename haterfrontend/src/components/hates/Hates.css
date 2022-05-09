@@ -15,7 +15,9 @@
 .hate-post:hover {
   border: 1px solid var(--hate-red);
 }
-
+#makeDark {
+  filter: none;
+}
 .hate-text-box {
   color: black;
   border: 1px solid rgb(241, 146, 146, 1);

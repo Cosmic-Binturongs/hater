@@ -38,16 +38,21 @@
   color: white;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  padding: 7px 7px;
-  width: 100px;
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 100%;
   height: fit-content;
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-weight: 1000;
+  transition: all ease 0.25s;
 }
-
+.protabLinks:hover {
+  border-radius: 10rem;
+  color: var(--hate-red);
+  background-color: rgb(250, 167, 167);
+}
 .exit {
   display: none;
   position: absolute;
@@ -86,7 +91,7 @@
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 20%;
   gap: 10px;
   height: 80%;
   width: 100%;
@@ -100,7 +105,7 @@
 .pronavs {
   display: flex;
   height: fit-content;
-  width: 90%;
+  width: 200px;
   position: relative;
   text-decoration: none;
   justify-content: center;
@@ -109,6 +114,7 @@
   /* border: 1px solid grey; */
   text-align: center;
   font-size: 15px;
+  margin-bottom: 3rem;
 }
 
 .prohate {

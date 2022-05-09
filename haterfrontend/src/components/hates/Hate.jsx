@@ -24,7 +24,11 @@ export default function Hate({ hateData, setToggle }) {
   let splitTime = hate.date_time.split("T");
   let splitTimeDate = splitTime[0].slice(5, 10);
   let splitTime2 = splitTime[1].slice(0, 5);
+  let halfTime = splitTime2.split(":");
+  let hours = ((halfTime[0] + 11) % 12) + 6;
+  let ampm = hours >= 12 ? "PM" : "AM";
 
+  let combinedTime = hours + ":" + halfTime[1] + ampm;
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
   const [hatedisabled, setHateDisabled] = useState(false);
@@ -71,7 +75,7 @@ export default function Hate({ hateData, setToggle }) {
             {hate.hate}
           </h2>
           <h3 className="hate-date" type="date" name="text">
-            {splitTimeDate} - {<p className="hate-date-time">{splitTime2}</p>}
+            {splitTimeDate} - {<p className="hate-date-time">{combinedTime}</p>}
           </h3>
         </div>
         <div className="hate-buttons">
@@ -80,7 +84,8 @@ export default function Hate({ hateData, setToggle }) {
             onClick={toComments}
             title="Criticism"
           >
-            <MessageIcon className="hate-crit"></MessageIcon> {hate.crit_count}
+            <MessageIcon className="hate-crit" id="makeDark"></MessageIcon>{" "}
+            {hate.crit_count}
           </button>
           <button
             ref={rehateButtons}
@@ -88,7 +93,7 @@ export default function Hate({ hateData, setToggle }) {
             title="Rehate"
             onClick={incrementRehateCount}
           >
-            <AutorenewIcon className="hate-renew"></AutorenewIcon>{" "}
+            <AutorenewIcon className="hate-renew" id="makeDark"></AutorenewIcon>{" "}
             {hate.rehate_count + rehateCount}
           </button>
           <button
@@ -97,7 +102,10 @@ export default function Hate({ hateData, setToggle }) {
             title="Dislike"
             onClick={incrementHateCount}
           >
-            <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>{" "}
+            <HeartBrokenIcon
+              className="hate-broken"
+              id="makeDark"
+            ></HeartBrokenIcon>{" "}
             {hate.hate_count + hateCount}
           </button>
         </div>
