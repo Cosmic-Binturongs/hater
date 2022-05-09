@@ -86,20 +86,22 @@ class AddComment(APIView):
   def post(self,request, format=None):
     try:
       #increment comment count
-      hate_id = request.query_params['hateid']
+      hate_id = request.data["post_id"]
       hate_post = Hates.objects.get(id = hate_id)
       new_count = hate_post.crit_count + 1
       Hates.objects.filter(id = hate_id).update(crit_count = new_count)
       #create comment
-      content = request.data["content"] 
-      hater = User_profile.objects.get(id = request.data["hater_id"])
-      hate_instance = Hates.objects.get(id = request.data["hater_id"])
-      new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
-      new_hate.save()
-      return Response({
-        'message':'Created new comment ! ʘᆽʘ',
-        'old_crit_Count':hate_post.crit_count,
-      })
+      user = self.request.user
+      isAuthenticated = user.is_authenticated
+      if isAuthenticated:
+          content = request.data["content"] 
+          hater = User_profile.objects.get(user = user)
+          hate_instance = Hates.objects.get(id = request.data["post_id"])
+          new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
+          new_hate.save()
+          return Response({ 'message':'Created new comment ! ʘᆽʘ','old_crit_Count':hate_post.crit_count,})
+      else:
+          return Response({"error" : "Not logged in !"})
     except:
       return Response({'message':"( ◔ ʖ̯ ◔ ) error; you are most likely messed up the body syntax or are missing a 'hateid' param or that hate post id doesnt exist "})
 class EditHate(APIView):

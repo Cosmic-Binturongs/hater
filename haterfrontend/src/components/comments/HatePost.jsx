@@ -13,7 +13,7 @@ export default function HatePost(props) {
     splitTime2 = splitTime[1].slice(0, 5);
   }
   return (
-    <div className="hate-post">
+    <div className="hate-post comment-hate-post">
       <div className="hate-profile">
         <div className="hate-profile-pic">
           <img
