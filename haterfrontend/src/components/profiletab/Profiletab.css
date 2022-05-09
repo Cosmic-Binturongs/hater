@@ -32,6 +32,21 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+.protabLinks {
+  display: flex;
+  background-color: var(--hate-red);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 7px 7px;
+  width: 100px;
+  height: fit-content;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-weight: 1000;
+}
 
 .exit {
   display: none;
@@ -71,11 +86,13 @@
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
   gap: 10px;
   height: 80%;
   width: 100%;
   text-decoration: none;
   background-color: white;
+  text-align: center;
   /* background-color: black; */
   /* border: 1px solid blue; */
 }
@@ -86,12 +103,12 @@
   width: 90%;
   position: relative;
   text-decoration: none;
+  justify-content: center;
+  align-items: center;
   color: grey;
   /* border: 1px solid grey; */
   text-align: center;
   font-size: 15px;
-  margin-left: 5%;
-  left: 0px;
 }
 
 .prohate {

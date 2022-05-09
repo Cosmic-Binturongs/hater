@@ -52,13 +52,13 @@ function Profile(props) {
       {user.tag ? (
         <div className="bottom">
           <Link to="/" className="pronavs">
-            Home
+            <div className="protabLinks">Home</div>
           </Link>
           <Link to="/profile" className="pronavs">
-            Profile
+            <div className="protabLinks">Profile</div>
           </Link>
           <Link to="/" onClick={signOut} className="pronavs">
-            Sign out
+            <div className="protabLinks">Sign Out</div>
           </Link>
           <button onClick={openModal} className="prohate">
             Hate
