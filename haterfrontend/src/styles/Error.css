@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: white;
+  background-color: var(--back-ground);
 }
 .ErrorNav {
   display: flex;
@@ -38,6 +38,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(197, 247, 250);
+  box-shadow: 20px 20px 32px #080808, -20px -20px 32px #202020;
 }
 .errorMessage {
   display: flex;

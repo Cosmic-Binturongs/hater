@@ -71,16 +71,16 @@ export default function SmallProfilePage() {
                       <img src={`https://avatars.dicebear.com/api/adventurer/${data.name}.svg?flip=1`}></img>
                     </div>
                     <div className="proTweetCount">
-                      <div>@{data.tag}</div>
-                      <MessageIcon className='hate-crit'></MessageIcon>{critSum}
-                      <AutorenewIcon className='hate-renew'></AutorenewIcon> {rehateSum}
-                      <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon>{hateSum}
+                      <div className="total">@{data.tag}</div>
+                      <MessageIcon className='hate-crit'></MessageIcon><div className="total">{critSum}</div>
+                      <AutorenewIcon className='hate-renew'></AutorenewIcon><div className="total">{rehateSum}</div>
+                      <HeartBrokenIcon className='hate-broken'></HeartBrokenIcon><div className="total">{hateSum}</div>
               </div>
-              <div className="smallProfileHateContainer">
+                    <div className="smallProfileHateContainer">
                 
-                      {list.map((newData) => JSON.stringify(newData.haters).includes(ID) && (<MiniHates  hater_tag={data.tag} id={data.id } hater_name={data.name} hate={newData.h_body} hate_count={newData.hate_count }  rehate_count={newData.rehate_count} crit_count={newData.crit_count}/>))}
+                {list.map((newData) => JSON.stringify(newData.haters).includes(ID) && (<MiniHates profileID={data.user}hater_tag={data.tag} id={data.id } hater_name={data.name} hate={newData.h_body} hate_count={newData.hate_count }  rehate_count={newData.rehate_count} crit_count={newData.crit_count}/>))}
             
-                </div>
+                    </div>
               </div>
              ))} 
         </div>
