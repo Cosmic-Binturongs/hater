@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
 }
 .miniProProfilePic {
   display: flex;
@@ -29,6 +29,17 @@
   height: 100vh;
   /* border: 1px solid blue; */
 }
+.ProfileHateContainer {
+  display: flex;
+  position: absolute;
+  flex-direction: column-reverse;
+  top: 170px;
+  height: calc(100% - 170px);
+  width: 100%;
+  justify-self: center;
+  align-items: center;
+  overflow: scroll;
+}
 .contentContainer {
   display: flex;
   flex-direction: row;
@@ -39,7 +50,7 @@
   width: 97%;
   border: 2px solid rgb(224, 224, 224);
   border-radius: 10px 10px 0 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .frame {
@@ -133,8 +144,8 @@
   height: calc(100%);
   /* border: 1px solid blue; */
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   position: fixed;
   border-right: 2px solid var(--hate-red);
