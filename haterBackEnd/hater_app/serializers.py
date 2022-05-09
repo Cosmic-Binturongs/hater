@@ -34,6 +34,7 @@ class CommentSerializer(serializers.BaseSerializer):
             'comment': instance.c_body,
             'hater_id': instance.hater.id,
             'hater_name': instance.hater.name,
+            'hater_tag': instance.hater.tag,
             'hate_id': instance.hate.id,
             'hate_content': instance.hate.h_body,
         }
