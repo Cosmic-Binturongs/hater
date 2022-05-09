@@ -5,11 +5,12 @@ import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { updateHate } from "../../services/hates";
 import Criticisms from "../criticisms/Criticisms";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Hate({ hateData, setToggle }) {
   let hateButtons = useRef(null);
   let rehateButtons = useRef(null);
-
+  let navigate = useNavigate();
   const [hate, setHate] = useState({
     hate: hateData.hate,
     hater_name: hateData.hater_name,
@@ -28,6 +29,7 @@ export default function Hate({ hateData, setToggle }) {
   let ampm = hours <= 12 ? " PM" : " AM"; hours = ((halfTime[0] + 11) % 12 + 6);
 
   let combinedTime = (hours + ":" + halfTime[1]) + ampm;
+
 
   const [hateCount, setHateCount] = useState(0);
   const [rehateCount, setRehateCount] = useState(0);
@@ -53,7 +55,12 @@ export default function Hate({ hateData, setToggle }) {
     rehateButtons.current.classList.add("rehate-disabled");
     rehateButtons.current.style.color = "green";
   };
-
+  let toComments = () => {
+    navigate(`/commentSection/${hateData.id}`);
+    // fetch(`http://localhost:8000/comments?hateid=${hateData.id}`)
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+  };
   return (
     <div className="hate-post">
       <div className="hate-profile">
@@ -66,7 +73,7 @@ export default function Hate({ hateData, setToggle }) {
       </div>
       <div className="hate-form">
         <h3 className="hate-name" type="text" name="name">
-          {hate.hater_name} @{hate.hate_tag}
+          {hate.hater_name}@{hate.hate_tag}
         </h3>
         <div className="hate-info">
           <h2 className="hate-text" type="text" name="text">
@@ -77,7 +84,11 @@ export default function Hate({ hateData, setToggle }) {
           </h3>
         </div>
         <div className="hate-buttons">
-          <button className="hate-criticisms" title="Criticism">
+          <button
+            className="hate-criticisms"
+            onClick={toComments}
+            title="Criticism"
+          >
             <MessageIcon className="hate-crit"></MessageIcon> {hate.crit_count}
           </button>
           <button

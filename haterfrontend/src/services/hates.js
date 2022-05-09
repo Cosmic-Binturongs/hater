@@ -10,7 +10,7 @@ export const getAllHates = async () => {
 };
 export const getUsers = async () => {
   try {
-    const response = await api.get("/user_Profile/");
+    const response = await api.get("/user_Profile");
     return response.data;
   } catch (error) {
     throw error;

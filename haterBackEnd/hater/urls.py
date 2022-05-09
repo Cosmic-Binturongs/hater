@@ -18,7 +18,7 @@ from django.urls import path, include
 
 from rest_framework import routers
 from hater_app.views import UserViewSet, User_profileViewSet, HatesViewSet, CriticismViewSet, CommentView
-from hater_app.views import AllHates, AddDislike, AddComment, AddRehate, EditHate, CreateHate
+from hater_app.views import AllHates, AddDislike, AddComment, AddRehate, EditHate, CreateHate, GetHate
 router = routers.DefaultRouter()
 #for testing this route exists make sure to remove the line below me 
 router.register(r'user', UserViewSet)
@@ -33,6 +33,7 @@ urlpatterns = [
     path('addRehate', AddRehate.as_view()),
     path('addComment', AddComment.as_view()),
     path('allHates', AllHates.as_view()),
+    path('getHate', GetHate.as_view()),
     path('editHate', EditHate.as_view()),
     path('createHate', CreateHate.as_view()),
     path('user/', include('user_app.urls')),

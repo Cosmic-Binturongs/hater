@@ -50,6 +50,15 @@ class AllHates(APIView):
       return Response(hates_json.data)
     except:
       return Response({'message':" ╥﹏╥ Something went wrong when retrieving raw hate posts"})
+
+class GetHate(APIView):
+  def get(self, request,format= None):
+    try:
+      hate = Hates.objects.get(id = request.query_params['hateid'])
+      return Response(AllHatesSerializer(hate).data)
+      
+    except:
+      return Response({'message':"(‡▼益▼) make sure u give a hate id "})
 class AddDislike(APIView):
   def get(self,request, format=None):
     try:

@@ -63,8 +63,8 @@
   border-radius: 200px;
   background-image: url("../components/profilebutton/logo.png");
   background-size: cover;
-  filter: invert(65%) sepia(47%) saturate(385%) hue-rotate(314deg)
-    brightness(95%) contrast(100%);
+  filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
+    brightness(91%) contrast(105%);
 }
 .proHome {
   display: flex;
@@ -73,8 +73,8 @@
 
   background-image: url("../images/home.png");
   background-size: cover;
-  filter: invert(65%) sepia(47%) saturate(385%) hue-rotate(314deg)
-    brightness(95%) contrast(100%);
+  filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
+    brightness(91%) contrast(105%);
 }
 .proLogin {
   display: flex;
@@ -91,11 +91,17 @@
   width: 40px;
   background-image: url("../images/search.png");
   background-size: cover;
-  filter: invert(65%) sepia(47%) saturate(385%) hue-rotate(314deg)
-    brightness(95%) contrast(100%);
+  filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
+    brightness(91%) contrast(105%);
 }
 .proSearchButton:hover {
   cursor: pointer;
+}
+.hate-crit,
+.hate-renew,
+.hate-broken {
+  filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
+    brightness(91%) contrast(105%);
 }
 .proRoot {
   display: flex;
@@ -106,8 +112,8 @@
   background-size: cover;
   /* position: absolute; */
   /* bottom: 0; */
-  filter: invert(65%) sepia(47%) saturate(385%) hue-rotate(314deg)
-    brightness(95%) contrast(100%);
+  filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
+    brightness(91%) contrast(105%);
   /* border: 1px solid rgb(12, 188, 208); */
 }
 .proPageLinks {
@@ -130,6 +136,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;
+  position: fixed;
+  border-right: 2px solid var(--hate-red);
 }
 .proBodyFrame {
   display: flex;
@@ -143,19 +151,22 @@
   width: 120px;
   height: 120px;
   border-radius: 200px;
-  top: 75px;
+  top: 10px;
   margin-left: 20px;
   position: absolute;
   background-color: white;
-  border: 2px solid rgb(159, 152, 152);
+  border: 2px solid var(--hate-red);
   z-index: 2;
+  background: var(--back-ground);
+  box-shadow: 12px 12px 24px #080808, -12px -12px 24px #202020;
 }
 .proTweetCount {
   display: flex;
   width: calc(100%);
   position: relative;
   height: 30px;
-  background-color: rgb(240, 238, 238);
+  /* background-color: black; */
+  border-bottom: 2px solid var(--hate-red);
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -164,10 +175,11 @@
   display: flex;
   width: calc(40%);
   height: calc(100% + 3%);
-  border-left: 2px solid rgb(224, 224, 224);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  right: 0;
+  position: absolute;
 }
 
 @media only screen and (max-width: 500px) {
