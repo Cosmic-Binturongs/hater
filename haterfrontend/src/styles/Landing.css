@@ -2,7 +2,8 @@
   --hate-red: #dc1a22;
 }
 :root {
-  --pro-grey: rgb(224, 224, 224);
+  --pro-grey: #222121;
+  --back-ground: #141414;
 }
 
 .home {
