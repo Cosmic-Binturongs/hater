@@ -9,16 +9,25 @@
   display: flex;
   width: 95%;
   height: 150px;
-  border: 1px solid var(--pro-grey);
+  /* border: 1px solid var(--hate-red); */
   border-radius: 20px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
   position: relative;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
   animation: createBox 1s;
-  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  /* background-color: rgb(255, 255, 255); */
+  border-radius: 15px;
+  background: #222121;
+  box-shadow: 12px 12px 24px #080808, -12px -12px 24px #202020;
+  transition-duration: 2s;
+}
+.miniHatesContainer:hover {
+  border: 1px solid var(--hate-red);
 }
 .miniHateID {
   display: flex;
@@ -28,13 +37,14 @@
   padding-top: 25px;
   padding-left: 50px;
   font-style: italic;
-  color: rgb(100, 99, 99);
+  color: white;
 }
 .miniHateToptab {
   display: flex;
   height: 10%;
   width: 100%;
-  background-color: var(--pro-grey);
+  background: #222121;
+  /* background-color: var(--pro-grey); */
 }
 
 .searchHatePic {
@@ -52,7 +62,7 @@
 }
 .nameLinks {
   text-decoration: none;
-  color: grey;
+  color: white;
 }
 .miniStats {
   display: flex;
@@ -60,7 +70,8 @@
   height: 25px;
   position: absolute;
   bottom: 0;
-  border-top: 1.5px solid var(--pro-grey);
+  border-top: 1.5px solid var(--hate-red);
+  padding-top: 5px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -70,8 +81,8 @@
   display: flex;
   height: 10px;
   width: 10px;
-  filter: invert(65%) sepia(47%) saturate(385%) hue-rotate(314deg)
-    brightness(95%) contrast(100%);
+  filter: invert(34%) sepia(83%) saturate(7464%) hue-rotate(347deg)
+    brightness(85%) contrast(103%);
 }
 
 @keyframes createBox {

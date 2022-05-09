@@ -1,4 +1,3 @@
-import { TextareaAutosize } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useState, useRef } from 'react';
@@ -6,9 +5,14 @@ import { createHate } from '../../services/hates'
 import { useNavigate } from "react-router-dom";
 import '../hates/Hates.css'
 import HatesFeed from '../hates/HatesFeed';
+import { store } from "../../state/store"
+import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
+import CSRFToken from "../../components/CSRFToken";
 
 
-export default function ModalHate({setShowModal}) {
+export default function ModalHate({ setShowModal }) {
+  const user = useSelector((state) => state.user);
   let navigate = useNavigate();
   const [hate, setHate] = useState({
     h_body: "",
@@ -23,6 +27,8 @@ export default function ModalHate({setShowModal}) {
     })
   }
 
+  const [toggle, setToggle] = useState(false);
+
   const modalButtonRef = useRef();
   
   const closeModal = (e) => {
@@ -32,41 +38,53 @@ export default function ModalHate({setShowModal}) {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    let created = await axios.post("http://127.0.0.1:8000/hates/", {
-      h_body: hate.h_body,
-      hate_count: 0,
-      rehate_count:0,
-      crit_count:0,
-      haters: hate.haters,
-    })
+    event.preventDefault();
+    let postOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        h_body: hate.h_body,
+        haters: user.id,
+      }),
+    };
+    fetch("http://localhost:8000/createHate", postOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data["error"]) {
+          setToggle((prev) => !prev);
+        }
+      });
     setShowModal(false)
     window.location.reload();
   }
 
   return (
-    <div className="hate-text-box">
+    <div className="hate-modal-text-box">
       <div className='hate-profile-textbox'>
         <span className='hate-forms-home'>Home</span>
         <div className='hate-profile-pic'>
-          <img src={`https://avatars.dicebear.com/api/adventurer/${hate.id}.svg?flip=1`} alt="profile"></img>
+          <img src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`} alt="profile"></img>
         </div>
       </div>
       <div className="hates-form">
         <form className="hates-form-box" onSubmit={handleSubmit}>
-          <TextareaAutosize
+        <input
+            onChange={handleChange}
             className="hates-form-text"
             id="hateFormText"
-            placeholder="Who's Hatin'"
-            type="text"
+            placeholder="Who Hatin'"
             name="h_body"
             value={hate.h_body}
             maxLength="140"
-            onChange={handleChange}
-            required
+            type="text"
           />
           <input
-            className="hates-button-up"
+            className="hates-modal-button-up"
             type="submit"
             value="Hate"
           />

@@ -1,0 +1,101 @@
+.comment-main-container {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+.comment-section-main-container {
+  width: 80vw;
+  margin-left: 20vw;
+}
+.comment-post-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+.comment-mini-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.comment-button {
+  display: flex;
+  align-self: center;
+  border: none;
+  font-size: 3rem;
+  transform: scaleX(-1);
+  background-color: transparent;
+  transition: all ease 0.25s;
+  padding: 1rem;
+}
+.comment-button:hover {
+  cursor: pointer;
+  color: #dc1a22;
+  font-size: 3.1rem;
+}
+.comment-section-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.comment-post-field {
+  display: flex;
+  align-items: center;
+}
+.comment-post-field input {
+  border: 1px solid rgba(255, 0, 0, 0.335);
+  border-radius: 10px;
+  background-color: whitesmoke;
+  padding: 10px;
+  width: 40vw;
+  max-width: 600px;
+  margin: 20px;
+  font-size: 1.5rem;
+}
+.comment-post-field input:focus {
+  background-color: white;
+}
+.comment-feed {
+  max-height: 50vh;
+  overflow: scroll;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.comment-feed h3 {
+  color: rgb(83, 80, 80);
+  letter-spacing: 1px;
+}
+.comment-text-field {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.comment-text-field p {
+  color: rgb(82, 79, 79);
+}
+.comment-text-field h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #851317;
+  overflow: scroll;
+}
+.comment-divder {
+  width: 90%;
+}
+.comment-no-one {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+/* keep this break point  */
+@media only screen and (max-width: 975px) {
+}
+@media only screen and (max-width: 920px) {
+  .comment-hate-post {
+    margin-left: 5%;
+  }
+}

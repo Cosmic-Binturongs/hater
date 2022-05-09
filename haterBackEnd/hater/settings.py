@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7^27tgnvpir$uvu-&9s6&bidk@s_(=rj)gx^ne&_@h1-2b7sa3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'hater_app',
-    'corsheaders'
+    'corsheaders',
+    'user_app'
 ]
 
 MIDDLEWARE = [
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -130,15 +131,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 # this line allows for any origin to make requests to our api
 # post M.V.P we should only white list hate.rip
 CORS_ORIGIN_ALLOW_ALL = True
-
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:5500',
-#     'http://127.0.0.1:5500'
-# ]
-# CORS_ALLOW_CREDENTIALS = True
-# CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
-# CSRF_COOKIE_SAMESITE = 'Lax'
-# SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = False
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:8000/']

@@ -30,13 +30,6 @@ class HatesViewSet(viewsets.ModelViewSet):
 class CriticismViewSet(viewsets.ModelViewSet):
     queryset = Criticism.objects.all()
     serializer_class = CriticismSerializer
-
-class YourHatesView(APIView):
-    def get(self, request, format=None):
-      hates = Hates.objects.select_related('').all()
-      hates_json = TestSerializer(hates, many=True)
-      return Response(hates_json.data)
-     
 class CommentView(APIView):
   def get(self,request, format=None):
     try:
@@ -57,6 +50,15 @@ class AllHates(APIView):
       return Response(hates_json.data)
     except:
       return Response({'message':" ╥﹏╥ Something went wrong when retrieving raw hate posts"})
+
+class GetHate(APIView):
+  def get(self, request,format= None):
+    try:
+      hate = Hates.objects.get(id = request.query_params['hateid'])
+      return Response(AllHatesSerializer(hate).data)
+      
+    except:
+      return Response({'message':"(‡▼益▼) make sure u give a hate id "})
 class AddDislike(APIView):
   def get(self,request, format=None):
     try:
@@ -84,20 +86,22 @@ class AddComment(APIView):
   def post(self,request, format=None):
     try:
       #increment comment count
-      hate_id = request.query_params['hateid']
+      hate_id = request.data["post_id"]
       hate_post = Hates.objects.get(id = hate_id)
       new_count = hate_post.crit_count + 1
       Hates.objects.filter(id = hate_id).update(crit_count = new_count)
       #create comment
-      content = request.data["content"] 
-      hater = User_profile.objects.get(id = request.data["hater_id"])
-      hate_instance = Hates.objects.get(id = request.data["hater_id"])
-      new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
-      new_hate.save()
-      return Response({
-        'message':'Created new comment ! ʘᆽʘ',
-        'old_crit_Count':hate_post.crit_count,
-      })
+      user = self.request.user
+      isAuthenticated = user.is_authenticated
+      if isAuthenticated:
+          content = request.data["content"] 
+          hater = User_profile.objects.get(user = user)
+          hate_instance = Hates.objects.get(id = request.data["post_id"])
+          new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
+          new_hate.save()
+          return Response({ 'message':'Created new comment ! ʘᆽʘ','old_crit_Count':hate_post.crit_count,})
+      else:
+          return Response({"error" : "Not logged in !"})
     except:
       return Response({'message':"( ◔ ʖ̯ ◔ ) error; you are most likely messed up the body syntax or are missing a 'hateid' param or that hate post id doesnt exist "})
 class EditHate(APIView):
@@ -109,3 +113,23 @@ class EditHate(APIView):
       return Response({'message':" ◕‿↼ Updated ! "})
     except:
       return Response({'message':"( ﾟДﾟ)b error; you are most likely missing a 'hateid' param or that hate post id doesnt exist "})
+
+class CreateHate(APIView):
+  def post(self,request, format=None):
+    try:
+      user = self.request.user
+      isAuthenticated = user.is_authenticated
+      if isAuthenticated:
+        hate_content = self.request.data 
+        hater_id = hate_content["haters"]
+        h_body = hate_content["h_body"]
+        print(hater_id)
+        hater = User_profile.objects.get(id=hater_id)
+        Hates.objects.create(haters=hater,h_body=h_body,hate_count=0,rehate_count=0,crit_count=0)
+        return Response({'message':" ◕‿↼ Updated ! "})
+      else:
+        return Response({'message':"ヽ(ﾟДﾟ)ﾉ Not logged in or not is_authenticated"})
+        
+    except:
+      return Response({'message':"( ﾟДﾟ)b error; you are most likely messed up by passing in a user id instead of a user_profile id"})
+
