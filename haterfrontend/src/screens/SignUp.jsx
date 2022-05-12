@@ -15,6 +15,7 @@ export default function SignUp() {
     re_password: "",
   });
   let handleSubmit = (e) => {
+    console.log(Cookies.get("csrftoken"));
     e.preventDefault();
     if (form.password === form.re_password) {
       let headerInfo = {

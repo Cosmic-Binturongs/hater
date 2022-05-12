@@ -145,6 +145,8 @@ REST_FRAMEWORK = {
 # post M.V.P we should only white list hate.rip
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_HTTPONLY = False
+SESSION_COOKIE_HTTPONLY = False
 CORS_ALLOW_CREDENTIALS = True
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:8000/', 'https://hater.netlify.app','https://haterip.netlify.app']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:8000/',
+                        'https://hater.netlify.app', 'https://haterip.netlify.app']
 django_heroku.settings(locals())
