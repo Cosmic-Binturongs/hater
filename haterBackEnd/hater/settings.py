@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -82,10 +83,10 @@ WSGI_APPLICATION = 'hater.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hater',
-        'USER': 'hater_admin',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': os.environ.get("NAME"),
+        'USER': os.environ.get("USER"),
+        'PASSWORD': os.environ.get("PASSWORD"),
+        'HOST': os.environ.get("HOST"),
 
     }
 }
@@ -146,3 +147,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_HTTPONLY = False
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:8000/', 'https://hater.netlify.app','https://haterip.netlify.app']
+django_heroku.settings(locals())
