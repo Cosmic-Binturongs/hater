@@ -77,9 +77,8 @@ export default function SignUp() {
   };
   return (
     <div className="signup-container">
-      <CSRFToken></CSRFToken>
-
       <form onSubmit={handleSubmit}>
+        <CSRFToken></CSRFToken>
         <h1>Sign Up</h1>
 
         <label>
