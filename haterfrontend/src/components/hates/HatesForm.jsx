@@ -1,26 +1,12 @@
-import { TextareaAutosize } from "@mui/material";
-import axios from "axios";
 import React from "react";
 import { useState, useRef } from "react";
-import { createHate } from "../../services/hates";
-import HatesFeed from "./HatesFeed";
 import "./Hates.css";
 import { useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
 export default function HatesForm({ toggle, setToggle }) {
+  const hateInput = useRef(null);
   const user = useSelector((state) => state.user);
-  const [hate, setHate] = useState({
-    h_body: "",
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setHate({
-      ...hate,
-      [name]: value,
-    });
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +20,7 @@ export default function HatesForm({ toggle, setToggle }) {
       },
       credentials: "include",
       body: JSON.stringify({
-        h_body: hate.h_body,
+        h_body: hateInput.current.value,
         haters: user.id,
       }),
     };
@@ -43,6 +29,7 @@ export default function HatesForm({ toggle, setToggle }) {
       .then((data) => {
         if (!data["error"]) {
           setToggle((prev) => !prev);
+          hateInput.current.value = "";
         }
       });
   };
@@ -61,14 +48,14 @@ export default function HatesForm({ toggle, setToggle }) {
       <div className="hates-form">
         <form className="hates-form-box" onSubmit={handleSubmit}>
           <input
-            onChange={handleChange}
+            ref={hateInput}
             className="hates-form-text"
             id="hateFormText"
             placeholder="Who's Hatin'"
             name="h_body"
-            value={hate.h_body}
             maxLength="140"
             type="text"
+            required
           />
           <input className="hates-button-up" type="submit" value="Hate" />
         </form>

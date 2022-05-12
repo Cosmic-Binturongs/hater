@@ -40,7 +40,7 @@ export default function PostComment(props) {
       </div>
       <div className="comment-post-field">
         <form onSubmit={handleSubmit}>
-          <input placeholder=" 🗣 📠" ref={commentText} type="text" />
+          <input placeholder=" 🗣 📠" ref={commentText} type="text" required />
         </form>
       </div>
       <button onClick={handleSubmit} className="comment-button">

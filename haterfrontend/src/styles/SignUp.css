@@ -10,8 +10,6 @@
   display: inline-block;
   border: none;
   background-color: rgb(252, 246, 246);
-
-
 }
 
 .signup-inputs:hover {
@@ -22,10 +20,6 @@
 input:invalid {
   background-color: #ffdddd;
 }
-
-/* input:valid {
-  background-color: #ddffdd;
-} */
 
 .signup-btn {
   background-color: var(--hate-red);
@@ -50,6 +44,5 @@ input:invalid {
   .signup-container {
     width: 100%;
     height: 100%;
-
   }
 }

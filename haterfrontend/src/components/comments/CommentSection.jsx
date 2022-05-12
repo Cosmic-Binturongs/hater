@@ -35,9 +35,6 @@ export default function CommentSection() {
   useEffect(() => {
     fetchComments();
   }, [togglestate]);
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
   return (
     <div className="comment-main-container">
       <Profilebutton click={handleClick} />

@@ -1,11 +1,9 @@
 import "../styles/Home.css";
 import "../components/hates/Hates";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
 import Hates from "../components/hates/Hates";
-import Profile from "../components/profile";
-import SearchBar from "../components/searchBar/SearchBar";
 import { useSelector } from "react-redux";
 
 function Home() {
@@ -30,9 +28,7 @@ function Home() {
       <div className="mid">
         <Hates />
       </div>
-      <div className="right">
-        <SearchBar />
-      </div>
+      <div className="right"></div>
     </div>
   );
 }

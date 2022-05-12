@@ -4,7 +4,7 @@ import HatesForm from "./HatesForm";
 import { useState, useEffect } from "react";
 import { getHates } from "../../services/hates";
 import "./Hates.css";
-import Hate from "./Hate";
+import Hate from "./Hate.jsx";
 
 export default function Hates() {
   const [hates, setHates] = useState([]);

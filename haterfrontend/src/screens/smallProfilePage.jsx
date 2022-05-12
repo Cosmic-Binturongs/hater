@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import { getAllHates, getHates, getUsers } from "../services/hates.js";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import MessageIcon from "@mui/icons-material/Message";
@@ -11,8 +10,6 @@ import MiniHates from "../components/miniHates/miniHates.js";
 
 export default function SmallProfilePage() {
   let { ID } = useParams();
-
-  const [face, setFace] = useState("verybamboo");
   const [list, setList] = useState([
     {
       crit_count: 0,
@@ -50,15 +47,13 @@ export default function SmallProfilePage() {
     fetchHates();
   }, [toggle]);
 
-  {
-    list.map(
-      (newData) =>
-        JSON.stringify(newData.hater_id).includes(ID) &&
-        (totalHates.push(newData.hate_count),
-        totalCrits.push(newData.crit_count),
-        totalRehates.push(newData.rehate_count))
-    );
-  }
+  list.map(
+    (newData) =>
+      JSON.stringify(newData.hater_id).includes(ID) &&
+      (totalHates.push(newData.hate_count),
+      totalCrits.push(newData.crit_count),
+      totalRehates.push(newData.rehate_count))
+  );
 
   totalCrits.forEach((value) => {
     critSum += value;
@@ -87,6 +82,7 @@ export default function SmallProfilePage() {
                   <div className="miniProBodyFrame"></div>
                   <div className="miniProProfilePic">
                     <img
+                      alt={`${data.name} profile pic`}
                       src={`https://avatars.dicebear.com/api/adventurer/${data.name}.svg?flip=1`}
                     ></img>
                   </div>

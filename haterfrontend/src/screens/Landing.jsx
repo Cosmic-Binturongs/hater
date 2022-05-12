@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import "../styles/Landing.css";
-import Profile from "../components/profile";
 import LandingLogo from "../images/hater-logos.jpeg";
 import LandingLogoInverted from "../images/hater-logos_transparent_inverted_color.png";
 import Cookies from "js-cookie";
@@ -88,7 +87,7 @@ export default function Home() {
         </div>
       </div>
       <div className="landingRight">
-        <div classname="rightLogoContainer">
+        <div className="rightLogoContainer">
           <div className="logoInvDiv">
             <img
               className="logoInvert"
@@ -119,7 +118,7 @@ export default function Home() {
               placeholder="Password"
               type="password"
               name="password"
-              autocomplete="current-password"
+              autoComplete="current-password"
             />
             <Button id="login" type="submit">
               Login

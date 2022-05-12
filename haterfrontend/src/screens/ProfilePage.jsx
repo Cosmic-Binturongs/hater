@@ -3,15 +3,7 @@ import "../styles/ProfilePage.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MiniHates from "../components/miniHates/miniHates.js";
-import {
-  createHate,
-  getHate,
-  getHates,
-  getAllHates,
-} from "../services/hates.js";
-import logo from "../components/profilebutton/logo.png";
-import Profile from "../components/profile";
-import { Button } from "@mui/material";
+import { getAllHates } from "../services/hates.js";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import MessageIcon from "@mui/icons-material/Message";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
@@ -21,16 +13,8 @@ export default function ProfilePage(props) {
   const user = useSelector((state) => state.user);
 
   const [datas, setDatas] = useState([]);
-  const [toggle, setToggle] = useState(false);
-  const [type, setType] = useState("");
   const [search, setSearch] = useState("");
   const [userPosts, setUserPosts] = useState([]);
-
-  const filterTag = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-    setType({ search });
-  };
 
   let fetchUserPosts = () => {
     fetch(`http://localhost:8000/allHates?haterid=${user.id}`)
@@ -39,15 +23,15 @@ export default function ProfilePage(props) {
         setUserPosts(data);
       });
   };
+  const fetchHates = async () => {
+    const response = await getAllHates();
+    setDatas(response);
+  };
 
   useEffect(() => {
-    fetchUserPosts();
-    const fetchHates = async () => {
-      const response = await getAllHates();
-      setDatas(response);
-    };
     fetchHates();
-  }, [toggle]);
+    fetchUserPosts();
+  }, []);
   return (
     <div className="proPageContainer">
       <div className="contentContainer">
@@ -63,6 +47,7 @@ export default function ProfilePage(props) {
             <div className="proBodyFrame"></div>
             <div className="proProfilePic">
               <img
+                alt={`${user.name} profile`}
                 src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
               ></img>
             </div>
@@ -72,17 +57,17 @@ export default function ProfilePage(props) {
               <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>
             </div>
             <div className="ProfileHateContainer">
-            {userPosts.map((hate) => (
-              <MiniHates
-                hater_name={hate.hater_name}
-                hater_tag={hate.hate_tag}
-                hate={hate.hate}
-                hate_count={hate.hate_count}
-                rehate_count={hate.rehate_count}
-                crit_count={hate.crit_count}
-              />
-            ))}
-              </div>
+              {userPosts.map((hate) => (
+                <MiniHates
+                  hater_name={hate.hater_name}
+                  hater_tag={hate.hate_tag}
+                  hate={hate.hate}
+                  hate_count={hate.hate_count}
+                  rehate_count={hate.rehate_count}
+                  crit_count={hate.crit_count}
+                />
+              ))}
+            </div>
           </div>
           <div className="proSearch">
             <form className="landingForm">
@@ -96,9 +81,6 @@ export default function ProfilePage(props) {
                   setSearch(e.target.value);
                 }}
               />
-              {/* <Button id="login" type="submit" onClick={filterTag}>
-              Search
-            </Button> */}
             </form>
             {datas.map(
               (data) =>
