@@ -19,9 +19,8 @@ export default function CSRFToken() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/user/csrf_cookie", {
+    fetch("https://haterbackend.herokuapp.com/user/csrf_cookie", {
       credentials: "include",
-      
     }).then((response) => {
       setcsrftoken(getCookie("csrftoken"));
     });
