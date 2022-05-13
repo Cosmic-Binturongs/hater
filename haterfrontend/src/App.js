@@ -4,7 +4,7 @@ import ProfilePage from "./screens/ProfilePage.jsx";
 import ErrorPage from "./screens/Error";
 import React from "react";
 import SignUp from "./screens/SignUp.jsx";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SmallProfilePage from "./screens/smallProfilePage.jsx";
 import PersistProfile from "./components/persistProfile.jsx";
 import CommentSection from "./components/comments/CommentSection.jsx";

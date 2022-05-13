@@ -21,11 +21,11 @@ export default function CommentSection() {
     setShow({ display: "flex" });
   };
   let fetchComments = () => {
-    fetch(`http://localhost:8000/getHate?hateid=${hateid}`)
+    fetch(`https://haterbackend.herokuapp.com/getHate?hateid=${hateid}`)
       .then((res) => res.json())
       .then((data) => setHatepost(data))
       .then(() => {
-        fetch(`http://localhost:8000/comments?hateid=${hateid}`)
+        fetch(`https://haterbackend.herokuapp.com/comments?hateid=${hateid}`)
           .then((res) => res.json())
           .then((data) => {
             if (data.length) setComments(data);

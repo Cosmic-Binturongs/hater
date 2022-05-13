@@ -15,13 +15,13 @@ export default function SignUp() {
     re_password: "",
   });
   let handleSubmit = (e) => {
-    console.log(Cookies.get("csrftoken"));
     e.preventDefault();
+    let token = Cookies.get("csrftoken");
     if (form.password === form.re_password) {
       let headerInfo = {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        "X-CSRFToken": token,
       };
       let registerOption = {
         method: "POST",
