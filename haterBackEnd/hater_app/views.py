@@ -125,7 +125,6 @@ class CreateHate(APIView):
         hate_content = self.request.data 
         hater_id = hate_content["haters"]
         h_body = hate_content["h_body"]
-        print(hater_id)
         hater = User_profile.objects.get(id=hater_id)
         Hates.objects.create(haters=hater,h_body=h_body,hate_count=0,rehate_count=0,crit_count=0)
         return Response({'message':" ◕‿↼ Updated ! "})

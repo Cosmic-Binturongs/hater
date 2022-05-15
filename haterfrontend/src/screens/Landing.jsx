@@ -24,7 +24,7 @@ export default function Home() {
     let headerInfo = {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "X-CSRFToken": Cookies.get("csrftoken"),
+      "X-CSRFToken": e.target["csrfmiddlewaretoken"].value,
     };
     let loginOptions = {
       method: "POST",

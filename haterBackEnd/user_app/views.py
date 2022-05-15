@@ -96,7 +96,8 @@ class GetCSRFToken(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request, format=None):
-        return Response({'success': 'CSRF cookie set'})
+      
+        return Response({'success': 'CSRF cookie set'},200,None,{"Access-Control-Expose-Headers": "*","Access-Control-Allow-Origin": "*"})
 
 
 class DeleteAccountView(APIView):

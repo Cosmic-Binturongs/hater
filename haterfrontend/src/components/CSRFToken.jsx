@@ -20,10 +20,9 @@ export default function CSRFToken() {
 
   useEffect(() => {
     fetch(`http://localhost:8000/user/csrf_cookie`, {
-      "access-control-expose-headers": "Set-Cookie",
       credentials: "include",
     })
-      .then((response) => {
+      .then((res) => {
         setcsrftoken(getCookie("csrftoken"));
         console.log(getCookie("csrftoken"));
       })
