@@ -21,6 +21,8 @@ export default function Home() {
   let handleLogin = (e) => {
     e.preventDefault();
     console.log(e.target["csrfmiddlewaretoken"].value);
+    console.log(Cookies.get("csrftoken"));
+    console.log(Cookies.get());
     console.log(Cookies.get("csrftoken"), "here");
     let headerInfo = {
       Accept: "application/json",
