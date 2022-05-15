@@ -26,8 +26,7 @@ class CheckAuthenticatedView(APIView):
             return Response({'error': 'Something went wrong when checking authentication status'})
 
 
-# @method_decorator(csrf_protect, name="dispatch")
-@csrf_exempt
+@method_decorator(csrf_protect, name="dispatch")
 class LoginView(APIView):
     permission_classes = (permissions.AllowAny,)
 
@@ -57,10 +56,7 @@ class LogoutView(APIView):
         except:
             return Response({'error': 'Something went wrong when logging out'})
 
-# @method_decorator(csrf_protect, name="dispatch")
-
-
-@csrf_exempt
+@method_decorator(csrf_protect, name="dispatch")
 class SignupView(APIView):
     permission_classes = (permissions.AllowAny,)
 

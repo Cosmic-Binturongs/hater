@@ -7,6 +7,7 @@ import Profiletab from "../../components/profiletab/Profiletab.js";
 import HatePost from "./HatePost.jsx";
 import PostComment from "./PostComment.jsx";
 import MiniComments from "./MiniComments.jsx";
+
 export default function CommentSection() {
   let { hateid } = useParams();
   const user = useSelector((state) => state.user);
@@ -21,11 +22,11 @@ export default function CommentSection() {
     setShow({ display: "flex" });
   };
   let fetchComments = () => {
-    fetch(`https://haterbackend.herokuapp.com/getHate?hateid=${hateid}`)
+    fetch(`http://localhost:8000/getHate?hateid=${hateid}`)
       .then((res) => res.json())
       .then((data) => setHatepost(data))
       .then(() => {
-        fetch(`https://haterbackend.herokuapp.com/comments?hateid=${hateid}`)
+        fetch(`http://localhost:8000/comments?hateid=${hateid}`)
           .then((res) => res.json())
           .then((data) => {
             if (data.length) setComments(data);

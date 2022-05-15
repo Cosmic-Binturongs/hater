@@ -19,12 +19,19 @@ export default function CSRFToken() {
   };
 
   useEffect(() => {
-    fetch("https://haterbackend.herokuapp.com/user/csrf_cookie", {
+    fetch(`http://localhost:8000/user/csrf_cookie`, {
       credentials: "include",
-    }).then((response) => {
-      setcsrftoken(getCookie("csrftoken"));
-    });
+    })
+      .then((response) => {
+        setcsrftoken(getCookie("csrftoken"));
+        console.log(getCookie("csrftoken"));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
-  return <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken} />;
+  return (
+    <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken || ""} />
+  );
 }
