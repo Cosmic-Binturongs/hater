@@ -147,11 +147,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_HTTPONLY = False
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SAMESITE = 'None'
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://haterbackend.herokuapp.com',
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://localhost:8000',
                         'https://hater.netlify.app', 'https://haterip.netlify.app']
 CORS_EXPOSE_HEADERS = ["Set-Cookie"]
 django_heroku.settings(locals())

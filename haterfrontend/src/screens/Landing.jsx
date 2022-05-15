@@ -17,17 +17,28 @@ export default function Home() {
     username: "",
     password: "",
   });
-
+  const getCookie = (name) => {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+      let cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === name + "=") {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  };
   let handleLogin = (e) => {
     e.preventDefault();
     console.log(e.target["csrfmiddlewaretoken"].value);
-    console.log(Cookies.get("csrftoken"));
     console.log(Cookies.get());
     console.log(Cookies.get("csrftoken"), "here");
     let headerInfo = {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "X-CSRFToken": e.target["csrfmiddlewaretoken"].value,
     };
     let loginOptions = {
       method: "POST",

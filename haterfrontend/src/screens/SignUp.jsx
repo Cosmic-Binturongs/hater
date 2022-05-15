@@ -17,11 +17,12 @@ export default function SignUp() {
   let handleSubmit = (e) => {
     e.preventDefault();
     let token = Cookies.get("csrftoken");
+    console.log(token);
     if (form.password === form.re_password) {
       let headerInfo = {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": token,
+        "X-CSRFToken": Cookies.get("csrftoken"),
       };
       let registerOption = {
         method: "POST",
