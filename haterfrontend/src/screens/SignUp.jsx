@@ -44,14 +44,17 @@ export default function SignUp() {
         credentials: "include",
       };
 
-      fetch(`http://localhost:8000/user/register`, registerOption)
+      fetch(`https://haterbackend.herokuapp.com/user/register`, registerOption)
         .then((res) => res.json())
         .then((data) => {
           if (!data["error"]) {
-            fetch(`http://localhost:8000/user/login`, loginOption)
+            fetch(`https://haterbackend.herokuapp.com/user/login`, loginOption)
               .then((res) => res.json())
               .then(() => {
-                fetch(`http://localhost:8000/user/grabProfile`, options)
+                fetch(
+                  `https://haterbackend.herokuapp.com/user/grabProfile`,
+                  options
+                )
                   .then((res) => res.json())
                   .then((data) => {
                     console.log(data.profile);

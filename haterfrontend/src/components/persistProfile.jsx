@@ -14,7 +14,7 @@ export default function CSRFToken() {
       headers: headerInfo,
       credentials: "include",
     };
-    fetch(`http://localhost:8000/user/grabProfile`, options)
+    fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, options)
       .then((res) => res.json())
       .then((data) => {
         store.dispatch({ type: "set", payload: data.profile });

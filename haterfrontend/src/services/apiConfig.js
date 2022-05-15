@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let apiUrl = "http://localhost:8000";
+let apiUrl = "https://haterbackend.herokuapp.com";
 
 const api = axios.create({
   baseURL: apiUrl,

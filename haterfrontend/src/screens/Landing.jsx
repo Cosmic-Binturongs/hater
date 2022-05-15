@@ -41,13 +41,13 @@ export default function Home() {
       credentials: "include",
     };
 
-    fetch(`http://localhost:8000/user/login`, loginOptions)
+    fetch(`https://haterbackend.herokuapp.com/user/login`, loginOptions)
       .then((res) => res.json())
       .then((data) => {
         if (data["error"]) {
           return alert(data["error"]);
         } else {
-          fetch(`http://localhost:8000/user/grabProfile`, options)
+          fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, options)
             .then((res) => res.json())
             .then((data) => {
               store.dispatch({ type: "set", payload: data.profile });
@@ -75,7 +75,7 @@ export default function Home() {
       },
       credentials: "include",
     };
-    fetch(`http://localhost:8000/user/logout`, options)
+    fetch(`https://haterbackend.herokuapp.com/user/logout`, options)
       .then((res) => res.json())
       .then((data) => {
         store.dispatch({ type: "set", payload: { name: "Guest" } });

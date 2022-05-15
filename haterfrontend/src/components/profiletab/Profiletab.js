@@ -27,7 +27,7 @@ function Profile(props) {
       },
       credentials: "include",
     };
-    fetch(`http://localhost:8000/user/logout`, options)
+    fetch(`https://haterbackend.herokuapp.com/user/logout`, options)
       .then((res) => res.json())
       .then((data) => {
         store.dispatch({ type: "set", payload: { name: "Guest" } });
