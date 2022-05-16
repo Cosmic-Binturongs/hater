@@ -11,12 +11,6 @@ from rest_framework.permissions import IsAdminUser
 # Create your views here.
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    permission_classes = [IsAdminUser]
-    serializer_class = UserSerializer
-
-
 class User_profileViewSet(viewsets.ModelViewSet):
     queryset = User_profile.objects.all()
     # queryset = User_profile.objects.filter(name='evan').count()

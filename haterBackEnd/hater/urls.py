@@ -17,11 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from hater_app.views import UserViewSet, User_profileViewSet, HatesViewSet, CriticismViewSet, CommentView
+from hater_app.views import User_profileViewSet, HatesViewSet, CriticismViewSet, CommentView
 from hater_app.views import AllHates, AddDislike, AddComment, AddRehate, EditHate, CreateHate, GetHate
 router = routers.DefaultRouter()
-#for testing this route exists make sure to remove the line below me 
-router.register(r'user', UserViewSet)
+
 router.register(r'user_Profile', User_profileViewSet)
 router.register(r'hates', HatesViewSet)
 router.register(r'Criticism', CriticismViewSet)

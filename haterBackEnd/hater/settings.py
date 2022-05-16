@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'hater_app',
     'corsheaders',
-    'user_app'
+    'user_app',
+    'knox'
 ]
 
 MIDDLEWARE = [
@@ -138,18 +139,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
     ]
 }
 # this line allows for any origin to make requests to our api
 # post M.V.P we should only white list hate.rip
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_COOKIE_HTTPONLY = False
-SESSION_COOKIE_HTTPONLY = False
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://localhost:8000',
-                        'https://hater.netlify.app', 'https://haterip.netlify.app']
-CORS_EXPOSE_HEADERS = ["Set-Cookie"]
 django_heroku.settings(locals())
