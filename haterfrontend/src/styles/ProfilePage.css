@@ -30,7 +30,7 @@
 .ProfileHateContainer {
   display: flex;
   position: absolute;
-  flex-direction: column-reverse;
+  flex-direction: column;
   top: 170px;
   height: calc(100% - 170px);
   width: 100%;

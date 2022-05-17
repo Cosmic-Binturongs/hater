@@ -27,6 +27,9 @@ class CriticismViewSet(viewsets.ModelViewSet):
     queryset = Criticism.objects.all()
     serializer_class = CriticismSerializer
 class CommentView(APIView):
+  permission_classes = [
+    permissions.AllowAny
+  ]
   def get(self,request, format=None):
     try:
       hateid = request.query_params['hateid']
@@ -36,6 +39,9 @@ class CommentView(APIView):
     except:
       return Response({'message':" (T⌓T) enter hateid in the url to reference what hate post comment section u want to view"})
 class AllHates(APIView):
+  permission_classes = [
+    permissions.AllowAny
+  ]
   def get(self,request, format=None):
     try:
       if not request.query_params:
@@ -48,6 +54,9 @@ class AllHates(APIView):
       return Response({'message':" ╥﹏╥ Something went wrong when retrieving raw hate posts"})
 
 class GetHate(APIView):
+  permission_classes = [
+      permissions.AllowAny
+  ]
   def get(self, request,format= None):
     try:
       hate = Hates.objects.get(id = request.query_params['hateid'])
@@ -127,4 +136,3 @@ class CreateHate(APIView):
         
     except:
       return Response({'message':"( ﾟДﾟ)b error; you are most likely messed up by passing in a user id instead of a user_profile id"})
-

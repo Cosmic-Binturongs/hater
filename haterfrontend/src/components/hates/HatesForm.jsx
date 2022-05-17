@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useRef } from "react";
 import "./Hates.css";
 import { useSelector } from "react-redux";
-import Cookies from "js-cookie";
 
 export default function HatesForm({ toggle, setToggle }) {
   const hateInput = useRef(null);
