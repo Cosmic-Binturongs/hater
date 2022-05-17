@@ -1,5 +1,7 @@
 # Hater
 
+https://haterip.netlify.app/
+
 ## About
 
 The evil twins of Twitter, the users are welcome to descend into haters to release your inner hatred from the abyss of your heart on this platform.
