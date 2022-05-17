@@ -4,6 +4,11 @@ let apiUrl = "https://haterbackend.herokuapp.com";
 
 const api = axios.create({
   baseURL: apiUrl,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: `Token ${localStorage.getItem("knox")}`,
+  },
 });
 
 export default api;

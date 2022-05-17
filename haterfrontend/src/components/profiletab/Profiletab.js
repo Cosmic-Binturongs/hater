@@ -3,12 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NewHate from "../newHate/newHate.js";
-import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import { store } from "../../state/store.js";
+import { useNavigate } from "react-router-dom";
 
 function Profile(props) {
   const user = useSelector((state) => state.user);
+  let navigate = useNavigate();
 
   // Modal constants
 
@@ -18,20 +19,25 @@ function Profile(props) {
     setShowModal(true);
   };
   let signOut = () => {
+    let knoxToken = localStorage.getItem("knox");
     let options = {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${knoxToken}`,
       },
       credentials: "include",
     };
     fetch(`https://haterbackend.herokuapp.com/user/logout`, options)
-      .then((res) => res.json())
-      .then((data) => {
+      .then((res) => {
+        localStorage.clear();
         store.dispatch({ type: "set", payload: { name: "Guest" } });
-      });
+      })
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="profile" style={props.show}>
@@ -51,15 +57,15 @@ function Profile(props) {
       </div>
       {user.tag ? (
         <div className="bottom">
-          <Link to="/home" className="pronavs">
+          <Link to="/" className="pronavs">
             <div className="protabLinks">Home</div>
           </Link>
           <Link to="/profile" className="pronavs">
             <div className="protabLinks">Profile</div>
           </Link>
-          <Link to="/" onClick={signOut} className="pronavs">
+          <a onClick={signOut} className="pronavs">
             <div className="protabLinks">Sign Out</div>
-          </Link>
+          </a>
           <button onClick={openModal} className="prohate">
             Hate
           </button>

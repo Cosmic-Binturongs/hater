@@ -1,8 +1,6 @@
 import React from "react";
 import "../styles/SignUp.css";
 import { useState } from "react";
-import Cookies from "js-cookie";
-import CSRFToken from "../components/CSRFToken";
 import { useNavigate } from "react-router-dom";
 import { store } from "../state/store";
 
@@ -16,54 +14,34 @@ export default function SignUp() {
   });
   let handleSubmit = (e) => {
     e.preventDefault();
-    let token = Cookies.get("csrftoken");
-    console.log(token);
     if (form.password === form.re_password) {
-      let headerInfo = {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
-      };
       let registerOption = {
         method: "POST",
-        headers: headerInfo,
-        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(form),
       };
-      let loginOption = {
-        method: "POST",
-        headers: headerInfo,
-        credentials: "include",
-        body: JSON.stringify({
-          username: form.username,
-          password: form.password,
-        }),
-      };
-      let options = {
-        method: "GET",
-        headers: headerInfo,
-        credentials: "include",
-      };
-
       fetch(`https://haterbackend.herokuapp.com/user/register`, registerOption)
         .then((res) => res.json())
         .then((data) => {
           if (!data["error"]) {
-            fetch(`https://haterbackend.herokuapp.com/user/login`, loginOption)
+            localStorage.setItem("knox", data["token"]);
+            fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: `Token ${data["token"]}`,
+              },
+            })
               .then((res) => res.json())
-              .then(() => {
-                fetch(
-                  `https://haterbackend.herokuapp.com/user/grabProfile`,
-                  options
-                )
-                  .then((res) => res.json())
-                  .then((data) => {
-                    console.log(data.profile);
-                    store.dispatch({ type: "set", payload: data.profile });
-                  })
-                  .catch((err) => console.log(err));
+              .then((data) => {
+                store.dispatch({ type: "set", payload: data.profile });
+                navigate("/home");
               })
-              .then(() => navigate("/home"));
+              .catch((err) => console.log(err));
           } else {
             alert(data["error"]);
           }
@@ -83,7 +61,6 @@ export default function SignUp() {
   return (
     <div className="signup-container">
       <form onSubmit={handleSubmit}>
-        <CSRFToken></CSRFToken>
         <h1>Sign Up</h1>
 
         <label>

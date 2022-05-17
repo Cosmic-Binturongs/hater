@@ -10,15 +10,13 @@ export default function HatesForm({ toggle, setToggle }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     let postOptions = {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
+        Authorization: `Token ${localStorage.getItem("knox")}`,
       },
-      credentials: "include",
       body: JSON.stringify({
         h_body: hateInput.current.value,
         haters: user.id,

@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import AddCommentIcon from "@mui/icons-material/AddComment";
 import { useSelector } from "react-redux";
-import Cookies from "js-cookie";
 
 export default function PostComment(props) {
   let { post_id, setTogglestate } = props;
@@ -10,14 +9,13 @@ export default function PostComment(props) {
   let handleSubmit = (e) => {
     e.preventDefault();
     let content = commentText.current.value;
-    let headerInfo = {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "X-CSRFToken": Cookies.get("csrftoken"),
-    };
     let options = {
       method: "POST",
-      headers: headerInfo,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.getItem("knox")}`,
+      },
       credentials: "include",
       body: JSON.stringify({
         content: content,

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import "../styles/Landing.css";
 import LandingLogo from "../images/hater-logos.jpeg";
 import LandingLogoInverted from "../images/hater-logos_transparent_inverted_color.png";
-import Cookies from "js-cookie";
-import CSRFToken from "../components/CSRFToken";
 import { useNavigate } from "react-router-dom";
 import { store } from "../state/store";
 import { useSelector } from "react-redux";
@@ -17,37 +15,27 @@ export default function Home() {
     username: "",
     password: "",
   });
-
   let handleLogin = (e) => {
     e.preventDefault();
-    console.log(e.target["csrfmiddlewaretoken"].value);
-    console.log(Cookies.get("csrftoken"));
-    console.log(Cookies.get());
-    console.log(Cookies.get("csrftoken"), "here");
-    let headerInfo = {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "X-CSRFToken": e.target["csrfmiddlewaretoken"].value,
-    };
-    let loginOptions = {
+    fetch(`https://haterbackend.herokuapp.com/user/login`, {
       method: "POST",
-      headers: headerInfo,
-      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(form),
-    };
-    let options = {
-      method: "GET",
-      headers: headerInfo,
-      credentials: "include",
-    };
-
-    fetch(`https://haterbackend.herokuapp.com/user/login`, loginOptions)
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data["error"]) {
           return alert(data["error"]);
         } else {
-          fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, options)
+          localStorage.setItem("knox", data["token"]);
+          fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, {
+            headers: {
+              Authorization: `Token ${data["token"]}`,
+            },
+          })
             .then((res) => res.json())
             .then((data) => {
               store.dispatch({ type: "set", payload: data.profile });
@@ -71,15 +59,15 @@ export default function Home() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
       },
       credentials: "include",
     };
-    fetch(`https://haterbackend.herokuapp.com/user/logout`, options)
-      .then((res) => res.json())
-      .then((data) => {
+    fetch(`https://haterbackend.herokuapp.com/user/logout`, options).then(
+      (data) => {
+        localStorage.clear();
         store.dispatch({ type: "set", payload: { name: "Guest" } });
-      });
+      }
+    );
   };
   return (
     <div className="home">
@@ -108,13 +96,13 @@ export default function Home() {
         </div>
         {!user.tag ? (
           <form onSubmit={handleLogin} className="landingForm">
-            <CSRFToken></CSRFToken>
             <input
               onChange={handleChange}
               className="landingLoginInput"
               placeholder="Username"
               type="text"
               name="username"
+              autoComplete="username"
             />
 
             <input
