@@ -93,13 +93,13 @@
   border: 1px solid rgb(12, 188, 208);
 }
 .proSearchButton {
-  display: flex;
+  display: none;
   height: 40px;
   width: 40px;
   background-image: url("../images/search.png");
   background-size: cover;
-  filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
-    brightness(91%) contrast(105%);
+  /* filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
+    brightness(91%) contrast(105%); */
 }
 .proSearchButton:hover {
   cursor: pointer;
@@ -181,7 +181,7 @@
 .proSearch {
   display: flex;
   width: calc(40%);
-  height: calc(100% + 3%);
+  height: calc(100vh);
   /* border-left: 2px solid rgb(224, 224, 224); */
   flex-direction: column;
   justify-content: flex-start;
@@ -199,11 +199,73 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .mid {
-    width: 100%;
+  .landingForm {
+    position: relative;
+    z-index: 5;
   }
-  .right {
-    display: none;
+  .proSearchButton {
+    display: flex;
+  }
+
+  .proTweetCount {
+    gap: 0;
+  }
+  .proBody {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* overflow: scroll; */
+    position: fixed;
+    border: 2px solid var(--hate-red);
+    margin: 0px;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(224, 224, 224);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    position: fixed;
+  }
+  .proPageContent {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid orange;
+  }
+  .proSearch {
+    position: absolute;
+    left: 65px;
+    justify-self: center;
+    align-self: center;
+    width: calc(70%);
+    border: 1px solid var(--hate-red);
+    background-color: rgb(42, 41, 41);
+    border-radius: 40px;
+    display: flex;
+    overflow: scroll;
+    height: 60%;
+    bottom: 3%;
+    transform: translate(0%, 1000px);
+    /* animation: up 1s; */
+    transition: 0.5s;
+  }
+  .frame {
+    position: fixed;
+    top: 0;
   }
 }
 
