@@ -35,7 +35,7 @@ export default function ModalHate({ setShowModal }) {
         haters: user.id,
       }),
     };
-    fetch(`https://haterbackend.herokuapp.com /createHate`, postOptions).then(
+    fetch(`https://haterbackend.herokuapp.com/createHate`, postOptions).then(
       () => {
         setShowModal(false);
         window.location.reload();

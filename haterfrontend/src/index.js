@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./state/store";
 
-export let globalVar = { host: "https://haterbackend.herokuapp.com " };
+export let globalVar = { host: "https://haterbackend.herokuapp.com" };
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
