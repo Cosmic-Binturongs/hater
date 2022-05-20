@@ -37,14 +37,15 @@ export default function ProfilePage(props) {
   }, []);
 
   function setDisplay() {
-    setToggle((prevCheck) => !prevCheck);
     if (toggle == true) {
       // setShow("");
       setSlideIn({  transform: "translate(0%, 0%)"});
     } else {
       setSlideIn({  transform: "translate(0%, 1000px)"});
     }
+    setToggle((prevCheck) => !prevCheck);
   }
+  
   return (
     <div className="proPageContainer">
       
