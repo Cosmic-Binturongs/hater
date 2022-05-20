@@ -37,7 +37,9 @@ export default function ProfilePage(props) {
     fetchHates();
     fetchUserPosts();
   }, []);
-
+  useEffect(() => {
+    fetchUserPosts();
+  }, [user.id]);
   function setDisplay() {
     if (toggle == true) {
       // setShow("");
