@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 function Home() {
   const user = useSelector((state) => state.user);
-  const [show, setShow] = useState({ display: "flex" });
+  const [show, setShow] = useState({ display: "none" });
   const closeBox = () => {
     setShow({ display: "none" });
   };

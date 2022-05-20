@@ -4,6 +4,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Hate({ hateData, setToggle }) {
   let hateButtons = useRef(null);
@@ -53,7 +54,10 @@ export default function Hate({ hateData, setToggle }) {
       </div>
       <div className="hate-form">
         <h3 className="hate-name" type="text" name="name">
-          {hateData.hater_name + "@" + hateData.hate_tag}
+          <Link className="hateLink" to={`/profile/${hateData.hate_tag}`}>
+            @{hateData.hate_tag}
+          </Link>
+          
         </h3>
         <div className="hate-info">
           <h2 className="hate-text" type="text" name="text">
