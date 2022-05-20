@@ -7,12 +7,13 @@
   align-items: center;
   overflow: scroll;
 }
-.miniProProfilePic {
+
+.mainProProfilePic {
   display: flex;
   width: 120px;
   height: 120px;
   border-radius: 200px;
-  top: 0px;
+  left: calc(50% - 60px);
   margin-left: 20px;
   position: absolute;
   background-color: white;
@@ -26,45 +27,38 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  background-color: var(--back-ground);
 }
 .ProfileHateContainer {
   display: flex;
   position: absolute;
   flex-direction: column;
-  top: 170px;
-  height: calc(100% - 170px);
-  width: 100%;
+  top: 160px;
+  height: calc(100%);
+  width: calc(100%);
   justify-self: center;
   align-items: center;
   overflow: scroll;
 }
 .contentContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-direction: column;
-  height: 97%;
-  width: 97%;
-  border: 2px solid rgb(224, 224, 224);
-  border-radius: 10px 10px 0 0;
-  overflow: scroll;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--back-ground);
 }
 
 .frame {
   display: flex;
   width: 100%;
   position: relative;
-  height: 3%;
+  height: 20px;
+  position: absolute;
   background-color: rgb(224, 224, 224);
 }
-.proPageContent {
-  display: flex;
-  height: 95%;
-  width: 100%;
-  position: relative;
-  flex-direction: row;
-}
+
 .proLogo {
   display: flex;
   height: 40px;
@@ -95,7 +89,7 @@
   border: 1px solid rgb(12, 188, 208);
 }
 .proSearchButton {
-  display: flex;
+  display: none;
   height: 40px;
   width: 40px;
   background-image: url("../images/search.png");
@@ -134,7 +128,7 @@
 }
 .proBody {
   display: flex;
-  width: calc(60%);
+  width: 60%;
   height: calc(100%);
   /* border: 1px solid blue; */
   flex-direction: column;
@@ -144,6 +138,7 @@
   position: fixed;
   border-right: 2px solid var(--hate-red);
 }
+
 .proBodyFrame {
   display: flex;
   width: calc(100%);
@@ -151,21 +146,8 @@
   height: 120px;
   background-color: var(--hate-red);
 }
-.proProfilePic {
-  display: flex;
-  width: 120px;
-  height: 120px;
-  border-radius: 200px;
-  top: 10px;
-  margin-left: 20px;
-  position: absolute;
-  background-color: white;
-  border: 2px solid var(--hate-red);
-  z-index: 2;
-  background: var(--back-ground);
-  box-shadow: 12px 12px 24px #080808, -12px -12px 24px #202020;
-}
-.proTweetCount {
+
+.profileTweetCount {
   display: flex;
   width: calc(100%);
   position: relative;
@@ -179,30 +161,117 @@
 .proSearch {
   display: flex;
   width: calc(40%);
-  height: calc(100% + 3%);
+  height: calc(100%);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   right: 0;
   position: absolute;
 }
-
-@media only screen and (max-width: 500px) {
-  .mid {
-    width: 100%;
-  }
-  .right {
-    display: none;
-  }
+.mainProTweetCount {
+  display: flex;
+  width: calc(100%);
+  position: relative;
+  height: 30px;
+  background-color: var(--pro-grey);
+  justify-content: center;
+  align-items: center;
+  /* color: white; */
+  gap: 10px;
 }
 
-@media only screen and (min-width: 501px) and (max-width: 1100px) {
-  .pro-page-mid {
-    left: 197px;
-    border: 1px solid blue;
-    width: calc(100% - 197px);
+@media only screen and (max-width: 500px) {
+  .mainProfileName {
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-end;
+    left: 50%;
+    /* border: 1px solid purple; */
+    margin-left: 20px;
+    /* position: absolute; */
+    z-index: 2;
+    color: white;
+    justify-self: center;
   }
-  .pro-page-right {
-    display: none;
+  .mainProProfilePic {
+    display: flex;
+    position: absolute;
+    left: 65px;
+    top: 40px;
+    width: 90px;
+    height: 90px;
+    /* right: 0; */
+  }
+
+  .proBodyFrame {
+    display: flex;
+    /* width: calc(100%); */
+    top: 30px;
+    position: fixed;
+    height: 120px;
+    background-color: var(--hate-red);
+    width: calc(100% - 60px);
+    position: absolute;
+    left: 60px;
+  }
+  .profileTweetCount {
+    position: absolute;
+    top: 0px;
+    width: calc(100% - 60px);
+    position: absolute;
+    left: 60px;
+  }
+  .mainProTweetCount {
+    position: absolute;
+    top: 0px;
+    width: calc(100% - 60px);
+    position: absolute;
+    left: 60px;
+  }
+  .ProfileHateContainer {
+    width: calc(100% - 60px);
+    position: absolute;
+    left: 60px;
+  }
+  .proBody {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* overflow: scroll; */
+    position: fixed;
+    border: 2px solid var(--hate-red);
+    margin: 0px;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(224, 224, 224);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    position: fixed;
+  }
+  .proPageContent {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid orange;
+  }
+
+  .frame {
+    position: fixed;
   }
 }

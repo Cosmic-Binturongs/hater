@@ -17,6 +17,9 @@
 #makeDark {
   filter: none;
 }
+.hateLink {
+  color: grey;
+}
 .hate-text-box {
   color: black;
   border: 1px solid rgb(241, 146, 146, 1);

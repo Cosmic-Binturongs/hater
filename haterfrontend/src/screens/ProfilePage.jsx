@@ -11,10 +11,11 @@ import { useSelector } from "react-redux";
 
 export default function ProfilePage(props) {
   const user = useSelector((state) => state.user);
-
+  const [toggle, setToggle] = useState(true);
   const [datas, setDatas] = useState([]);
   const [search, setSearch] = useState("");
   const [userPosts, setUserPosts] = useState([]);
+  const [slideIn, setSlideIn] = useState({ display: "flex"});
 
   let fetchUserPosts = () => {
     fetch(`https://haterbackend.herokuapp.com/allHates?haterid=${user.id}`)
@@ -23,35 +24,47 @@ export default function ProfilePage(props) {
         setUserPosts(data);
       });
   };
-  const fetchHates = async () => {
-    const response = await getAllHates();
-    setDatas(response);
+  let fetchHates = () => {
+    fetch(`https://haterbackend.herokuapp.com/allHates`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDatas(data);
+      });
   };
-
   useEffect(() => {
     fetchHates();
     fetchUserPosts();
   }, []);
+
+  function setDisplay() {
+    if (toggle == true) {
+      // setShow("");
+      setSlideIn({  transform: "translate(0%, 0%)"});
+    } else {
+      setSlideIn({  transform: "translate(0%, 1000px)"});
+    }
+    setToggle((prevCheck) => !prevCheck);
+  }
+  
   return (
     <div className="proPageContainer">
+      
       <div className="contentContainer">
         <div className="frame"></div>
-        <div className="proPageContent">
           <div className="proPageLinks">
             <div className="proLogo"></div>
             <Link to="/home" className="proHome"></Link>
-            <div className="proSearchButton"></div>
+            <div className="proSearchButton" onClick={setDisplay}></div>
             <Link to="/" className="proRoot"></Link>
           </div>
+        <div className="proPageContent">
           <div className="proBody">
             <div className="proBodyFrame"></div>
-            <div className="proProfilePic">
-              <img
-                alt={`${user.name} profile`}
-                src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
-              ></img>
+            <div className="mainProProfilePic">
+              <img alt={`${user.name} profile`} src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}></img>
             </div>
-            <div className="proTweetCount">
+            <div className="mainProTweetCount">
+            <div className="mainProfileName">@{user.tag}</div>
               <MessageIcon className="hate-crit"></MessageIcon>
               <AutorenewIcon className="hate-renew"></AutorenewIcon>
               <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>
@@ -59,8 +72,8 @@ export default function ProfilePage(props) {
             <div className="ProfileHateContainer">
               {userPosts.map((hate) => (
                 <MiniHates
+                  hate_tag={hate.hate_tag}
                   hater_name={hate.hater_name}
-                  hater_tag={hate.hate_tag}
                   hate={hate.hate}
                   hate_count={hate.hate_count}
                   rehate_count={hate.rehate_count}
@@ -69,11 +82,11 @@ export default function ProfilePage(props) {
               ))}
             </div>
           </div>
-          <div className="proSearch">
+          <div className="proSearch" style={slideIn}>
             <form className="landingForm">
               <input
                 className="landingLoginInput"
-                placeholder="tag"
+                placeholder="Search Tag"
                 type="text"
                 name="name"
                 onChange={(e) => {
@@ -81,18 +94,18 @@ export default function ProfilePage(props) {
                   setSearch(e.target.value);
                 }}
               />
-            </form>
+            </form >
             {datas.map(
-              (data) =>
-                data.hate_tag.toUpperCase().includes(search.toUpperCase()) && (
+              (dater) =>
+                dater.hate_tag.toUpperCase().includes(search.toUpperCase()) && (
                   <MiniHates
-                    profileID={data.hater_id}
-                    hater_name={data.hater_name}
-                    hater_tag={data.hate_tag}
-                    hate={data.hate}
-                    hate_count={data.hate_count}
-                    rehate_count={data.rehate_count}
-                    crit_count={data.crit_count}
+                   
+                    hate_tag={dater.hate_tag}
+                    hater_name={dater.hater_name}
+                    hate={dater.hate}
+                    hate_count={dater.hate_count}
+                    rehate_count={dater.rehate_count}
+                    crit_count={dater.crit_count}
                   />
                 )
             )}

@@ -35,21 +35,22 @@ export default function SmallProfilePage() {
 
   useEffect(() => {
     const fetchHates = async () => {
+
       const response = await getAllHates();
       setDatas(response);
+      setList(response);
 
-      const hatess = await getHates();
-      setList(hatess);
 
-      const getPeeps = await getUsers();
-      setUsers(getPeeps);
+      const fetchUser = await getUsers();
+      setUsers(fetchUser);
+
     };
     fetchHates();
   }, [toggle]);
 
   list.map(
     (newData) =>
-      JSON.stringify(newData.hater_id).includes(ID) &&
+      JSON.stringify(newData.hate_tag).includes(ID) &&
       (totalHates.push(newData.hate_count),
       totalCrits.push(newData.crit_count),
       totalRehates.push(newData.rehate_count))
@@ -77,7 +78,7 @@ export default function SmallProfilePage() {
           </div>
           {users.map(
             (data) =>
-              JSON.stringify(data.id).includes(ID) && (
+              JSON.stringify(data.tag).includes(ID) && (
                 <div className="miniProBody">
                   <div className="miniProBodyFrame"></div>
                   <div className="miniProProfilePic">
@@ -98,11 +99,10 @@ export default function SmallProfilePage() {
                   <div className="smallProfileHateContainer">
                     {list.map(
                       (newData) =>
-                        JSON.stringify(newData.hater_id).includes(ID) && (
+                        JSON.stringify(newData.hate_tag).includes(ID) && (
                           <MiniHates
-                            profileID={data.user}
-                            hater_tag={data.tag}
-                            id={data.id}
+                            hate_tag={newData.hate_tag}
+                            id={newData.id}
                             hater_name={data.name}
                             hate={newData.hate}
                             hate_count={newData.hate_count}

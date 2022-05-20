@@ -14,7 +14,7 @@ export default function CommentSection() {
   const [hatepost, setHatepost] = useState({});
   const [comments, setComments] = useState(null);
   const [togglestate, setTogglestate] = useState(true);
-  const [show, setShow] = useState({ display: "flex" });
+  const [show, setShow] = useState({ display: "none" });
   const closeBox = () => {
     setShow({ display: "none" });
   };
