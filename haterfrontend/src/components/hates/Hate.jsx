@@ -24,7 +24,7 @@ export default function Hate({ hateData, setToggle }) {
     setHateCount((prev) => prev + 1);
     event.preventDefault();
     await axios.get(
-      `https://haterbackend.herokuapp.com/addDislike?hateid=${
+      `https://haterbackend.herokuapp.com /addDislike?hateid=${
         hateData.id
       }&sign=${1}`
     );
@@ -36,7 +36,7 @@ export default function Hate({ hateData, setToggle }) {
     setRehateCount((prev) => prev + 1);
     event.preventDefault();
     await axios.get(
-      `https://haterbackend.herokuapp.com/addRehate?hateid=${
+      `https://haterbackend.herokuapp.com /addRehate?hateid=${
         hateData.id
       }&sign=${1}`
     );

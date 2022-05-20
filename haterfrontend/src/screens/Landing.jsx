@@ -17,7 +17,7 @@ export default function Home() {
   });
   let handleLogin = (e) => {
     e.preventDefault();
-    fetch(`https://haterbackend.herokuapp.com/user/login`, {
+    fetch(`https://haterbackend.herokuapp.com /user/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -31,7 +31,7 @@ export default function Home() {
           return alert(data["error"]);
         } else {
           localStorage.setItem("knox", data["token"]);
-          fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, {
+          fetch(`https://haterbackend.herokuapp.com /user/grabProfile`, {
             headers: {
               Authorization: `Token ${data["token"]}`,
             },
@@ -62,7 +62,7 @@ export default function Home() {
       },
       credentials: "include",
     };
-    fetch(`https://haterbackend.herokuapp.com/user/logout`, options).then(
+    fetch(`https://haterbackend.herokuapp.com /user/logout`, options).then(
       (data) => {
         localStorage.clear();
         store.dispatch({ type: "set", payload: { name: "Guest" } });

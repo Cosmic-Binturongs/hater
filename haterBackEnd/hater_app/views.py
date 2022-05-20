@@ -45,7 +45,7 @@ class AllHates(APIView):
   def get(self,request, format=None):
     try:
       if not request.query_params:
-          hates = Hates.objects.filter()
+          hates = Hates.objects.filter().order_by('hate_date')
       else:
           hates = Hates.objects.filter(haters = request.query_params['haterid'])
       hates_json = AllHatesSerializer(hates, many=True)

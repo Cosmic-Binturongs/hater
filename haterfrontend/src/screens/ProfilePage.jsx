@@ -18,7 +18,7 @@ export default function ProfilePage(props) {
   const [slideIn, setSlideIn] = useState({ display: "flex" });
 
   let fetchUserPosts = () => {
-    fetch(`https://haterbackend.herokuapp.com/allHates?haterid=${user.id}`)
+    fetch(`https://haterbackend.herokuapp.com /allHates?haterid=${user.id}`)
       .then((res) => res.json())
       .then((data) => {
         if (!data["message"]) {
@@ -27,7 +27,7 @@ export default function ProfilePage(props) {
       });
   };
   let fetchHates = () => {
-    fetch(`https://haterbackend.herokuapp.com/allHates`)
+    fetch(`https://haterbackend.herokuapp.com /allHates`)
       .then((res) => res.json())
       .then((data) => {
         setDatas(data);
